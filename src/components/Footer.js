@@ -72,31 +72,32 @@ export default function Footer() {
               <Logo color={useColorModeValue('gray.700', 'white')} />
             </Box>
             <Text fontSize={'sm'}>
-              © 2022 Keyology. All rights reserved
+              © 2024 All rights reserved
             </Text>
             <Stack direction={'row'} spacing={6}>
-              <SocialButton label={'Twitter'} href={'#'}>
+              {/* <SocialButton label={'Twitter'} href={'#'}>
                 <FaTwitter />
               </SocialButton>
               <SocialButton label={'YouTube'} href={'#'}>
                 <FaYoutube />
-              </SocialButton>
+              </SocialButton> */}
               <SocialButton label={'Instagram'} href={'#'}>
                 <FaInstagram />
               </SocialButton>
             </Stack>
           </Stack>
           <Stack align={'flex-start'}>
-            <ListHeader>Company</ListHeader>
+            <ListHeader>Navigation</ListHeader>
+            <Link href={'#'}>Home</Link>
             <Link href={'#'}>About us</Link>
-            <Link href={'#'}>Blog</Link>
-            <Link href={'#'}>Testimonials</Link>
+            <Link href={'#'}>Join</Link>
+            <Link href={'#'}>Performances</Link>
+            <Link href={'#'}>Instruments</Link>
           </Stack>
           <Stack align={'flex-start'}>
-            <ListHeader>Support</ListHeader>
-            <Link href={'#'}>Help Center</Link>
-            <Link href={'#'}>Terms of Service</Link>
-            <Link href={'#'}>Privacy Policy</Link>
+            <ListHeader>Contact</ListHeader>
+            <Link href={'#'}>Professor Chi Li</Link>
+            <Link href={'#'}>Student Leadership</Link>
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>Stay up to date</ListHeader>

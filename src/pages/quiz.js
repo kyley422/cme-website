@@ -31,12 +31,6 @@ const questions = [
       soundOptions: true,
       type: 'single'
     },
-    {
-        helperText: '(something idk)',
-        options: ['image1', 'image2', 'image3', 'image4', 'image5'],
-        questionText: 'Giang functionally finishes this thing already',
-        type: 'single',
-      },
     // Add more questions here...
   ];
   

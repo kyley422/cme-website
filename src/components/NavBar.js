@@ -52,8 +52,8 @@ const NavBar = () => {
         bg={useColorModeValue('white', 'gray.800')}
         color={useColorModeValue('gray.600', 'white')}
         minH={'60px'}
-        py={{ base: 2 }}
-        px={{ base: 4 }}
+        py={{ base: 8 }}
+        px={{ base: 20 }}
         borderBottom={1}
         borderStyle={'solid'}
         borderColor={useColorModeValue('gray.200', 'gray.900')}
@@ -77,10 +77,10 @@ const NavBar = () => {
             fontFamily={'heading'}
             color={useColorModeValue('gray.800', 'white')}
           >
-            Logo
+            UCLA Chinese Music Ensemble
           </Text>
 
-          <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
+          <Flex display={{ base: 'none', md: 'flex' }} ml={10} >
             <DesktopNav />
           </Flex>
         </Flex>
@@ -90,7 +90,8 @@ const NavBar = () => {
           justify={'flex-end'}
           direction={'row'}
           spacing={6}
-        >
+        >  
+          
           <Button
             onClick={toggleColorMode}
             fontSize={'sm'}
@@ -99,7 +100,7 @@ const NavBar = () => {
           >
             {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
           </Button>
-          {signedIn ? ( // Render Avatar if signedIn is true
+          {/* {signedIn ? ( // Render Avatar if signedIn is true
             <Menu>
               <MenuButton
                 as={Button}
@@ -159,7 +160,7 @@ const NavBar = () => {
                 Sign Up
             </Button>
           </>
-          )}
+          )} */}
         </Stack>
       </Flex>
 
@@ -337,7 +338,8 @@ const NAV_ITEMS = [
         subLabel: 'Up-and-coming Changes',
       },
     ],
-    label: 'About Us',
+    href: 'home',
+    label: 'Home',
   },
   {
     children: [
@@ -352,15 +354,19 @@ const NAV_ITEMS = [
         subLabel: 'A list of all the switches we offer',
       },
     ],
-    label: 'Products',
+    label: 'About',
+  },
+  {
+    href: 'quiz',
+    label: 'Join',
   },
   {
     href: '#',
-    label: 'Quiz',
+    label: 'Performances',
   },
   {
     href: '#',
-    label: 'Contact Us',
+    label: 'Instruments'
   },
 ];
 

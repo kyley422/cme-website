@@ -37,21 +37,21 @@ export default function CaptionCarousel({ autoScroll = true }) {
         'https://i.pinimg.com/originals/74/9e/3d/749e3d3d9dce4f31497c0dd1afec6c97.png',
       text:
         "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
-      title: 'Design Projects 1',
+      title: 'UCLA Chinese Music Ensemble',
     },
     {
       image:
         'https://wallpapers.com/images/hd/aesthetic-pink-purple-keyboard-upcs1h9i14iu7fn3.jpg',
       text:
         "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
-      title: 'Design Projects 2',
+      title: 'UCLA Chinese Music Ensemble',
     },
     {
       image:
         'https://res.allmacwallpaper.com/get/Retina-MacBook-Air-13-inch-wallpapers/Commodore-PET-Mini-2560x1600/19046-11.jpg',
       text:
         "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
-      title: 'Design Projects 3',
+      title: 'UCLA Chinese Music Ensemble',
     },
   ];
 
@@ -122,21 +122,19 @@ export default function CaptionCarousel({ autoScroll = true }) {
             className="image-box"
           >
             {/* This is the block you need to change, to customize the caption */}
-            <Container size="lg" height="600px" position="relative">
+            <Container size="lg" height="600px" width="full" position="relative">
               <Stack
-                spacing={6}
                 w="full"
-                maxW="lg"
                 position="absolute"
-                top="50%"
-                transform="translate(0, -50%)"
+                top="70%"
+                left="0%"
               >
-                <Heading fontSize={{ base: '3xl', lg: '5xl', md: '4xl' }}>
+                <Heading fontSize="48px" width="full">
                   {card.title}
                 </Heading>
-                <Text fontSize={{ base: 'md', lg: 'lg' }} color="GrayText">
+                {/* <Text fontSize={{ base: 'md', lg: 'lg' }} color="GrayText">
                   {card.text}
-                </Text>
+                </Text> */}
               </Stack>
             </Container>
           </Box>
