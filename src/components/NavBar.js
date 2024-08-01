@@ -49,14 +49,11 @@ const NavBar = () => {
   return (
     <Box>
       <Flex
-        bg={useColorModeValue('white', 'gray.800')}
+        bg={useColorModeValue('white', 'black')}
         color={useColorModeValue('gray.600', 'white')}
         minH={'60px'}
         py={{ base: 8 }}
         px={{ base: 20 }}
-        borderBottom={1}
-        borderStyle={'solid'}
-        borderColor={useColorModeValue('gray.200', 'gray.900')}
         align={'center'}
       >
         <Flex
@@ -100,7 +97,7 @@ const NavBar = () => {
           >
             {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
           </Button>
-          {/* {signedIn ? ( // Render Avatar if signedIn is true
+          {signedIn ? ( // Render Avatar if signedIn is true
             <Menu>
               <MenuButton
                 as={Button}
@@ -160,7 +157,7 @@ const NavBar = () => {
                 Sign Up
             </Button>
           </>
-          )} */}
+          )}
         </Stack>
       </Flex>
 
@@ -345,22 +342,51 @@ const NAV_ITEMS = [
     children: [
       {
         href: '#',
-        label: 'Keyboards',
-        subLabel: 'Let us find the right keyboard for you',
+        label: 'Our Director',
+        subLabel: 'Meet Professor Li!',
       },
       {
         href: '#',
-        label: 'Switches',
-        subLabel: 'A list of all the switches we offer',
+        label: 'Student Leadership',
+        subLabel: 'Meet the student leaders!',
       },
     ],
     label: 'About',
   },
   {
+    children: [
+      {
+        href: '#',
+        label: 'Our Program',
+        subLabel: 'Learn more about our programs!',
+      },
+      {
+        href: '#',
+        label: 'How to Join',
+        subLabel: 'Interested in joining our program? It\'s very simple!',
+      },
+      {
+        href: '#',
+        label: 'Course Calendar',
+        subLabel: 'Check out the time commitment for our program.',
+      },
+    ],
     href: 'quiz',
     label: 'Join',
   },
   {
+    children: [
+      {
+        href: '#',
+        label: 'Upcoming Performances',
+        subLabel: 'Interested in upcoming performances?',
+      },
+      {
+        href: '#',
+        label: 'Past Performances',
+        subLabel: 'Check out the archive of our past performances!',
+      },
+    ],
     href: '#',
     label: 'Performances',
   },
