@@ -31,7 +31,7 @@ const PerformanceBar = () => {
 
   const performance_items = [
     {
-      image_url: 'https://i.pinimg.com/originals/74/9e/3d/749e3d3d9dce4f31497c0dd1afec6c97.png',
+      image_url: 'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1725497285/cme_spring_festival_qtkwft.png',
       title: 'Spring Festival of Music',
       date: 'Sat, 18 May 2024',
       time: '7:00 PM',
@@ -39,7 +39,7 @@ const PerformanceBar = () => {
       price: 'Free',
     },
     {
-      image_url: 'https://wallpapers.com/images/hd/aesthetic-pink-purple-keyboard-upcs1h9i14iu7fn3.jpg',
+      image_url: 'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1725497285/cme_cacn_jg89uu.png',
       title: 'CACN Culture Night',
       date: 'Sat, 4 May 2024',
       time: '7:00 PM',
@@ -47,7 +47,7 @@ const PerformanceBar = () => {
       price: 'Free',
     },
     {
-      image_url: 'https://res.allmacwallpaper.com/get/Retina-MacBook-Air-13-inch-wallpapers/Commodore-PET-Mini-2560x1600/19046-11.jpg',
+      image_url: 'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1725494814/cme_program_kunqu_c7jqre.png',
       title: 'Music of China Concert',
       date: 'Sat, 2 December 2024',
       time: '7:00 PM',
@@ -55,7 +55,7 @@ const PerformanceBar = () => {
       price: 'Free',
     },
     {
-      image_url: 'https://wallpapers.com/images/hd/aesthetic-pink-purple-keyboard-upcs1h9i14iu7fn3.jpg',
+      image_url: 'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1725497285/cme_spring_festival_qtkwft.png',
       title: 'Celebration of Aland',
       date: 'Sat, 3 Jan 2004',
       time: '1:00 AM',

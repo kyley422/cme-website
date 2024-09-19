@@ -62,7 +62,7 @@ export default function Footer() {
   return (
     <Box
       bg={useColorModeValue('gray.50', 'black')}
-      color={useColorModeValue('gray.700', 'gray.200')}>
+      color={useColorModeValue('white', 'white')}>
       <Container as={Stack} maxW={'6xl'} py={10}>
         <SimpleGrid
           templateColumns={{ md: '2fr 1fr 1fr 2fr', sm: '1fr 1fr' }}
@@ -111,10 +111,10 @@ export default function Footer() {
                 }}
               />
               <IconButton
-                bg={useColorModeValue('green.400', 'green.800')}
+                bg={useColorModeValue('red.600', 'red.600')}
                 color={useColorModeValue('white', 'gray.800')}
                 _hover={{
-                  bg: 'green.600',
+                  bg: 'red',
                 }}
                 aria-label="Subscribe"
                 icon={<BiMailSend />}

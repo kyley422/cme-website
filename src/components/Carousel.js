@@ -36,37 +36,34 @@ export default function CaptionCarousel({ autoScroll = true }) {
   const cards = [
     {
       image:
-        'https://i.pinimg.com/originals/74/9e/3d/749e3d3d9dce4f31497c0dd1afec6c97.png',
-      text:
-        `Beginners and experienced musicians are welcome to join the UCLA Chinese Music Ensemble.
-        We offer students the opportunity to explore traditional Chinese music through performance.
-        Directed by Professor Chi Li, the ensemble features a variety of traditional Chinese instruments.
-        We provide a cultural bridge, promoting appreciation and understanding of Chinese musical heritage within the 
-        UCLA community and beyond.`,
+        'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1726703341/cme_carous_1_ehydyz.png',
+    },
+    {
+      image:
+        'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1726703341/cme_carous_2_d8wera.png',
+    },
+    {
+      image:
+        'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1726703341/cme_carous_3_y1sec1.png',
+    },
+    {
+      image:
+        'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1726703341/cme_carous_4_tcqpvi.png',
       title: 'The UCLA Chinese Music Ensemble',
     },
     {
       image:
-        'https://wallpapers.com/images/hd/aesthetic-pink-purple-keyboard-upcs1h9i14iu7fn3.jpg',
-      text:
-        `Beginners and experienced musicians are welcome to join the UCLA Chinese Music Ensemble.
-        We offer students the opportunity to explore traditional Chinese music through performance.
-        Directed by Professor Chi Li, the ensemble features a variety of traditional Chinese instruments.
-        We provide a cultural bridge, promoting appreciation and understanding of Chinese musical heritage within the 
-        UCLA community and beyond.`,
-      title: 'The UCLA Chinese Music Ensemble',
+        'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1726703341/cme_carous_5_msn6zc.png',
     },
     {
       image:
-        'https://res.allmacwallpaper.com/get/Retina-MacBook-Air-13-inch-wallpapers/Commodore-PET-Mini-2560x1600/19046-11.jpg',
-      text:
-        `Beginners and experienced musicians are welcome to join the UCLA Chinese Music Ensemble.
-        We offer students the opportunity to explore traditional Chinese music through performance.
-        Directed by Professor Chi Li, the ensemble features a variety of traditional Chinese instruments.
-        We provide a cultural bridge, promoting appreciation and understanding of Chinese musical heritage within the 
-        UCLA community and beyond.`,
-      title: 'The UCLA Chinese Music Ensemble',
+        'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1726703341/cme_carous_6_rk7kqr.png',
     },
+    {
+      image:
+        'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1726703342/cme_carous_7_ezq9vk.png',
+    },
+
   ];
 
   useEffect(() => {
@@ -125,30 +122,21 @@ export default function CaptionCarousel({ autoScroll = true }) {
           {/* Slider */}
           <Slider {...settings} ref={(slider) => setSlider(slider)}>
           {cards.map((card, index) => (
-            <Flex direction="column" align="start" width="full" heigh="full">
+            <Flex direction="column" align="start" width="full" height="full">
               <Box
                 key={index}
                 height="6xl"
                 position="relative"
-                backgroundPosition="center"
+                backgroundPosition="100% -10%"
                 backgroundRepeat="no-repeat"
-                backgroundSize="cover"
                 backgroundImage={`url(${card.image})`}
+                backgroundColor="black"
                 className="image-box"
                 left="0"
               >
-                <Box
-                  position="absolute"
-                  top="-10%"
-                  right="-90%"
-                  bottom="40%"
-                  left="-40%"
-                  bgGradient="radial-gradient(circle, transparent 140px, rgba(0, 0, 0, 1) 300px)"
-                  backdropFilter="blur(2px)"
-                />
                 <Flex height="full">
                   {/* This is the block you need to change, to customize the caption */}
-                    <Container size="lg" height="600px" width="50%" position="relative" left="-20%">
+                    <Container size="lg" height="600px" width="50%" position="absolute" left="10%">
                       <Stack
                         w="full"
                         position="absolute"
@@ -158,10 +146,14 @@ export default function CaptionCarousel({ autoScroll = true }) {
                         p={4}
                       >
                         <Heading fontSize="48px" width="full" left="0%" textAlign="left">
-                          {card.title}
+                        The UCLA Chinese Music Ensemble
                         </Heading>
                         <Text fontSize={{ base: 'md', lg: 'lg' }} textAlign="left">
-                          {card.text}
+                        Beginners and experienced musicians are welcome to join the UCLA Chinese Music Ensemble.
+                        We offer students the opportunity to explore traditional Chinese music through performance.
+                        Directed by Professor Chi Li, the ensemble features a variety of traditional Chinese instruments.
+                        We provide a cultural bridge, promoting appreciation and understanding of Chinese musical heritage within the 
+                        UCLA community and beyond.
                         </Text>
 
                         <Flex
@@ -171,14 +163,14 @@ export default function CaptionCarousel({ autoScroll = true }) {
                         gap="30px"
                         >
                             <Button 
-                              alignItems="center" width="200px" height="50px" bg="red.600"
+                              alignItems="center" width="300px" height="50px" bg="red.500"
                             >
                             Join Today
                             </Button>
                             <Button 
-                              alignItems="center" width="200px" height="50px" bg="transparent" border="2px solid" borderColor="red.600" _hover={{ bg: "red.100", borderColor: "red.700" }}
+                              alignItems="center" width="300px" height="50px" bg="transparent" border="2px solid" borderColor="red.600" _hover={{ bg: "red.100", borderColor: "red.700" }}
                             >
-                            Learn More
+                            Contact Us
                           </Button>
                         </Flex>
                       </Stack>

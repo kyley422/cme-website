@@ -44,39 +44,36 @@ const ProgramsBar = () => {
                 `A Chinese orchestra comprised of over 20 different traditional Chinese instruments, 
                 ranging from the bowed erhu and the plucked pipa.`,
             image:
-                'https://i.pinimg.com/originals/74/9e/3d/749e3d3d9dce4f31497c0dd1afec6c97.png',
+                'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1725494814/cme_program_ensemble_w6c5x6.png',
         },
         {
             title:
-                "Guzheng",
+                "Zheng",
             text:
-                `A Chinese orchestra comprised of over 20 different traditional Chinese instruments, 
-                ranging from the bowed erhu and the plucked pipa.`,
+                `A zheng unison featuring the zheng, or guzheng, an ancient Chinese plucked zither with a rich history.`,
             image:
-                'https://wallpapers.com/images/hd/aesthetic-pink-purple-keyboard-upcs1h9i14iu7fn3.jpg',
+                'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1725494814/cme_program_guzheng_udj0rj.png',
         },
         {
             title:
                 "Kunqu Opera",
             text:
-                `A Chinese orchestra comprised of over 20 different traditional Chinese instruments, 
-                ranging from the bowed erhu and the plucked pipa.`,
+                `An opera performing one of the oldest extant forms of Chinese opera where students learn the ancient lurical and dances.`,
             image:
-                'https://res.allmacwallpaper.com/get/Retina-MacBook-Air-13-inch-wallpapers/Commodore-PET-Mini-2560x1600/19046-11.jpg',
+                'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1725494814/cme_program_kunqu_c7jqre.png',
         },
         {
             title:
-                "Guqin",
+                "Qin",
             text:
-                `A Chinese orchestra comprised of over 20 different traditional Chinese instruments, 
-                ranging from the bowed erhu and the plucked pipa.`,
+                `A qin unison class that offers hands-on practice with the qin, or guqin, the ancient Chinese seven-string zither.`,
             image:
-                'https://wallpapers.com/images/hd/aesthetic-pink-purple-keyboard-upcs1h9i14iu7fn3.jpg',
+                'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1725494815/cme_program_guqin_xmht7i.png',
         },
     ]
   return (
     <>
-        <Box position="relative" height="800px" width="full" overflow="hidden" bg={useColorModeValue('white', 'black')}>
+        <Box position="relative" height="900px" width="full" overflow="hidden" bg={useColorModeValue('white', 'black')}>
             <Flex 
             direction="column"
             height="100%" 
@@ -106,32 +103,38 @@ const ProgramsBar = () => {
                 </Flex>
 
                 <Box
-                height="60%"
+                height="70%"
                 position="relative"
                 backgroundPosition="center"
                 backgroundRepeat="no-repeat"
                 backgroundSize="cover"
-                backgroundImage={`url(${buttonOptions[currentDisplay].image})`}
+                backgroundImage={`linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent), url(${buttonOptions[currentDisplay].image})`}
                 className="image-box"
                 mt={4}
               >
-                    <Container size="lg" height="600px" width="50%" position="relative" left="-20%">
+                    <Container size="lg" height="800px" width="50%" position="relative" left="-20%">
                       <Stack
                         w="full"
                         position="absolute"
-                        top="10%"
+                        top="0%"
                         left="0%"
                         spacing={4}
-                        p={4}
+                        p={2}
                       >
-                        <Heading fontSize="48px" width="full" left="0%" textAlign="left">
-                          {buttonOptions[currentDisplay].title}
+                        <Heading 
+                        fontSize="40px" 
+                        fontWeight="bold"
+                        letterSpacing="20px"
+                        width="full" left="0%" 
+                        textAlign="left"
+                        >
+                          {buttonOptions[currentDisplay].title.toUpperCase()}
                         </Heading>
                         <Text fontSize={{ base: 'md', lg: 'lg' }} textAlign="left">
                           {buttonOptions[currentDisplay].text}
                         </Text>
                         <Button 
-                            alignItems="center" width="200px" height="50px" bg="red.600"
+                            alignItems="center" width="200px" height="50px" bg="red.500"
                         >
                             Learn More
                         </Button>

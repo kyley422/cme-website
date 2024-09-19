@@ -169,7 +169,7 @@ const NavBar = () => {
 };
 
 const DesktopNav = () => {
-  const linkColor = useColorModeValue('gray.600', 'gray.200');
+  const linkColor = useColorModeValue('white', 'white');
   const linkHoverColor = useColorModeValue('gray.800', 'white');
   const popoverContentBgColor = useColorModeValue('white', 'gray.800');
 
@@ -351,28 +351,29 @@ const NAV_ITEMS = [
         subLabel: 'Meet the student leaders!',
       },
     ],
+    href: 'about',
     label: 'About',
   },
   {
     children: [
       {
-        href: '#',
+        href: 'programs',
         label: 'Our Program',
         subLabel: 'Learn more about our programs!',
       },
       {
-        href: '#',
+        href: 'programs',
         label: 'How to Join',
         subLabel: 'Interested in joining our program? It\'s very simple!',
       },
       {
-        href: '#',
+        href: 'programs',
         label: 'Course Calendar',
         subLabel: 'Check out the time commitment for our program.',
       },
     ],
-    href: 'quiz',
-    label: 'Join',
+    href: 'programs',
+    label: 'Programs',
   },
   {
     children: [

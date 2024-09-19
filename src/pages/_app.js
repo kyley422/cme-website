@@ -2,6 +2,11 @@ import Head from 'next/head';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Footer from 'components/Footer';
+import '@fontsource/outfit/300.css'; // Outfit Light
+import '@fontsource/outfit/400.css'; // Outfit Regular
+import '@fontsource/outfit/500.css'; // Outfit Medium
+import '@fontsource/outfit/700.css'; // Outfit Bold
+import '@fontsource/outfit/800.css'; // Outfit Extra Bold
 
 // import chakra ui
 import { Box, ChakraProvider } from '@chakra-ui/react'
@@ -16,20 +21,42 @@ const colors = {
     800: '#153e75',
     900: '#1a365d',
   },
+  red: {
+    500: "#8f0012"
+  },
+  yellow: {
+    500: "#ce8902"
+  },
+  gray: {
+    100: "#434343",
+    200: "#272727",
+    300: "#171717",
+  },
 }
-export const theme = extendTheme({ colors: colors })
+
+const fonts = {
+  heading: 'Outfit, sans-serif',
+  body: 'Outfit, sans-serif',
+}
+
+const fontWeights = {
+  light: 300,   // Outfit Light
+  normal: 400,  // Outfit Regular
+  medium: 500,
+  bold: 700,    // Outfit Bold
+  extrabold: 800, // Outfit Extra Bold
+}
+
+export const theme = extendTheme({ colors: colors, fonts: fonts, fontWeights: fontWeights })
 
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Box>
-      <Head>
-        {/* Add meta tags, title, or other customizations */}
-      </Head>
+    <>
       <ChakraProvider theme={theme}>
         <Component {...pageProps} />
       </ChakraProvider>
-    </Box>
+    </>
   );
 }
 

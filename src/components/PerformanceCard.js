@@ -25,7 +25,7 @@ import {
     useColorModeValue,
     useDisclosure,
   } from '@chakra-ui/react';
-  import { MdLocationOn, MdAccessTime, MdEvent, MdAttachMoney } from 'react-icons/md';
+import { MdLocationOn, MdAccessTime, MdEvent, MdAttachMoney } from 'react-icons/md';
 
 const PerformanceCard = ({ image_url, title, date, time, location, price }) => {
   return (
@@ -41,20 +41,19 @@ const PerformanceCard = ({ image_url, title, date, time, location, price }) => {
         >
             <Flex direction="column" height="100%">
                 <Box
-                height="70%"
-                bgImage={`url(${image_url})`}
+                height="65%"
+                bgImage={`linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent), url(${image_url})`}
                 bgPosition="center"
                 bgSize="cover"
                 position="relative"
                 >
                     <Heading
                     position="absolute"
-                    bottom="4"
-                    left="4"
+                    bottom="15px"
+                    left="15px"
                     fontSize="24px"
                     fontWeight="bold"
                     color="white"
-                    p="2"
                     >
                         {title}
                     </Heading>
@@ -64,33 +63,33 @@ const PerformanceCard = ({ image_url, title, date, time, location, price }) => {
                 direction="row"
                 justifyContent="space-around"
                 alignItems="center"
-                height="30%"
-                p="10"
+                height="35%"
+                p="13"
                 >
-                    <Flex direction="column" width="60%" justifyContent="center" alignItems="flex-start" gap="4">
+                    <Flex direction="column" width="70%" justifyContent="center" alignItems="flex-start" gap="4">
                         <Flex direction="row" height="50%" alignItems="center" justifyContent="center">
                             <Icon as={MdEvent} mr="2" w={8} h={8} />
-                            <Text fontSize="lg">{date}</Text>
+                            <Text fontSize="16px">{date}</Text>
                         </Flex>
                         <Flex direction="row" height="50%" alignItems="center" justifyContent="center">
                             <Icon as={MdLocationOn} mr="2" w={8} h={8} />
-                            <Text fontSize="lg">{location}</Text>
+                            <Text fontSize="16px">{location}</Text>
                         </Flex>
                     </Flex>
 
                     {/* Second Column (40%) */}
-                    <Flex direction="column" width="40%" justifyContent="center" alignItems="flex-start" gap="4">
+                    <Flex direction="column" width="30%" justifyContent="center" alignItems="flex-start" gap="4">
                         <Flex direction="row" height="50%" alignItems="center" justifyContent="center">
                             <Icon as={MdAccessTime} mr="2" w={8} h={8} />
-                            <Text fontSize="lg">{time}</Text>
+                            <Text fontSize="16px">{time}</Text>
                         </Flex>
                         <Flex direction="row" height="50%" alignItems="center" justifyContent="center">
                             <Icon as={MdAttachMoney} mr="2" w={8} h={8} />
-                            <Text fontSize="lg">{price}</Text>
+                            <Text fontSize="16px">{price}</Text>
                         </Flex>
                     </Flex>
                 </Flex>
-                <Button m="2" h="50px" bg="red.600">View Details</Button>
+                <Button m="2" h="50px" bg="red.500">View Details</Button>
             </Flex>
         </Box>
     </>
