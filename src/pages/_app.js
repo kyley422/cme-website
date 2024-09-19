@@ -5,6 +5,7 @@ import Footer from 'components/Footer';
 import '@fontsource/outfit/300.css'; // Outfit Light
 import '@fontsource/outfit/400.css'; // Outfit Regular
 import '@fontsource/outfit/500.css'; // Outfit Medium
+import '@fontsource/outfit/600.css'; // Outfit Semibold
 import '@fontsource/outfit/700.css'; // Outfit Bold
 import '@fontsource/outfit/800.css'; // Outfit Extra Bold
 
@@ -43,6 +44,7 @@ const fontWeights = {
   light: 300,   // Outfit Light
   normal: 400,  // Outfit Regular
   medium: 500,
+  semibold: 600,
   bold: 700,    // Outfit Bold
   extrabold: 800, // Outfit Extra Bold
 }
