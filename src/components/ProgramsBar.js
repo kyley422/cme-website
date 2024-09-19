@@ -73,7 +73,7 @@ const ProgramsBar = () => {
     ]
   return (
     <>
-        <Box position="relative" height="900px" width="full" overflow="hidden" bg={useColorModeValue('white', 'black')}>
+        <Box position="relative" height="604px" width="full" overflow="hidden" bg={useColorModeValue('white', 'black')}>
             <Flex 
             direction="column"
             height="100%" 

@@ -89,7 +89,7 @@ const NavBar = () => {
           spacing={6}
         >  
           
-          <Button
+          {/* <Button
             onClick={toggleColorMode}
             fontSize={'sm'}
             fontWeight={400}
@@ -157,7 +157,7 @@ const NavBar = () => {
                 Sign Up
             </Button>
           </>
-          )}
+          )} */}
         </Stack>
       </Flex>
 
