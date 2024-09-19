@@ -14,7 +14,6 @@ function Programs() {
       <NavBar />
       <ProgramBanner/>
       <ProgramCalendar/>
-      
       <Footer/>
     </Box>
   );

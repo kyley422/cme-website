@@ -127,6 +127,27 @@ const ProgramCalendar = () => {
                 })}
             </Grid>
         </Box>
+
+        <Box backgroundColor="black">
+            <Box
+            padding="45px"
+            marginLeft="10%"
+            backgroundColor="gray.200"
+            width="80%"
+            height="160px"
+            borderRadius="10px"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            >
+                <Text whiteSpace="pre-line" fontWeight="medium" fontSize="18px">
+                    * Practice Hours take place in SMB 1343, the Gamelan Room.{"\n"}
+                    * This schedule is subject to change. Classes may be added or removed based on the Professor Chi Li’s availability.{"\n"}
+                    * Note that UCLA DARS may indicate different times, but referring to this chart and speaking to UCLA Chinese Music Ensemble board members would yield more accurate times.
+                </Text>
+            </Box>
+        </Box>
+        
     </>
   )
 }
