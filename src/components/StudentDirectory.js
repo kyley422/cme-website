@@ -20,7 +20,7 @@ const StudentDirectory = () => {
     {
       image: "https://res.cloudinary.com/dp0f6uqzo/image/upload/v1726716459/cme_sli_oxc4um.png",
       name: "Shitong Li",
-      position: "Associate Professor",
+      position: "Associate Producer",
       link: "",
     },
     {

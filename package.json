@@ -25,6 +25,7 @@
     "react-parallax": "^3.5.1",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
+    "swiper": "^11.1.14",
     "use-sound": "^4.0.1"
   },
   "devDependencies": {

@@ -71,7 +71,8 @@ const NavBar = () => {
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
           <Text
             textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-            fontFamily={'heading'}
+            fontSize="28px"
+            fontWeight="semibold"
             color={useColorModeValue('gray.800', 'white')}
           >
             UCLA Chinese Music Ensemble
@@ -171,19 +172,19 @@ const NavBar = () => {
 const DesktopNav = () => {
   const linkColor = useColorModeValue('white', 'white');
   const linkHoverColor = useColorModeValue('gray.800', 'white');
-  const popoverContentBgColor = useColorModeValue('white', 'gray.800');
+  const popoverContentBgColor = useColorModeValue('white', 'gray.900');
 
   return (
     <Stack direction={'row'} spacing={4}>
       {NAV_ITEMS.map((navItem) => (
-        <Box key={navItem.label}>
+        <Box key={navItem.label} mt="10px">
           <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
               <Link
-                p={2}
+                p={3}
                 href={navItem.href ?? '#'}
-                fontSize={'sm'}
-                fontWeight={500}
+                fontSize="18px"
+                fontWeight="medium"
                 color={linkColor}
                 _hover={{
                   color: linkHoverColor,
@@ -335,7 +336,7 @@ const NAV_ITEMS = [
         subLabel: 'Up-and-coming Changes',
       },
     ],
-    href: 'home',
+    href: '/home',
     label: 'Home',
   },
   {
@@ -351,7 +352,7 @@ const NAV_ITEMS = [
         subLabel: 'Meet the student leaders!',
       },
     ],
-    href: 'about',
+    href: '/about',
     label: 'About',
   },
   {
@@ -372,7 +373,7 @@ const NAV_ITEMS = [
         subLabel: 'Check out the time commitment for our program.',
       },
     ],
-    href: 'programs',
+    href: '/programs',
     label: 'Programs',
   },
   {
@@ -388,11 +389,11 @@ const NAV_ITEMS = [
         subLabel: 'Check out the archive of our past performances!',
       },
     ],
-    href: '#',
+    href: '/performances',
     label: 'Performances',
   },
   {
-    href: '#',
+    href: '/instruments',
     label: 'Instruments'
   },
 ];
