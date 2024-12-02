@@ -171,7 +171,7 @@ const NavBar = () => {
 
 const DesktopNav = () => {
   const linkColor = useColorModeValue('white', 'white');
-  const linkHoverColor = useColorModeValue('gray.800', 'white');
+  const linkHoverColor = useColorModeValue('gray.800', 'red.500');
   const popoverContentBgColor = useColorModeValue('white', 'gray.900');
 
   return (
@@ -232,7 +232,7 @@ const DesktopSubNav = ({ href, label, subLabel }) => {
         <Box>
           <Text
             transition={'all .3s ease'}
-            _groupHover={{ color: 'pink.400' }}
+            _groupHover={{ color: 'red.500' }}
             fontWeight={500}
           >
             {label}
@@ -248,7 +248,7 @@ const DesktopSubNav = ({ href, label, subLabel }) => {
           align={'center'}
           flex={1}
         >
-          <Icon color={'pink.400'} w={5} h={5} as={ChevronRightIcon} />
+          <Icon color={'red.500'} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
     </Link>
@@ -326,7 +326,7 @@ const NAV_ITEMS = [
   {
     children: [
       {
-        href: '#',
+        href: '/about',
         label: 'Our Story',
         subLabel: 'Learn more about our mission and values',
       },
@@ -347,7 +347,7 @@ const NAV_ITEMS = [
         subLabel: 'Meet Professor Li!',
       },
       {
-        href: '#',
+        href: '/about#student-leadership',
         label: 'Student Leadership',
         subLabel: 'Meet the student leaders!',
       },

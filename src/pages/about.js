@@ -14,7 +14,9 @@ function About() {
       <NavBar />
       <ProgramInfo/>
       <Divider borderColor="gray.100" borderWidth="2px" my="48px" bgColor="black" mx="auto" width="80%"/>
-      <StudentDirectory />
+      <Box id="student-leadership">
+        <StudentDirectory />
+      </Box>
       <Footer />
     </Box>
   );

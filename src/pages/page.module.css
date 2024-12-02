@@ -227,3 +227,12 @@
       transform: rotate(0deg);
     }
   }
+
+  html {
+    scroll-behavior: 'smooth';
+  }
+
+  body {
+    overflow-x: 'hidden';
+    overflow-y: 'hidden';
+  }

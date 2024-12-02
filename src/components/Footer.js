@@ -88,11 +88,11 @@ export default function Footer() {
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>Navigation</ListHeader>
-            <Link href={'#'}>Home</Link>
-            <Link href={'#'}>About us</Link>
-            <Link href={'#'}>Join</Link>
-            <Link href={'#'}>Performances</Link>
-            <Link href={'#'}>Instruments</Link>
+            <Link href={'/home'}>Home</Link>
+            <Link href={'/about'}>About us</Link>
+            <Link href={'/programs'}>Programs</Link>
+            <Link href={'/performances'}>Performances</Link>
+            <Link href={'/instruments'}>Instruments</Link>
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>Contact</ListHeader>

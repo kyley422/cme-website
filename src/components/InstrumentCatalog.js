@@ -80,7 +80,7 @@ const InstrumentCatalog = () => {
                 objectFit="cover"
                 mb="4px"
                 _hover={{ transform: 'scale(1.01)' }}
-                transition="transfomr 0.3s ease"
+                transition="transform 0.3s ease"
                 /> 
                 <Box
                 position="absolute"

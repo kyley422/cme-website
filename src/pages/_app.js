@@ -2,6 +2,7 @@ import Head from 'next/head';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Footer from 'components/Footer';
+import '../../styles/globals.css'
 import '@fontsource/outfit/300.css'; // Outfit Light
 import '@fontsource/outfit/400.css'; // Outfit Regular
 import '@fontsource/outfit/500.css'; // Outfit Medium

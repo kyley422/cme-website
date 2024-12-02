@@ -21,6 +21,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { MdLocationOn, MdAccessTime, MdEvent, MdAttachMoney } from 'react-icons/md';
+import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 
 const settings = {
   arrows: false,
@@ -79,21 +80,10 @@ export default function PerformanceCarousel({ autoScroll = true }) {
 
   return (
     <Box position="relative" height="700px" width="full" overflow="hidden" bg="black">
-        {/* <link
-          rel="stylesheet"
-          type="text/css"
-          charSet="UTF-8"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-        />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-        /> */}
         <Text paddingLeft="10%" fontWeight="Bold" fontSize="40px">Upcoming Performances</Text>
         {/* Left Icon */}
         <IconButton
-          aria-label="left-arrow"
+          icon={<ChevronLeftIcon boxSize="60px"/>}
           variant="ghost"
           position="absolute"
           left={side}
@@ -106,7 +96,7 @@ export default function PerformanceCarousel({ autoScroll = true }) {
           <BiLeftArrowAlt size="40px" />
         </IconButton>
         <IconButton
-          aria-label="right-arrow"
+          icon={<ChevronRightIcon boxSize="60px"/>}
           variant="ghost"
           position="absolute"
           right={side}

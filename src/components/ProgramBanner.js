@@ -134,7 +134,7 @@ const ProgramBanner = () => {
                     </Box>
                     <Box width="40%" height="200px" display="flex" alignitems="center" justifyContent="flex-start" flexDirection="column" paddingLeft="10%">
                         <Text fontWeight="bold" fontSize="12px" color="gray" mb="5px">INSTRUMENTS TAUGHT</Text>
-                        <Button width="430px" height="50px" backgroundColor="red.500" fontSize="18px">Click here to see what instruments are offered</Button>
+                        <Button width="430px" height="50px" backgroundColor="red.500" fontSize="18px" as="a" href="/instruments">Click here to see what instruments are offered</Button>
                     </Box>
                 </Flex>
             </Box>
