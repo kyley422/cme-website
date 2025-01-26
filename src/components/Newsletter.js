@@ -76,8 +76,8 @@ const Newsletter = () => {
                 }}
               />
               <IconButton
-                bg="red.600"
-                color={useColorModeValue('white', 'gray.800')}
+                bg="red.500"
+                color={useColorModeValue('white', 'white')}
                 _hover={{
                   bg: 'red.400',
                 }}

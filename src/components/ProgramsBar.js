@@ -73,7 +73,7 @@ const ProgramsBar = () => {
     ]
   return (
     <>
-        <Box position="relative" height="604px" width="full" overflow="hidden" bg={useColorModeValue('white', 'black')}>
+        <Box position="relative" height="900px" width="full" overflow="hidden" bg={useColorModeValue('white', 'black')}>
             <Flex 
             direction="column"
             height="100%" 
@@ -103,7 +103,7 @@ const ProgramsBar = () => {
                 </Flex>
 
                 <Box
-                height="70%"
+                height="600px"
                 position="relative"
                 backgroundPosition="center"
                 backgroundRepeat="no-repeat"
@@ -112,7 +112,7 @@ const ProgramsBar = () => {
                 className="image-box"
                 mt={4}
               >
-                    <Container size="lg" height="800px" width="50%" position="relative" left="-20%">
+                    <Container size="lg" height="800px" width="50%" position="relative" left="-25%">
                       <Stack
                         w="full"
                         position="absolute"
@@ -124,7 +124,7 @@ const ProgramsBar = () => {
                         <Heading 
                         fontSize="40px" 
                         fontWeight="bold"
-                        letterSpacing="20px"
+                        letterSpacing="10px"
                         width="full" left="0%" 
                         textAlign="left"
                         >

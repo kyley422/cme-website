@@ -6,7 +6,7 @@ const instruments = [
         description: 'The guzheng, or Chinese zither, is a traditional string instrument with origins over 2,500 years ago. It typically has 21-26 strings stretched over a wooden soundboard, with movable bridges beneath each string for tuning. The guzheng is known for its rich, resonant tone and expressive techniques, including tremolo, glissando, and pitch bending, creating sounds that evoke nature. Once used mainly in solo pieces, the guzheng now features in ensembles and modern genres, bridging traditional and contemporary music around the world.',
         diff: 4,
         image: 'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1733044398/gz_q5xfak.png',
-        players: ["Wanning He", "Ivy Xiao"],
+        players: ["Wanning He", "Ivy Xiao", "Wennan Liu", "Ivy Xiao"],
         tags: ["All", "Ensemble", "Zheng"],
         link: 'https://www.youtube.com/watch?v=_B_VX9RTsI8&list=PLglzhCF1qBImfAAxudApwiVmrxCx-qMPG',
     },
@@ -19,7 +19,7 @@ const instruments = [
         image: 'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1733043964/erhu_eewqmk.png',
         players: ["Zibai Lyu", "Irene Chang", "Catherine Hu", "Madison Starr"],
         tags: ["All", "Ensemble"],
-        link: 'https://www.youtube.com/watch?v=eQXo9-9_ap0',
+        link: 'https://www.youtube.com/watch?v=YJ2O7vQfeiE',
     },
     {
         id: "3",

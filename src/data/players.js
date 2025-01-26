@@ -39,6 +39,23 @@ const players = [
         insta: 'https://www.instagram.com/keilantraliu/',
         profile: 'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1733108987/mukun_omvsdz.png',
     },
+    {
+        name: 'Wennan Liu',
+        year: 'Junior',
+        major: 'Cognitive Science',
+        years: '16',
+        insta: 'https://www.instagram.com/blank_wennanliu/',
+        profile: 'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1733108987/mukun_omvsdz.png',
+    },
+    {
+        name: 'Ivy Xiao',
+        year: 'Sophomore',
+        major: 'Cognitive Science',
+        years: '9',
+        insta: 'https://www.instagram.com/heythisis_ivyy/',
+        profile: 'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1733529160/ivy_ai519h.png',
+    },
+
 ]
 
 export default players;

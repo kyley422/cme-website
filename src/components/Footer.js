@@ -89,7 +89,7 @@ export default function Footer() {
           <Stack align={'flex-start'}>
             <ListHeader>Navigation</ListHeader>
             <Link href={'/home'}>Home</Link>
-            <Link href={'/about'}>About us</Link>
+            <Link href={'/about'}>About</Link>
             <Link href={'/programs'}>Programs</Link>
             <Link href={'/performances'}>Performances</Link>
             <Link href={'/instruments'}>Instruments</Link>
@@ -111,8 +111,8 @@ export default function Footer() {
                 }}
               />
               <IconButton
-                bg={useColorModeValue('red.600', 'red.600')}
-                color={useColorModeValue('white', 'gray.800')}
+                bg={useColorModeValue('red.600', 'red.500')}
+                color={useColorModeValue('white', 'white')}
                 _hover={{
                   bg: 'red',
                 }}

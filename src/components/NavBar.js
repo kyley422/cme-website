@@ -68,19 +68,24 @@ const NavBar = () => {
             aria-label={'Toggle Navigation'}
           />
         </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
+        <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }} paddingLeft="7%">
           <Text
             textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
             fontSize="28px"
             fontWeight="semibold"
             color={useColorModeValue('gray.800', 'white')}
           >
-            UCLA Chinese Music Ensemble
+            UCLA Chinese Music
           </Text>
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10} >
             <DesktopNav />
           </Flex>
+
+          <Flex display={{ base: 'none', md: 'flex' }} ml={10} mt="5px">
+            <Button bgColor="red.500">Join today</Button>
+          </Flex>
+
         </Flex>
 
         <Stack

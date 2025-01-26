@@ -67,7 +67,7 @@ const PastPerformance = () => {
         gap={5}
         bg={useColorModeValue('white', 'black')}
         >
-            <Heading fontWeight="bold" fontSize="40px">Past Performance</Heading>
+            <Heading fontWeight="bold" fontSize="40px">Past Performances</Heading>
         </Flex>
 
         <Grid

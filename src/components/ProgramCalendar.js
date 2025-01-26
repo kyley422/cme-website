@@ -25,7 +25,7 @@ const ProgramCalendar = () => {
 
     
   return (
-    <>
+    <Box bgColor="black">
         <Box 
         height="150px" 
         width="full" 
@@ -34,7 +34,7 @@ const ProgramCalendar = () => {
         paddingTop="50px"
         >
             <Heading fontSize="40px" fontWeight="bold">Class & Practice Schedule</Heading>
-            <Box height="50px" width="full" display="flex">
+            <Box height="50px" width="full" display="flex" mt="15px">
                 <Flex height="full" width="200px" alignItems="center" justifyContent="center" gap={2}>
                     <Box borderRadius="full" boxSize="25px" backgroundColor="red.500"/>
                     <Text fontSize="24px" fontWeight="semibold" color="gray.100">Class Hours</Text>
@@ -46,7 +46,7 @@ const ProgramCalendar = () => {
             </Box>
         </Box>
 
-        <Box paddingX="10%" backgroundColor="black" paddingBottom="50px">
+        <Box paddingX="10%" backgroundColor="black" paddingBottom="50px" bgColor="black">
             <Grid
             templateColumns="100px repeat(5, 1fr)"
             templateRows={ `50px repeat(${time_slots.length}, 80px)`}
@@ -54,6 +54,7 @@ const ProgramCalendar = () => {
             borderColor="gray.200"
             backgroundColor="black"
             position="relative"
+            mt="30px"
             >
                 {/* Days */}
                 <GridItem/>
@@ -148,7 +149,7 @@ const ProgramCalendar = () => {
             </Box>
         </Box>
         
-    </>
+    </Box>
   )
 }
 

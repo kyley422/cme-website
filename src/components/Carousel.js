@@ -127,12 +127,12 @@ export default function CaptionCarousel({ autoScroll = true }) {
                 key={index}
                 height="6xl"
                 position="relative"
-                backgroundPosition="100% -10%"
+                backgroundPosition="90% -10%"
                 backgroundRepeat="no-repeat"
                 backgroundImage={`url(${card.image})`}
                 backgroundColor="black"
                 className="image-box"
-                left="0"
+                left=""
               >
                 <Flex height="full">
                   {/* This is the block you need to change, to customize the caption */}
@@ -146,7 +146,7 @@ export default function CaptionCarousel({ autoScroll = true }) {
                         p={4}
                       >
                         <Heading fontSize="48px" width="full" left="0%" textAlign="left">
-                        The UCLA Chinese Music Ensemble
+                        The Chinese Music Ensemble at UCLA
                         </Heading>
                         <Text fontSize={{ base: 'md', lg: 'lg' }} textAlign="left">
                         Beginners and experienced musicians are welcome to join the UCLA Chinese Music Ensemble.
