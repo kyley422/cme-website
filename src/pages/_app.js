@@ -11,7 +11,7 @@ import '@fontsource/outfit/700.css'; // Outfit Bold
 import '@fontsource/outfit/800.css'; // Outfit Extra Bold
 
 // import chakra ui
-import { Box, ChakraProvider } from '@chakra-ui/react'
+import { background, Box, ChakraProvider, ColorModeScript } from '@chakra-ui/react'
 import { extendTheme } from '@chakra-ui/react'
 
 
@@ -54,14 +54,21 @@ const fontWeights = {
   extrabold: 800, // Outfit Extra Bold
 }
 
-export const theme = extendTheme({ colors: colors, fonts: fonts, fontWeights: fontWeights })
+const config = {
+  initialColorMode: "dark",
+  useSystemColorMode: false,
+}
+
+export const theme = extendTheme({ config, colors: colors, fonts: fonts, fontWeights: fontWeights})
 
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
       <ChakraProvider theme={theme}>
+        <Box bg="gray.900" minH="100vh">
         <Component {...pageProps} />
+        </Box>
       </ChakraProvider>
     </>
   );

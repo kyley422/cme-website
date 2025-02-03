@@ -1,8 +1,10 @@
 html {
     scroll-behavior: 'smooth';
+    background-color: #1b1b1b !important;
   }
 
 body {
     overflow-x: 'hidden';
     overflow-y: 'hidden';
+    background-color: #1b1b1b;
 }
