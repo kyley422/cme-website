@@ -14,7 +14,7 @@ const PerformanceBanner = () => {
             backgroundSize="cover"
             padding="50px"
             >
-                <Flex height="90%" width="560px">
+                <Flex height="90%" width="560px" marginLeft="5%">
                     <Box flex="1" flexDirection="column" display="flex" justifyContent="flex-start" paddingTop="20px" paddingLeft="10%">
                         <Heading 
                         fontWeight="extrabold" 

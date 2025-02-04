@@ -62,7 +62,7 @@ const instruments = [
         image: 'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1733043964/yangqin_msjby7.png',
         diff: 4,
         players: [],
-        tags: ["All", "Ensemble"],
+        tags: ["All", "Ensemble", "Qin"],
         link: 'https://www.youtube.com/watch?v=NYOb4HHzH_w',
     },
     {
@@ -73,7 +73,7 @@ const instruments = [
         image: 'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1733043964/liuqin_jgbyqd.png',
         diff: 4,
         players: [],
-        tags: ["All", "Ensemble"],
+        tags: ["All", "Ensemble", "Qin"],
         link: 'https://www.youtube.com/watch?v=jsHdsoUMtpU',
     },
     {
@@ -128,7 +128,7 @@ const instruments = [
         image: 'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1733044030/gq_sdjwyv.png',
         diff: 4,
         players: [],
-        tags: ["All", "Ensemble", "Qin"],
+        tags: ["All", "Qin"],
         link: 'https://www.youtube.com/watch?v=XO6i2Lg38bo&list=PLy3c9hw2xV4g69auLBmpMXG_1utgVGCW7',
     },
     {
@@ -172,7 +172,7 @@ const instruments = [
         image: 'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1733043963/hulusi_ky1ubl.png',
         diff: 4,
         players: [],
-        tags: ["All", "Ensemble"],
+        tags: ["All"],
         link: 'https://www.youtube.com/watch?v=x_Pb-RTXnIo',
     },
 ]

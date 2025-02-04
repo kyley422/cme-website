@@ -73,7 +73,7 @@ const ProgramBanner = () => {
             backgroundSize="cover"
             padding="50px"
             >
-                <Flex height="90%" width="full">
+                <Flex height="90%" width="full" marginLeft="3%">
                     <Box flex="1" display="flex" justifyContent="flex-start" paddingTop="20px" paddingLeft="90px">
                         <Heading 
                         fontWeight="extrabold" 

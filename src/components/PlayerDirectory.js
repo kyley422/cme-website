@@ -43,7 +43,7 @@ const PlayerDirectory = ({ players }) => {
     height={`${(displayPlayers.length / 3) * 300 + 500}px`}
     paddingTop="50px"
     paddingBottom="50px"
-    paddingLeft="5%"
+    paddingLeft="11%"
     paddingRight="5%"
     bg={useColorModeValue('white', 'black')}
     >
@@ -72,7 +72,7 @@ const PlayerDirectory = ({ players }) => {
         
         <Grid
         templateColumns="repeat(2, 1fr)"
-        gap={12}
+        gap={10}
         width="full"
         marginTop="50px"
         justifyItems="center"

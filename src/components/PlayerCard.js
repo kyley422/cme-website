@@ -37,7 +37,7 @@ const PlayerCard = ({ player }) => {
     }
   return (
     <Box
-    width="800px"
+    width="700px"
     height="220px"
     bg="black"
     >

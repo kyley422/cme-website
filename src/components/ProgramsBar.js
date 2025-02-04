@@ -90,8 +90,8 @@ const ProgramsBar = () => {
                 <Flex direction="row" wrap="wrap" justifyContent="left" width="full">
                     {buttonOptions.map((option, index) => (
                         <Button 
-                        width="280px" 
-                        height="65px" 
+                        width="180px" 
+                        height="45px" 
                         key={index} m={2} 
                         onClick={() => selectProgram(index)}
                         border={currentDisplay === index ? "2px solid white" : "none"}

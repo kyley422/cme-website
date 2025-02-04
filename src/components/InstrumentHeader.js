@@ -38,7 +38,7 @@ const InstrumentHeader = ({ instrument }) => {
                     <Text fontWeight="bold" fontSize="24px">Difficulty: </Text>
                     <Flex>
                         {Array.from({ length: 5 }).map((_, index) => (
-                        <Box key={index} ml="2px">
+                        <Box key={index} ml="6px">
                             <Icon as={FaStar} color={index < instrument.diff ? 'gold' : 'gray.400'} boxSize="24px"/>
                         </Box>
                         ))}

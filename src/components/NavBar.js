@@ -77,15 +77,13 @@ const NavBar = () => {
           >
             UCLA Chinese Music
           </Text>
+        </Flex>
 
-          <Flex display={{ base: 'none', md: 'flex' }} ml={10} >
+        <Flex display = {{ base: 'none', md: 'flex'}} justify="flex-end">
+          <Flex display={{ base: 'none', md: 'flex' }} ml={10} justify="flex-end">
             <DesktopNav />
+            <Button bgColor="red.500" ml={10}>Join today</Button>
           </Flex>
-
-          <Flex display={{ base: 'none', md: 'flex' }} ml={10} mt="5px">
-            <Button bgColor="red.500">Join today</Button>
-          </Flex>
-
         </Flex>
 
         <Stack
@@ -373,7 +371,7 @@ const NAV_ITEMS = [
         subLabel: 'Interested in joining our program? It\'s very simple!',
       },
       {
-        href: 'programs',
+        href: '/programs#course-calendar',
         label: 'Course Calendar',
         subLabel: 'Check out the time commitment for our program.',
       },
@@ -384,12 +382,12 @@ const NAV_ITEMS = [
   {
     children: [
       {
-        href: '#',
+        href: '/performances',
         label: 'Upcoming Performances',
         subLabel: 'Interested in upcoming performances?',
       },
       {
-        href: '#',
+        href: '/performances#past-performances',
         label: 'Past Performances',
         subLabel: 'Check out the archive of our past performances!',
       },

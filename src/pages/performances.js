@@ -15,7 +15,9 @@ function Performances() {
       <NavBar />
       <PerformanceBanner/>
       <PerformanceCarousel />
-      <PastPerformance />
+      <Box id="past-performances">
+        <PastPerformance /> 
+      </Box>
       <Footer />
     </Box>
   );

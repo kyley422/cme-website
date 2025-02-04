@@ -65,7 +65,8 @@ const InstrumentCatalog = () => {
         
         <Grid
         templateColumns="repeat(4, 1fr)"
-        gap={12}
+        gap={10}
+        gridAutoRows="280px" // 270 + 10
         width="full"
         marginTop="50px"
         justifyItems="center"
@@ -76,7 +77,8 @@ const InstrumentCatalog = () => {
                 <Image
                 src={instrument.image}
                 alt={instrument.name}
-                boxSize="270px"
+                width="270px"
+                height="270px"
                 objectFit="cover"
                 mb="4px"
                 _hover={{ transform: 'scale(1.01)' }}

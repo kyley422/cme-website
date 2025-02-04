@@ -71,24 +71,24 @@ const PastPerformance = () => {
         </Flex>
 
         <Grid
-        paddingLeft="5%"
+        paddingLeft="6%"
         paddingBottom="200px"
-        templateColumns="repeat(3, 1fr)"
-        gap={12}
+        templateColumns="repeat(auto-fit, minmax(300px, 1fr))"
+        gap={2}
         width="full"
         marginTop="20px"
         justifyItems="center"
         >
           {past_performances.map((perf, idx) => (
-            <Box key={idx} textAlign="center">
+            <Box key={idx} textAlign="center" maxWidth="300px">
               <Link href={perf.link} isExternal>
                 <Image
                 src={perf.image}
                 alt={perf.name}
                 height="270px"
-                width="375px"
+                width="100%"
                 objectFit="cover"
-                mb="4px"
+                mb="8px"
                 _hover={{ transform: 'scale(1.05)' }}
                 />
               </Link>

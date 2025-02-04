@@ -93,7 +93,7 @@ export default function CaptionCarousel({ autoScroll = true }) {
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
         />
         {/* Left Icon */}
-        <IconButton
+        {/* <IconButton
           aria-label="left-arrow"
           variant="ghost"
           position="absolute"
@@ -104,9 +104,9 @@ export default function CaptionCarousel({ autoScroll = true }) {
           onClick={() => slider?.slickPrev()}
         >
           <BiLeftArrowAlt size="40px" />
-        </IconButton>
+        </IconButton> */}
         {/* Right Icon */}
-        <IconButton
+        {/* <IconButton
           aria-label="right-arrow"
           variant="ghost"
           position="absolute"
@@ -117,7 +117,7 @@ export default function CaptionCarousel({ autoScroll = true }) {
           onClick={() => slider?.slickNext()}
         >
           <BiRightArrowAlt size="40px" />
-        </IconButton>
+        </IconButton> */}
         {/* Slider */}
           {/* Slider */}
           <Slider {...settings} ref={(slider) => setSlider(slider)}>
