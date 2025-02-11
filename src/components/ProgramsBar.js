@@ -90,7 +90,7 @@ const ProgramsBar = () => {
                 <Flex direction="row" wrap="wrap" justifyContent="left" width="full">
                     {buttonOptions.map((option, index) => (
                         <Button 
-                        width="180px" 
+                        width={{base: "150px", lg: "180px"}} 
                         height="45px" 
                         key={index} m={2} 
                         onClick={() => selectProgram(index)}
@@ -112,7 +112,7 @@ const ProgramsBar = () => {
                 className="image-box"
                 mt={4}
               >
-                    <Container size="lg" height="800px" width="50%" position="relative" left="-25%">
+                    <Container size="lg" height="800px" w={{base: "130%", lg: "50%"}} position={{base: "absolute", lg: "relative"}} left={{base: "0%", lg: "-25%"}}>
                       <Stack
                         w="full"
                         position="absolute"

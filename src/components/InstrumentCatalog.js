@@ -50,8 +50,8 @@ const InstrumentCatalog = () => {
         <Flex direction="row" wrap="wrap" justifyContent="left" width="full">
             {filterOptions.map((option, index) => (
                 <Button 
-                width="200px" 
-                height="50px" 
+                width={{base: "100px", lg: "200px"}} 
+                height="50px"
                 key={index} 
                 m={2} 
                 onClick={() => selectFilter(index)}

@@ -54,10 +54,12 @@ const Newsletter = () => {
           justifyContent="center"
           maxWidth="500px"
           >
-            <Heading textAlign="center">Join Our Newsletter</Heading>
+            <Heading 
+            textAlign="center">Join Our Newsletter</Heading>
             <Text
             textAlign="center"
             marginBottom="25px"
+            w={{base: '85%', md: '400px'}}
             >
               Stay updated with our upcoming performances once they're announced and find out about our special events!
             </Text>
@@ -69,7 +71,7 @@ const Newsletter = () => {
                 _focus={{
                   bg: 'whiteAlpha.300',
                 }}
-                width="400px"
+                w={{base: '80%', md: '400px'}}
                 _placeholder={{
                   color: 'gray.500',
                   opacity: 1

@@ -136,7 +136,7 @@ export default function CaptionCarousel({ autoScroll = true }) {
               >
                 <Flex height="full">
                   {/* This is the block you need to change, to customize the caption */}
-                    <Container size="lg" height="600px" width="50%" position="absolute" left="10%">
+                    <Container size={{base: "sm", lg: "lg"}} height="600px" w={{base: "80%", lg: "50%"}} position="absolute" left="10%">
                       <Stack
                         w="full"
                         position="absolute"
@@ -145,7 +145,7 @@ export default function CaptionCarousel({ autoScroll = true }) {
                         spacing={4}
                         p={4}
                       >
-                        <Heading fontSize="48px" width="full" left="0%" textAlign="left">
+                        <Heading fontSize={{base: "24px", md: "48px"}} width="full" left="0%" textAlign="left">
                         The Chinese Music Ensemble at UCLA
                         </Heading>
                         <Text fontSize={{ base: 'md', lg: 'lg' }} textAlign="left">
