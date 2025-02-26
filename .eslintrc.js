@@ -26,7 +26,7 @@ module.exports = {
       ignoreMemberSort: false,
       memberSyntaxSortOrder: ['none', 'all', 'single', 'multiple'],
     }],
-    'sort-keys-fix/sort-keys-fix': 'error',
+    'sort-keys-fix/sort-keys-fix': 'off',
   }
 }
 

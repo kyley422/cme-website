@@ -1,7 +1,7 @@
-import { Box, Flex, Heading, useColorModeValue, Text, Image, Grid, Button } from '@chakra-ui/react'
-import Link from 'next/link'
-import React, { useState } from 'react'
 import PlayerCard from './PlayerCard'
+import { Box, Button, Flex, Grid, Text, useColorModeValue} from '@chakra-ui/react'
+// import Link from 'next/link'
+import React, { useState } from 'react'
 
 const PlayerDirectory = ({ players }) => {
     const [currentFilter, setCurrentFilter] = useState(0)
@@ -78,7 +78,7 @@ const PlayerDirectory = ({ players }) => {
         justifyItems="center"
         >
           {displayPlayers.map((p, idx) => (
-            <PlayerCard player={p}/>
+            <PlayerCard player={p} key={idx}/>
           ))}
         </Grid>
     </Box>

@@ -1,33 +1,33 @@
 import React from 'react'
 import {
-    Avatar,
+    // Avatar,
     Box,
     Button,
-    Center,
-    Collapse,
+    // Center,
+    // Collapse,
     Flex,
     Heading,
     Icon,
-    IconButton,
-    Link,
-    Menu,
-    MenuButton,
-    MenuDivider,
-    MenuItem,
-    MenuList,
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-    Stack,
+    // IconButton,
+    // Link,
+    // Menu,
+    // MenuButton,
+    // MenuDivider,
+    // MenuItem,
+    // MenuList,
+    // Popover,
+    // PopoverContent,
+    // PopoverTrigger,
+    // Stack,
     Text,
-    useBreakpointValue,
-    useColorMode,
-    useColorModeValue,
-    useDisclosure,
+    // useBreakpointValue,
+    // useColorMode,
+    // useColorModeValue,
+    // useDisclosure,
   } from '@chakra-ui/react';
-import { MdLocationOn, MdAccessTime, MdEvent, MdAttachMoney } from 'react-icons/md';
+import { MdAccessTime, MdAttachMoney, MdEvent, MdLocationOn} from 'react-icons/md';
 
-const PerformanceCard = ({ image_url, title, date, time, location, price }) => {
+const PerformanceCard = ({ date, image_url, location, price, time, title }) => {
   return (
     <>
         <Box

@@ -1,26 +1,26 @@
 import React from 'react';
 import {
-  Avatar,
+  // Avatar,
   Box,
   Button,
-  Center,
+  // Center,
   Collapse,
   Flex,
   Icon,
   IconButton,
   Link,
-  Menu,
-  MenuButton,
-  MenuDivider,
-  MenuItem,
-  MenuList,
+  // Menu,
+  // MenuButton,
+  // MenuDivider,
+  // MenuItem,
+  // MenuList,
   Popover,
   PopoverContent,
   PopoverTrigger,
   Stack,
   Text,
   useBreakpointValue,
-  useColorMode,
+  // useColorMode,
   useColorModeValue,
   useDisclosure,
 } from '@chakra-ui/react';
@@ -29,21 +29,21 @@ import {
   ChevronRightIcon,
   CloseIcon,
   HamburgerIcon,
-  MoonIcon,
-  SunIcon,
+  // MoonIcon,
+  // SunIcon,
 } from '@chakra-ui/icons';
 
 const NavBar = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
+  // const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onToggle } = useDisclosure();
   // const {signedIn, setSignedIn} = React.useContext(AuthContext);
 
   // TEMPORARY
-    const [signedIn, setSignedIn] = React.useState(false);
+    // const [signedIn, setSignedIn] = React.useState(false);
 
-    const handleSignIn = () => {
-        setSignedIn((prevSignedIn) => !prevSignedIn);
-    };
+    // const handleSignIn = () => {
+    //     setSignedIn((prevSignedIn) => !prevSignedIn);
+    // };
   // END TEMPORARY
 
   return (

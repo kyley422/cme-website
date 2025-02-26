@@ -1,6 +1,6 @@
-import { Box, Flex, Heading, useColorModeValue, Text, Image, Grid } from '@chakra-ui/react'
 import Link from 'next/link'
 import React from 'react'
+import { Box, Flex, Grid, Heading, Image, Text, useColorModeValue} from '@chakra-ui/react'
 
 const StudentDirectory = () => {
 

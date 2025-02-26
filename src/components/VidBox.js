@@ -1,7 +1,7 @@
-import { useState } from 'react';
 import { Box, Image } from '@chakra-ui/react';
+import { useState } from 'react';
 
-const VidBox = ({ videoUrl, instrument }) => {
+const VidBox = ({ instrument, videoUrl }) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const handlePlay = () => {

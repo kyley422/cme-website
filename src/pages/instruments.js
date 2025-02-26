@@ -1,11 +1,11 @@
 import Footer from 'components/Footer';
+import InstrumentCatalog from 'components/InstrumentCatalog';
+import InstrumentsBanner from 'components/InstrumentsBanner';
 import NavBar from 'components/NavBar';
 import React from 'react';
 import {Box} from '@chakra-ui/react';
-import InstrumentsBanner from 'components/InstrumentsBanner';
-import PerformanceCarousel from 'components/PerformanceCarousel';
-import PastPerformance from 'components/PastPerformance';
-import InstrumentCatalog from 'components/InstrumentCatalog';
+// import PerformanceCarousel from 'components/PerformanceCarousel';
+// import PastPerformance from 'components/PastPerformance';
 
 
 
