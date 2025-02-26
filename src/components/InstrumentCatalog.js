@@ -1,7 +1,7 @@
-import { Box, Flex, Heading, useColorModeValue, Text, Image, Grid, Button } from '@chakra-ui/react'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import instruments from 'data/instruments'
+import { Box, Button, Flex, Grid, Image, useColorModeValue} from '@chakra-ui/react'
 
 const InstrumentCatalog = () => {
     const [currentFilter, setCurrentFilter] = useState(0)

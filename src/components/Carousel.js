@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
-import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
+// import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 import {
   Box,
   Button,
   Container,
   Flex,
   Heading,
-  IconButton,
+  // IconButton,
   Stack,
   Text,
-  useBreakpointValue,
+  // useBreakpointValue,
   useColorMode,
 } from '@chakra-ui/react';
 
@@ -30,8 +30,8 @@ export default function CaptionCarousel({ autoScroll = true }) {
   const [slider, setSlider] = useState(null);
   const { colorMode } = useColorMode();
 
-  const top = useBreakpointValue({ base: '90%', md: '50%' });
-  const side = useBreakpointValue({ base: '30%', md: '40px' });
+  // const top = useBreakpointValue({ base: '90%', md: '50%' });
+  // const side = useBreakpointValue({ base: '30%', md: '40px' });
 
   const cards = [
     {
@@ -122,9 +122,8 @@ export default function CaptionCarousel({ autoScroll = true }) {
           {/* Slider */}
           <Slider {...settings} ref={(slider) => setSlider(slider)}>
           {cards.map((card, index) => (
-            <Flex direction="column" align="start" width="full" height="full">
+            <Flex key={index} direction="column" align="start" width="full" height="full">
               <Box
-                key={index}
                 height="6xl"
                 position="relative"
                 backgroundPosition="90% -10%"

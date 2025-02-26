@@ -1,5 +1,5 @@
-import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react'
-import React, { useState } from 'react'
+import React from 'react'
+import { Box, Flex, Heading, Text } from '@chakra-ui/react'
 
 const PerformanceBanner = () => {
     return (

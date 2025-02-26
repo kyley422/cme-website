@@ -1,5 +1,5 @@
-import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react'
 import React, { useState } from 'react'
+import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react'
 
 const ProgramBanner = () => {
 
@@ -12,53 +12,54 @@ const ProgramBanner = () => {
 
     const banners = [
         {
-            title:
-                "Ensemble",
+            class_time:
+                "Wednesday: 3-4 PM",
+            course_code:
+                "ETHNMUS 168C",
+            image:
+                'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1726729889/cme_ensemble_y9qqei.png',
             text:
                 `A Chinese orchestra comprised of over 20 different traditional Chinese instruments, 
                 ranging from the bowed erhu and the plucked pipa.`,
-            image:
-                'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1726729889/cme_ensemble_y9qqei.png',
-            course_code:
-                "ETHNMUS 168C",
-            class_time:
-                "Wednesday: 3-4 PM",
+            title:
+                "Ensemble",
         },
         {
-            title:
-                "Zheng",
-            text:
-                `A zheng unison featuring the zheng, or guzheng, an ancient Chinese plucked zither with a rich history.`,
+            class_time:
+                "Wednesday: 3-4 PM",
+            course_code:
+                "ETHNMUS 168C",    
             image:
                 'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1726729889/cme_zheng_gvlq4v.png',
-            course_code:
-                "ETHNMUS 168C",
-            class_time:
-                "Wednesday: 3-4 PM",
+            text:
+                `A zheng unison featuring the zheng, or guzheng, an ancient Chinese plucked zither with a rich history.`,
+            title:
+                "Zheng",
         },
         {
-            title:
-                "Kunqu Opera",
-            text:
-                `An opera performing one of the oldest extant forms of Chinese opera where students learn the ancient lurical and dances.`,
+            class_time:
+                "Wednesday: 3-4 PM",
+            course_code:
+                "ETHNMUS 168C",
             image:
                 'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1726729888/cme_kunqu_kobzuy.png',
-            course_code:
-                "ETHNMUS 168C",
-            class_time:
-                "Wednesday: 3-4 PM",
+            text:
+                `An opera performing one of the oldest extant forms of Chinese opera where students learn the ancient lurical and dances.`,
+            title:
+                "Kunqu Opera",
         },
         {
-            title:
-                "Qin",
-            text:
-                `The qin, also known as the guqin, is a traditional Chinese stringed instrument with a history spanning over 3,000 years. It is a zither with seven strings, played by plucking with the fingers, and is known for its deep, tranquil sound. The qin holds a significant place in Chinese culture, often associated with scholars, poets, and philosophers, and is revered for its expressive qualities. Its music is typically slow and meditative, reflecting the Confucian ideals of harmony and balance. The qin is also noted for its intricate playing techniques and the use of harmonics.`,
-            image:
-                'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1725494815/cme_program_guqin_xmht7i.png',
-            course_code:
-                "ETHNMUS 168C",
             class_time:
                 "Wednesday: 3-4 PM",
+            course_code:
+                "ETHNMUS 168C",
+            image:
+                'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1725494815/cme_program_guqin_xmht7i.png',
+            text:
+                `The qin, also known as the guqin, is a traditional Chinese stringed instrument with a history spanning over 3,000 years. It is a zither with seven strings, played by plucking with the fingers, and is known for its deep, tranquil sound. The qin holds a significant place in Chinese culture, often associated with scholars, poets, and philosophers, and is revered for its expressive qualities. Its music is typically slow and meditative, reflecting the Confucian ideals of harmony and balance. The qin is also noted for its intricate playing techniques and the use of harmonics.`, 
+            title:
+                "Qin",
+            
         },
     ]
     return (

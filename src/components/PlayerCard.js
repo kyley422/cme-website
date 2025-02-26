@@ -1,32 +1,32 @@
 import React from 'react'
 import {
-    Avatar,
+    // Avatar,
     Box,
-    Button,
-    Center,
-    Collapse,
+    // Button,
+    // Center,
+    // Collapse,
     Flex,
     Heading,
-    Icon,
-    IconButton,
+    // Icon,
+    // IconButton,
     Image,
     Link,
-    Menu,
-    MenuButton,
-    MenuDivider,
-    MenuItem,
-    MenuList,
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-    Stack,
+    // Menu,
+    // MenuButton,
+    // MenuDivider,
+    // MenuItem,
+    // MenuList,
+    // Popover,
+    // PopoverContent,
+    // PopoverTrigger,
+    // Stack,
     Text,
-    useBreakpointValue,
-    useColorMode,
-    useColorModeValue,
-    useDisclosure,
+    // useBreakpointValue,
+    // useColorMode,
+    // useColorModeValue,
+    // useDisclosure,
   } from '@chakra-ui/react';
-import { MdLocationOn, MdAccessTime, MdEvent, MdAttachMoney } from 'react-icons/md';
+// import { MdLocationOn, MdAccessTime, MdEvent, MdAttachMoney } from 'react-icons/md';
 
 const PlayerCard = ({ player }) => {
 
@@ -68,7 +68,7 @@ const PlayerCard = ({ player }) => {
                     <Text fontWeight="normal" fontSize="20px">{player.years}</Text>
                 </Flex>
                 <Link href={player.insta} display="flex" flexDir="row" alignItems="center" gap={2} mt="16px" isExternal>
-                    <Image src="https://res.cloudinary.com/dp0f6uqzo/image/upload/v1733101902/ig_lp0jsk.png" boxSize="20px"/>
+                    <Image src="https://res.cloudinary.com/dp0f6uqzo/image/upload/v1733101902/ig_lp0jsk.png" boxSize="20px" alt=""/>
                     <Text fontWeight="normal" fontSize="20px">{ig_handle(player.insta)}</Text>
                 </Link>
             </Box>

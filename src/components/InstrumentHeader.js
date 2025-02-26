@@ -1,6 +1,6 @@
-import { Box, Flex, Heading, Text, Image, useColorModeValue, Divider, Icon } from '@chakra-ui/react'
 import React from 'react'
 import VidBox from './VidBox'
+import { Box, Flex, Heading, Icon, Text, useColorModeValue} from '@chakra-ui/react'
 import { FaStar } from 'react-icons/fa'
 
 const InstrumentHeader = ({ instrument }) => {

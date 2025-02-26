@@ -1,54 +1,54 @@
-import { Box, Flex, Heading, useColorModeValue, Text, Image, Grid } from '@chakra-ui/react'
 import Link from 'next/link'
 import React from 'react'
+import { Box, Flex, Grid, Heading, Image, Text, useColorModeValue} from '@chakra-ui/react'
 
 const PastPerformance = () => {
 
   const past_performances = [
     {
         image: "https://res.cloudinary.com/dp0f6uqzo/image/upload/v1732951024/springfest_hhvoyp.png",
-        name: "Spring Festival of Music 2024",
         link: "",
+        name: "Spring Festival of Music 2024",
     },
     {
         image: "https://res.cloudinary.com/dp0f6uqzo/image/upload/v1732951024/musicchinaconc24_vey81t.png",
-        name: "Music of China Concert Winter 2024",
         link: "",
+        name: "Music of China Concert Winter 2024",
     },
     {
         image: "https://res.cloudinary.com/dp0f6uqzo/image/upload/v1732951024/musicchinaconc23_xx2gni.png",
-        name: "Music of China Concert Fall 2023",
         link: "",
+        name: "Music of China Concert Fall 2023",
     },
     {
         image: "https://res.cloudinary.com/dp0f6uqzo/image/upload/v1732951024/fowler_eekwtm.png",
-        name: "Fowler Out Loud: Lunar New Year",
         link: "",
+        name: "Fowler Out Loud: Lunar New Year",
     },
     {
         image: "https://res.cloudinary.com/dp0f6uqzo/image/upload/v1732951024/cssa_vwkxmf.png",
-        name: "CSSA Chinese New Year",
         link: "",
+        name: "CSSA Chinese New Year",
     },
     {
         image: "https://res.cloudinary.com/dp0f6uqzo/image/upload/v1732951024/springfest23_jp5nba.png",
-        name: "Spring Festival of Music 2023",
         link: "",
+        name: "Spring Festival of Music 2023",
     },
     {
         image: "https://res.cloudinary.com/dp0f6uqzo/image/upload/v1732951099/concwinter23_myjssp.png",
-        name: "Music of China Winter 2023",
         link: "",
+        name: "Music of China Winter 2023",
     },
     {
         image: "https://res.cloudinary.com/dp0f6uqzo/image/upload/v1732951024/concfall22_frdisb.png",
-        name: "Music of China Concert Fall 2023",
         link: "",
+        name: "Music of China Concert Fall 2023",
     },
     {
         image: "https://res.cloudinary.com/dp0f6uqzo/image/upload/v1732951024/amnight_h4pkz8.png",
-        name: "Chinese American Culture Night 2023",
         link: "",
+        name: "Chinese American Culture Night 2023",
     },
   ]
 

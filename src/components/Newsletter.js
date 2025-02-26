@@ -1,33 +1,33 @@
 import React from 'react'
+import { BiMailSend } from 'react-icons/bi';
 import {
-    Avatar,
+    // Avatar,
     Box,
-    Button,
-    Center,
-    Collapse,
-    Flex,
+    // Button,
+    // Center,
+    // Collapse,
+    // Flex,
     Heading,
-    Icon,
+    // Icon,
     IconButton,
-    Image,
+    // Image,
     Input,
-    Link,
-    Menu,
-    MenuButton,
-    MenuDivider,
-    MenuItem,
-    MenuList,
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
+    // Link,
+    // Menu,
+    // MenuButton,
+    // MenuDivider,
+    // MenuItem,
+    // MenuList,
+    // Popover,
+    // PopoverContent,
+    // PopoverTrigger,
     Stack,
     Text,
-    useBreakpointValue,
-    useColorMode,
+    // useBreakpointValue,
+    // useColorMode,
     useColorModeValue,
-    useDisclosure,
+    // useDisclosure,
   } from '@chakra-ui/react';
-import { BiMailSend } from 'react-icons/bi';
 
 const Newsletter = () => {
   return (
@@ -61,7 +61,7 @@ const Newsletter = () => {
             marginBottom="25px"
             w={{base: '85%', md: '400px'}}
             >
-              Stay updated with our upcoming performances once they're announced and find out about our special events!
+              Stay updated with our upcoming performances once they&apos;re announced and find out about our special events!
             </Text>
             <Stack direction={'row'}>
               <Input

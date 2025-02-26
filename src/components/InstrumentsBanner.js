@@ -1,5 +1,5 @@
-import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react'
-import React, { useState } from 'react'
+import React from 'react'
+import { Box, Flex, Heading, Text } from '@chakra-ui/react'
 
 const InstrumentsBanner = () => {
     return (
@@ -29,7 +29,7 @@ const InstrumentsBanner = () => {
                         mt="18px"
                         width="550px"
                         >
-                            The UCLA Chinese Music Ensemble offers students the opportunity to play more than thirty instruments from the rich history of traditional Chinese music. Here, you'll find the catalog of all the instruments offered within each of our programs.
+                            The UCLA Chinese Music Ensemble offers students the opportunity to play more than thirty instruments from the rich history of traditional Chinese music. Here, you&apos;ll find the catalog of all the instruments offered within each of our programs.
                         </Text>
                     </Box>  
                 </Flex>

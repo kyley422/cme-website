@@ -1,34 +1,34 @@
 import React, { useState } from 'react'
 import {
-    Avatar,
+    // Avatar,
     Box,
     Button,
-    Center,
-    Collapse,
+    // Center,
+    // Collapse,
     Container,
     Flex,
     Heading,
-    Icon,
-    IconButton,
-    Link,
-    Menu,
-    MenuButton,
-    MenuDivider,
-    MenuItem,
-    MenuList,
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
+    // Icon,
+    // IconButton,
+    // Link,
+    // Menu,
+    // MenuButton,
+    // MenuDivider,
+    // MenuItem,
+    // MenuList,
+    // Popover,
+    // PopoverContent,
+    // PopoverTrigger,
     Stack,
     Text,
-    useBreakpointValue,
-    useColorMode,
+    // useBreakpointValue,
+    // useColorMode,
     useColorModeValue,
-    useDisclosure,
+    // useDisclosure,
   } from '@chakra-ui/react';
 
 const ProgramsBar = () => {
-    const { colorMode } = useColorMode();
+    // const { colorMode } = useColorMode();
     const [currentDisplay, setCurrentDisplay] = useState(0)
 
     const selectProgram = (index) => {
@@ -38,37 +38,37 @@ const ProgramsBar = () => {
 
     const buttonOptions = [
         {
-            title:
-                "Ensemble",
+            image:
+                'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1725494814/cme_program_ensemble_w6c5x6.png',
             text:
                 `A Chinese orchestra comprised of over 20 different traditional Chinese instruments, 
                 ranging from the bowed erhu and the plucked pipa.`,
-            image:
-                'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1725494814/cme_program_ensemble_w6c5x6.png',
+            title:
+                "Ensemble",
         },
         {
-            title:
-                "Zheng",
-            text:
-                `A zheng unison featuring the zheng, or guzheng, an ancient Chinese plucked zither with a rich history.`,
             image:
                 'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1725494814/cme_program_guzheng_udj0rj.png',
+            text:
+                `A zheng unison featuring the zheng, or guzheng, an ancient Chinese plucked zither with a rich history.`,
+            title:
+                "Zheng",
         },
         {
-            title:
-                "Kunqu Opera",
-            text:
-                `An opera performing one of the oldest extant forms of Chinese opera where students learn the ancient lurical and dances.`,
             image:
                 'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1725494814/cme_program_kunqu_c7jqre.png',
+            text:
+                `An opera performing one of the oldest extant forms of Chinese opera where students learn the ancient lurical and dances.`,
+            title:
+                "Kunqu Opera",
         },
         {
-            title:
-                "Qin",
-            text:
-                `A qin unison class that offers hands-on practice with the qin, or guqin, the ancient Chinese seven-string zither.`,
             image:
                 'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1725494815/cme_program_guqin_xmht7i.png',
+            text:
+                `A qin unison class that offers hands-on practice with the qin, or guqin, the ancient Chinese seven-string zither.`,
+            title:
+                "Qin",
         },
     ]
   return (

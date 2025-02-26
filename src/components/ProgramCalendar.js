@@ -1,6 +1,6 @@
-import { Box, Flex, Heading, Image, Text, Grid, GridItem } from '@chakra-ui/react'
-import events from 'data/schedule';
 import React from 'react'
+import events from 'data/schedule';
+import { Box, Flex, Grid, GridItem, Heading, Text} from '@chakra-ui/react'
 
 const ProgramCalendar = () => {
 
@@ -11,11 +11,11 @@ const ProgramCalendar = () => {
     }
 
     const day_to_grid_col = {
+        Friday: 6,
         Monday: 2,
+        Thursday: 5,
         Tuesday: 3,
         Wednesday: 4,
-        Thursday: 5,
-        Friday: 6,
     };
 
     const time_to_grid_row = {}

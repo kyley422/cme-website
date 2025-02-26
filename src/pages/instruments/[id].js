@@ -1,11 +1,13 @@
-import { useRouter } from 'next/router';
-import instruments from 'data/instruments';
-import NavBar from 'components/NavBar';
+// import { useRouter } from 'next/router';
 import Footer from 'components/Footer';
 import InstrumentHeader from 'components/InstrumentHeader';
-import { Box, Divider } from '@chakra-ui/react';
+import NavBar from 'components/NavBar';
 import PlayerDirectory from 'components/PlayerDirectory';
+
+import instruments from 'data/instruments';
 import players from 'data/players';
+import { Box, Divider } from '@chakra-ui/react';
+
 
 const InstrumentPage = ({ instrument }) => {
   if (!instrument) {

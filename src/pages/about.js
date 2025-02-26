@@ -1,10 +1,9 @@
-import ProgramInfo from 'components/ProgramInfo';
-import StudentDirectory from 'components/StudentDirectory';
-import React from 'react';
-import {Box, Divider} from '@chakra-ui/react';
-import NavBar from 'components/NavBar';
 import Footer from 'components/Footer';
-
+import NavBar from 'components/NavBar';
+import ProgramInfo from 'components/ProgramInfo';
+import React from 'react';
+import StudentDirectory from 'components/StudentDirectory';
+import {Box, Divider} from '@chakra-ui/react';
 
 
 

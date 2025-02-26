@@ -1,44 +1,44 @@
-import React, { useEffect, useRef, useState } from 'react';
-import Slider from 'react-slick';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules'
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import React, { useRef } from 'react';
+import { Autoplay, Navigation, Pagination} from 'swiper/modules'
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 import {
   Box,
   Button,
-  Container,
+  // Container,
   Flex,
-  Heading,
+  // Heading,
   Icon,
   IconButton,
   Image,
-  Stack,
+  // Stack,
   Text,
   useBreakpointValue,
-  useColorMode,
+  // useColorMode,
 } from '@chakra-ui/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import { MdLocationOn, MdAccessTime, MdEvent, MdAttachMoney } from 'react-icons/md';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
+import { MdAccessTime, MdAttachMoney, MdEvent, MdLocationOn } from 'react-icons/md';
+import { Swiper, SwiperSlide } from 'swiper/react';
+// import Slider from 'react-slick';
 
-const settings = {
-  arrows: false,
-  autoplay: true,
-  autoplaySpeed: 5000,
-  dots: true,
-  fade: false,
-  infinite: true,
-  slidesToScroll: 1,
-  slidesToShow: 1,
-  speed: 1000,
-  adaptiveHeight: true,
-};
+// const settings = {
+//   arrows: false,
+//   autoplay: true,
+//   autoplaySpeed: 5000,
+//   dots: true,
+//   fade: false,
+//   infinite: true,
+//   slidesToScroll: 1,
+//   slidesToShow: 1,
+//   speed: 1000,
+//   adaptiveHeight: true,
+// };
 
 export default function PerformanceCarousel({ autoScroll = true }) {
-  const [slider, setSlider] = useState(null);
-  const { colorMode } = useColorMode();
+  // const [slider, setSlider] = useState(null);
+  // const { colorMode } = useColorMode();
   const swiperRef = useRef(null);
 
   const top = useBreakpointValue({ base: '90%', md: '50%' });
@@ -46,22 +46,22 @@ export default function PerformanceCarousel({ autoScroll = true }) {
 
   const cards = [
     {
-        image:
-            'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1727073619/cme_perf_1_hbgphp.png',
-        title:
-            'Fall 2024 Music of China Concert',
         date: 
             'Saturday, 18 May 2024',
-        location:
-            'Schoenberg Hall',
-        time: 
-            '7:00 PM - 9:00 PM',
-        price:
-            'Free',
         description:
             'Join for a wonderful night at UCLA Music School and get to know more about traditional Chinese Music! We will be featuring a qin unison, a zheng unison, a kun opera aria, and silk & bamboo music.',
+        image:
+            'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1727073619/cme_perf_1_hbgphp.png',
         link:
             '',
+        location:
+            'Schoenberg Hall',
+        price:
+            'Free',
+        time: 
+            '7:00 PM - 9:00 PM',
+        title:
+            'Fall 2024 Music of China Concert',        
     },
 
   ];
@@ -158,8 +158,8 @@ export default function PerformanceCarousel({ autoScroll = true }) {
                       textAlign="center"
                       textDecoration="underline"
                       sx={{
-                        textUnderlineOffset: '8px',
                         textDecorationThickness: '2px',
+                        textUnderlineOffset: '8px',
                       }}
                       >
                         {card.title}
