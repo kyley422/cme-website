@@ -73,7 +73,7 @@ const PastPerformance = () => {
         <Grid
         paddingLeft="6%"
         paddingBottom="200px"
-        templateColumns="repeat(auto-fit, minmax(300px, 1fr))"
+        templateColumns="repeat(3, 1fr)"
         gap={2}
         width="full"
         marginTop="20px"

@@ -20,10 +20,11 @@ module.exports = {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/jsx-no-useless-fragment': 0,
     'react/jsx-props-no-spreading': 0,
+    'no-unused-vars': 0,
     'sort-destructure-keys/sort-destructure-keys': [2, { caseSensitive: false }],
     'sort-imports-es6-autofix/sort-imports-es6': [2, {
       ignoreCase: false,
-      ignoreMemberSort: false,
+      ignoreMemberSort: true,
       memberSyntaxSortOrder: ['none', 'all', 'single', 'multiple'],
     }],
     'sort-keys-fix/sort-keys-fix': 'off',

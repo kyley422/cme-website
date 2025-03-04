@@ -54,14 +54,6 @@ const PerformanceBar = () => {
       time: '7:00 PM',
       title: 'Music of China Concert',
     },
-    {
-      date: 'Sat, 3 Jan 2004',
-      image_url: 'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1725497285/cme_spring_festival_qtkwft.png',
-      location: 'Ronald Reagan Medical Center',
-      price: '16.00',
-      time: '1:00 AM',
-      title: 'Celebration of Aland',
-    },
   ]
   return (
     <>

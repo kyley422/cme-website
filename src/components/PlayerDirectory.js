@@ -1,5 +1,5 @@
 import PlayerCard from './PlayerCard'
-import { Box, Button, Flex, Grid, Text, useColorModeValue} from '@chakra-ui/react'
+import { Box, Button, Flex, Grid, Text, Image, useColorModeValue} from '@chakra-ui/react'
 // import Link from 'next/link'
 import React, { useState } from 'react'
 
@@ -71,14 +71,28 @@ const PlayerDirectory = ({ players }) => {
         </Flex>
         
         <Grid
-        templateColumns="repeat(2, 1fr)"
+        templateColumns="repeat(4, 1fr)"
         gap={10}
         width="full"
         marginTop="50px"
         justifyItems="center"
         >
-          {displayPlayers.map((p, idx) => (
+          {/* {displayPlayers.map((p, idx) => (
             <PlayerCard player={p} key={idx}/>
+          ))} */}
+          {displayPlayers.map((p, idx) => (
+            <Box key={idx} textAlign="center">
+                <Image
+                src={p.profile}
+                alt={p.name}
+                borderRadius="full"
+                boxSize="250px"
+                objectFit="cover"
+                mb="4px"
+                />
+                <Text fontWeight="extrabold" fontSize="24px">{p.name}</Text>
+                <Text fontWeight="medium" fontSize="18px">{p.major}</Text>
+            </Box>
           ))}
         </Grid>
     </Box>
