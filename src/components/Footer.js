@@ -66,7 +66,7 @@ export default function Footer() {
       color={useColorModeValue('white', 'white')}>
       <Container as={Stack} maxW={'6xl'} py={10}>
         <SimpleGrid
-          templateColumns={{ base: '1fr 1fr', md: '2fr 1fr 1fr 2fr' }}
+          templateColumns={{ base: '1fr', md: '2fr 1fr 1fr 2fr' }}
           spacing={8}>
           <Stack spacing={6}>
             <Box>
@@ -113,7 +113,7 @@ export default function Footer() {
             <Link href={'mailto:chi.li@ucla.edu'}>Professor Chi Li</Link>
             <Link href={'mailto:uclacm.inquiry@gmail.com'}>General Inquiries</Link>
           </Stack>
-          <Stack align={'flex-start'}>
+          <Stack align={'flex-start'} display={{base: 'none', md: 'flex'}}>
             <ListHeader>Stay up to date</ListHeader>
             <Stack direction={'row'}>
               <Input
