@@ -31,16 +31,16 @@ const PerformanceBar = () => {
 
   const performance_items = [
     {
-      date: 'Sat, 18 May 2024',
+      date: 'Sat, 8 March 2025',
       image_url: 'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1725497285/cme_spring_festival_qtkwft.png',
       location: 'Schoenberg Hall',
       price: 'Free',
-      time: '7:00 PM',
+      time: '5:00 PM',
       title: 'Music of China Winter 2025 Concert',
       link: 'https://schoolofmusic.ucla.edu/event/music-of-china-winter-concert-2025/',
     },
     {
-      date: 'Sat, 4 May 2024',
+      date: 'Sat, 3 May 2025',
       image_url: 'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1725497285/cme_cacn_jg89uu.png',
       location: 'Royce Hall',
       price: 'Free',
@@ -49,13 +49,13 @@ const PerformanceBar = () => {
       link: 'https://community.ucla.edu/studentorg/5165',
     },
     {
-      date: 'Sat, 2 December 2024',
+      date: 'Sat, 17 May 2025',
       image_url: 'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1725494814/cme_program_kunqu_c7jqre.png',
       location: 'Schoenberg Hall',
       price: 'Free',
-      time: '7:00 PM',
-      title: 'Music of China and Thailand',
-      link: 'https://schoolofmusic.ucla.edu/event/music-of-china-and-thailand/',
+      time: '7:30 PM',
+      title: 'Music of China Spring 2025 Concert',
+      link: '',
     },
   ]
   return (

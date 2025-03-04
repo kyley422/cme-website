@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
-import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, Heading, Image, Text } from '@chakra-ui/react'
 
 const ProgramBanner = () => {
 
@@ -40,7 +40,7 @@ const ProgramBanner = () => {
             image:
                 'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1726729889/cme_zheng_gvlq4v.png',
             text:
-                `Kunqu Opera is one of the oldest forms of Chinese opera, dating back to the Yuan Dynasty. Known for its elegance, it blends poetry, dance, music, and drama. Performers use refined gestures and stylized singing, accompanied by instruments like the dizi, pipa, and sheng. Stories are often drawn from classical literature, with famous works like The Peony Pavilion. Recognized by UNESCO, Kunqu preserves China's rich cultural heritage through its graceful, artistic performances. ​​UCLA’s Kunqu Opera allows students to showcase their art in different forms.`,
+                `The zheng unison refers to a performance where multiple zheng players perform the same melody or harmonized parts together. This creates a rich, resonant sound that amplifies key moments in the composition. Known for its harp-like tone, the zheng adds depth and warmth to the ensemble. The unison showcases precision and cohesion, as players synchronize techniques to produce a seamless sound, blending the zheng’s distinct timbre with the broader texture of the orchestra. ​​Eight to twelve students perform pieces together each quarter.`,
             title:
                 "Zheng",
         },
