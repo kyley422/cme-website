@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Image } from '@chakra-ui/react'
 import { useRouter } from 'next/router';
 import {
     // Avatar,
@@ -117,11 +118,11 @@ const ProgramsBar = () => {
                 backgroundPosition="center"
                 backgroundRepeat="no-repeat"
                 backgroundSize="cover"
-                backgroundImage={`linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent), url(${buttonOptions[currentDisplay].image})`}
+                backgroundImage={{base: 'none', md: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent), url(${buttonOptions[currentDisplay].image})`}}
                 className="image-box"
                 mt={4}
               >
-                    <Container size="lg" height="800px" w={{base: "130%", lg: "50%"}} position={{base: "absolute", lg: "relative"}} left={{base: "0%", lg: "-25%"}}>
+                    <Container size="lg" height="800px" w={{base: "100%", lg: "50%"}} position={{base: "absolute", lg: "relative"}} left={{base: "0%", lg: "-25%"}}>
                       <Stack
                         w="full"
                         position="absolute"
@@ -130,10 +131,11 @@ const ProgramsBar = () => {
                         spacing={4}
                         p={2}
                       >
+                        <Image src={buttonOptions[currentDisplay]?.image}  alt='banner' paddingTop="10px" paddingBottom="20px" display={{base: 'block', md: 'none'}}/>
                         <Heading 
-                        fontSize="40px" 
+                        fontSize={{base: "20px", lg: "40px"}} 
                         fontWeight="bold"
-                        letterSpacing="10px"
+                        letterSpacing={{base: "5px", md: "10px"}}
                         width="full" left="0%" 
                         textAlign="left"
                         >
@@ -143,7 +145,7 @@ const ProgramsBar = () => {
                           {buttonOptions[currentDisplay].text}
                         </Text>
                         <Button 
-                            alignItems="center" width="200px" height="50px" bg="red.500"
+                            alignItems="center" width={{base: "full", md: "200px"}} height="50px" bg="red.500"
                             onClick={() => router.push(`/programs?tab=${currentDisplay}`)}
                         >
                             Learn More

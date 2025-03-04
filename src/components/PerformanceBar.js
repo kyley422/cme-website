@@ -65,10 +65,10 @@ const PerformanceBar = () => {
           direction="column"
           height="100%" 
           width="100%" 
-          paddingLeft="10%" 
-          paddingRight="100px" 
-          paddingTop="20px" 
-          paddingBottom="20px"
+          paddingLeft={{base: "5%", md: "10%"}}
+          paddingRight={{base: "5%", md: "100px"}}
+          paddingTop={{base: "0px", md: "20px"}}
+          paddingBottom={{base: "0px", md: "20px"}}
           gap="30px"
           justifyContent="center"
         >
