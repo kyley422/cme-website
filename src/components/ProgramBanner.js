@@ -148,7 +148,7 @@ const ProgramBanner = () => {
                     </Box>
                 </Flex>
 
-                <Flex display={{ base: 'flex', md: 'none' }} Height="10%" width="full" flexDirection="row" gap="30px" flexWrap="wrap">
+                <Flex display={{ base: 'flex', md: 'none' }} height="10%" width="full" flexDirection="row" gap="30px" flexWrap="wrap">
                     <Box width="40%" height="full" display="flex" alignItems="flex-start" flexDirection="column" paddingLeft="0%">
                         <Text fontWeight="900" fontSize="12px" color="gray" mb="5px" letterSpacing="2px">COURSE CODE</Text>
                         <Text fontWeight="medium" fontSize="18px" color="white">{banners[currentDisplay].course_code}</Text>
