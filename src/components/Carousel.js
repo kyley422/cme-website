@@ -128,26 +128,26 @@ export default function CaptionCarousel({ autoScroll = true }) {
                 position="relative"
                 backgroundPosition="90% -10%"
                 backgroundRepeat="no-repeat"
-                backgroundImage={`url(${card.image})`}
+                backgroundImage={{base: 'none', md: `url(${card.image})`}}
                 backgroundColor="black"
                 className="image-box"
                 left=""
               >
                 <Flex height="full">
                   {/* This is the block you need to change, to customize the caption */}
-                    <Container size={{base: "sm", lg: "lg"}} height="600px" w={{base: "80%", lg: "50%"}} position="absolute" left="10%">
+                    <Container size={{base: "sm", lg: "lg"}} height="600px" w={{base: "88%", lg: "50%"}} position="absolute" left={{base: "6%", md: "10%"}}>
                       <Stack
                         w="full"
                         position="absolute"
-                        top="10%"
+                        top={{base: "5%", md: "10%"}}
                         left="0%"
                         spacing={4}
-                        p={4}
+                        p={{base: 0, md: 4}}
                       >
-                        <Heading fontSize={{base: "24px", md: "48px"}} width="full" left="0%" textAlign="left">
+                        <Heading fontSize={{base: "30px", md: "48px"}} width="full" left="0%" textAlign="left">
                         The Chinese Music Ensemble at UCLA
                         </Heading>
-                        <Text fontSize={{ base: 'md', lg: 'lg' }} textAlign="left">
+                        <Text fontSize={{ base: '18px', lg: 'lg' }} textAlign="left">
                         Beginners and experienced musicians are welcome to join the UCLA Chinese Music Ensemble.
                         We offer students the opportunity to explore traditional Chinese music through performance.
                         Directed by Professor Chi Li, the ensemble features a variety of traditional Chinese instruments.

@@ -53,41 +53,43 @@ const StudentDirectory = () => {
         direction="column"
         width="full" 
         paddingBottom="36px"
-        paddingLeft="10%"
-        paddingRight="10%"
+        paddingLeft={{base: "5%", md: "10%"}}
+        paddingRight={{base: "5%", md: "10%"}}
         gap={5}
         bg={useColorModeValue('white', 'black')}
         >
-            <Heading fontWeight="bold" fontSize="40px">Student Leadership</Heading>
+            <Heading fontWeight="bold" fontSize={{base: "30px", md: "40px"}}>Student Leadership</Heading>
             <Text fontSize="md">
             The success of the UCLA Chinese Music Ensemble is driven by dedicated student leaders who ensure smooth operations and a vibrant presence. They secure funding for costs like instrument maintenance and guest artist performances, keeping our programs accessible and high-quality. Talented students design our programs and posters, reflecting our performance essence. The social media team engages the community with updates and behind-the-scenes content. Stage managers handle logistics, coordinating setups, performers, and technical aspects. Producers and associate producers organize rehearsals, schedules, and oversee program details, bringing our artistic vision to life. These diverse roles make our ensemble thrive, fostering appreciation for Chinese music and culture at UCLA and beyond.
             </Text>
         </Flex>
 
       <Box
-        width="80%"
+        width={{base: "90%", md: "80%"}}
         height="auto"
         bg="gray.300"  
-        borderRadius="15px"  
-        padding="40px"
+        borderRadius={{base: "15px", md: "15px"}}  
+        padding={{base: "0px", md: "40px"}}
         display="flex"  
         justifyContent="center"
         alignItems="flex-start"
         textAlign="center"
-        marginLeft="10%"
+        marginLeft={{base: "5%", md: "10%"}}
         flexDirection="column"
       >
         <Box width="100%" display="flex" justifyContent="center" mb="25px">
-          <Text fontWeight="bold" fontSize="24px" color="gray.100" letterSpacing="2px" mx="auto">
+          <Text display={{base: "none", md: "block"}} fontWeight="bold" fontSize="24px" color="gray.100" letterSpacing="2px" mx="auto">
             FALL 2023 | WINTER 2024 | SPRING 2024
           </Text>
         </Box>
         
         <Grid
-        templateColumns="repeat(3, 1fr)"
-        gap={12}
+        templateColumns={{base: "repeat(2, 1fr)", md: "repeat(3, 1fr)"}}
+        gap={{base: 0, md: 12}}
+        columnGap={0}
+        rowGap={7}
         width="full"
-        marginTop="20px"
+        marginTop={{base: "0px", md: "20px"}}
         justifyItems="center"
         >
           {student_staff.map((student, idx) => (
@@ -97,14 +99,14 @@ const StudentDirectory = () => {
                 src={student.image}
                 alt={student.name}
                 borderRadius="full"
-                boxSize="300px"
+                boxSize={{base: "150px", md: "300px"}}
                 objectFit="cover"
                 mb="4px"
                 _hover={{ transform: 'scale(1.05)' }}
                 />
               </Link>
-              <Text fontWeight="extrabold" fontSize="24px">{student.name}</Text>
-              <Text fontWeight="medium" fontSize="18px">{student.position}</Text>
+              <Text fontWeight="extrabold" fontSize={{base: "16px", md: "24px"}}>{student.name}</Text>
+              <Text fontWeight="medium" fontSize={{base: "12px", md: "18px"}}>{student.position}</Text>
             </Box>
           ))}
         </Grid>

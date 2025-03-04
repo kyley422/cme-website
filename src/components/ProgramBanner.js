@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, Heading, Text, Image } from '@chakra-ui/react'
 
 const ProgramBanner = () => {
 
@@ -65,38 +65,40 @@ const ProgramBanner = () => {
     return (
         <>
             <Box
-            width="full"
-            height="600px"
+            width={{base: "auto", md: "full"}}
+            height={{base: "auto", md: "600px"}}
             backgroundRepeat="no-repeat"
             backgroundPosition="center"
-            backgroundImage={`linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent), url(${banners[currentDisplay].image})`}
+            backgroundImage={{base: 'none', md: `linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent), url(${banners[currentDisplay].image})`}}
             backgroundColor="black"
             backgroundSize="cover"
-            padding="50px"
+            padding={{base: "3%", md: "50px"}}
             >
-                <Flex height="90%" width="full" marginLeft="3%">
-                    <Box flex="1" display="flex" justifyContent="flex-start" paddingTop="20px" paddingLeft="90px">
+                <Flex height={{base: "auto", md: "90%"}} width="full" marginLeft={{ base: '0px', md: '3%' }} flexDirection={{ base: 'column', md: 'row' }} paddingBottom={{base: "20px"}}>
+                    <Box flex="1" display="flex" justifyContent="flex-start" paddingTop="20px" paddingLeft={{base: "0%", md: "90px"}}>
                         <Heading 
                         fontWeight="extrabold" 
-                        fontSize="64px"
+                        fontSize={{base: "30px", md: "64px"}}
                         textShadow="4px 4px 10px rgba(0, 0, 0, 0.5)"
                         >
                             Programs
                         </Heading>
                     </Box>
 
+                    <Image src={banners[currentDisplay]?.image}  alt='banner' paddingTop="20px" paddingBottom="20px" display={{base: 'block', md: 'none'}}/>
+
                     <Box flex="1" display="flex" justifyContent="center">
                         <Box
-                            width="585px" 
-                            height="412px"  
-                            backgroundColor="rgba(0, 0, 0, 0.5)" 
-                            backdropFilter="blur(10px)" 
+                            width={{base: "full", md: "585px"}}
+                            height={{base: "auto", md: "412px"}}
+                            backgroundColor={{base: 'none', md: "rgba(0, 0, 0, 0.5)"}}
+                            backdropFilter={{base: 'none', md: "blur(10px)"}}
                             display="flex"
                             flexDirection="column" 
                             justifyContent="flex-start"
                             alignItems="flex-start"
-                            borderRadius="10px"   
-                            padding="20px"
+                            borderRadius={{base: "0px", md: "10px"}}   
+                            padding={{base: "0px", md: "20px"}}
                         >
                             <Flex
                             width="100%"
@@ -118,13 +120,13 @@ const ProgramBanner = () => {
                                     </Button>
                                 ))}
                             </Flex>
-                            <Text fontWeight="bold" fontSize="40px" color="white" letterSpacing="20px">{banners[currentDisplay].title.toUpperCase()}</Text>
-                            <Text fontWeight="medium" fontSize="18px" color="white">{banners[currentDisplay].text}</Text>
+                            <Text paddingTop={{base: "10px",md: "0px"}} fontWeight="bold" fontSize={{base: "20px", md: "40px"}} color="white" letterSpacing={{base: "5px", md: "20px"}}>{banners[currentDisplay].title.toUpperCase()}</Text>
+                            <Text fontWeight={{base: 400, md: "medium"}} fontSize="18px" color="white">{banners[currentDisplay].text}</Text>
                         </Box>
                     </Box>
                 </Flex>
 
-                <Flex height="10%" width="full" flexDirection="row">
+                <Flex display={{base: 'none', md: 'flex'}} height="10%" width="full" flexDirection={{base: "column", md: "row"}}>
                     <Box width="30%" height="full" display="flex" alignitems="center" justifyContent="center" flexDirection="column" paddingLeft="10%">
                         <Text fontWeight="bold" fontSize="12px" color="gray" mb="5px">COURSE CODE(S)</Text>
                         <Text fontWeight="medium" fontSize="24px" color="white">{banners[currentDisplay].course_code}</Text>
@@ -135,9 +137,24 @@ const ProgramBanner = () => {
                     </Box>
                     <Box width="40%" height="200px" display="flex" alignitems="center" justifyContent="flex-start" flexDirection="column" paddingLeft="10%">
                         <Text fontWeight="bold" fontSize="12px" color="gray" mb="5px">INSTRUMENTS TAUGHT</Text>
-                        <Button width="430px" height="50px" backgroundColor="red.500" fontSize="18px" as="a" href="/instruments">Click here to see what instruments are offered</Button>
+                        <Button width={{base: "full", md: "430px"}} height="50px" backgroundColor="red.500" fontSize="18px" as="a" href="/instruments">Click here to see what instruments are offered</Button>
                     </Box>
                 </Flex>
+
+                <Flex display={{ base: 'flex', md: 'none' }} Height="10%" width="full" flexDirection="row" gap="30px">
+                    <Box width="40%" height="full" display="flex" alignItems="flex-start" flexDirection="column" paddingLeft="0%">
+                        <Text fontWeight="900" fontSize="12px" color="gray" mb="5px" letterSpacing="2px">COURSE CODE(S)</Text>
+                        <Text fontWeight="medium" fontSize="18px" color="white">{banners[currentDisplay].course_code}</Text>
+                    </Box>
+                    <Box width="45%" height="full" display="auto" alignItems="left" flexDirection="column">
+                        <Text fontWeight="900" fontSize="12px" color="gray" mb="5px" letterSpacing="2px">CLASS TIME</Text>
+                        <Text fontWeight="medium" fontSize="18px" color="white">{banners[currentDisplay].class_time}</Text>
+                    </Box>
+                </Flex>
+                <Box display={{base: 'block', md: 'none'}} width="full" height="full" alignitems="left" justifyContent="left" flexDirection="column" paddingLeft="0%" paddingTop="10px">
+                        <Text fontWeight="900" fontSize="12px" color="gray" mb="5px" letterSpacing="2px">INSTRUMENTS TAUGHT</Text>
+                        <Button borderRadius="10px" width={{base: "85%", md: "430px"}} height="50px" backgroundColor="red.500" fontSize="14px" as="a" href="/instruments" padding="10px">Click here to see what instruments are offered</Button>
+                </Box>
             </Box>
         </>
     )

@@ -6,17 +6,18 @@ const PerformanceBanner = () => {
         <>
             <Box
             width="full"
-            height="600px"
+            height={{base: "auto", md: "600px"}}
             backgroundRepeat="no-repeat"
             backgroundPosition="center"
-            backgroundImage={`linear-gradient(to top, rgba(0, 0, 0, 1), transparent), url(https://res.cloudinary.com/dp0f6uqzo/image/upload/v1727068050/cme_performance_banner_hddavq.png)`}
+            backgroundImage={{base: 'none', md: `linear-gradient(to top, rgba(0, 0, 0, 1), transparent), url(https://res.cloudinary.com/dp0f6uqzo/image/upload/v1727068050/cme_performance_banner_hddavq.png)`}}
             backgroundColor="black"
             backgroundSize="cover"
             padding="50px"
             >
                 <Flex height="90%" width="560px" marginLeft="5%">
                     <Box flex="1" flexDirection="column" display="flex" justifyContent="flex-start" paddingTop="20px" paddingLeft="10%">
-                        <Heading 
+                        <Heading
+                        
                         fontWeight="extrabold" 
                         fontSize="64px"
                         textShadow="4px 4px 10px rgba(0, 0, 0, 0.5)"

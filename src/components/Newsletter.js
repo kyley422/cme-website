@@ -47,23 +47,29 @@ const Newsletter = () => {
         >
           <Stack 
           position="absolute"
-          top="100px"
+          top={{base: "0px", md: "100px"}}
           align={'flex-start'} 
           display="flex" 
-          alignItems="center" 
-          justifyContent="center"
+          alignItems={{base: "left", md: "center"}}
+          justifyContent={{base: "left", md: "center"}}
+          padding={{base: "15px", md: "0px"}}
           maxWidth="500px"
           >
             <Heading 
-            textAlign="center">Join Our Newsletter</Heading>
+            textAlign={{base: "left", md: "center"}}>Join Our Newsletter</Heading>
             <Text
-            textAlign="center"
-            marginBottom="25px"
-            w={{base: '85%', md: '400px'}}
+            fontSize={{base: "18px", md: "16px"}}
+            textAlign={{base: "left", md: "center"}}
+            marginBottom={{base: "10px", md: "25px"}}
+            w={{base: '100%', md: '400px'}}
             >
               Stay updated with our upcoming performances once they&apos;re announced and find out about our special events!
             </Text>
-            <Stack direction={'row'}>
+            <Stack 
+            direction={{base: 'column', md: 'row'}}
+            spacing={2}
+            align="start"
+            >
               <Input
                 placeholder={'Your email address'}
                 bg="white"
@@ -71,7 +77,7 @@ const Newsletter = () => {
                 _focus={{
                   bg: 'whiteAlpha.300',
                 }}
-                w={{base: '80%', md: '400px'}}
+                w={{base: '100%', md: '400px'}}
                 _placeholder={{
                   color: 'gray.500',
                   opacity: 1
@@ -85,7 +91,7 @@ const Newsletter = () => {
                 }}
                 aria-label="Subscribe"
                 icon={<BiMailSend style={{fontSize: "24px"}} />}
-                width= "60px"
+                width={{base: '100%', md: '60px'}}
               />
             </Stack>
           </Stack>

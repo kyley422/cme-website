@@ -18,7 +18,7 @@ const InstrumentHeader = ({ instrument }) => {
     >
         <Flex 
         width="full" 
-        height="500px"
+        height={{base: "full", md: "500px"}}
         paddingLeft="10%"
         paddingRight="10%"
         gap={5}
