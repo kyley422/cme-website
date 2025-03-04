@@ -43,8 +43,8 @@ const PlayerDirectory = ({ players }) => {
     height={`${(displayPlayers.length / 3) * 300 + 500}px`}
     paddingTop="50px"
     paddingBottom="50px"
-    paddingLeft="11%"
-    paddingRight="5%"
+    paddingLeft={{base: "5%", md: "10%"}}
+    paddingRight={{base: "5%", md: "10%"}}
     bg={useColorModeValue('white', 'black')}
     >
         <Text
@@ -57,7 +57,7 @@ const PlayerDirectory = ({ players }) => {
         <Flex direction="row" wrap="wrap" justifyContent="left" width="full">
             {filterOptions.map((option, index) => (
                 <Button 
-                width="200px" 
+                width={{base: "26%", md: "200px"}}
                 height="50px" 
                 key={index} 
                 m={2} 
@@ -71,10 +71,10 @@ const PlayerDirectory = ({ players }) => {
         </Flex>
         
         <Grid
-        templateColumns="repeat(4, 1fr)"
+        templateColumns={{base: "repeat(2, 1fr)", md: "repeat(4, 1fr)"}}
         gap={10}
         width="full"
-        marginTop="50px"
+        marginTop={{base: "20px", md: "50px"}}
         justifyItems="center"
         >
           {/* {displayPlayers.map((p, idx) => (
@@ -86,7 +86,7 @@ const PlayerDirectory = ({ players }) => {
                 src={p.profile}
                 alt={p.name}
                 borderRadius="full"
-                boxSize="250px"
+                boxSize={{base: "150px", md: "300px"}}
                 objectFit="cover"
                 mb="4px"
                 />
