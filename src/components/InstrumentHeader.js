@@ -14,6 +14,7 @@ const InstrumentHeader = ({ instrument }) => {
     <Box
     width="full"
     height="full"
+    paddingBottom={{base: "10%", md: "0%"}}
     bg={useColorModeValue('white', 'black')}
     >
         <Flex 
