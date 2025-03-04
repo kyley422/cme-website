@@ -59,7 +59,6 @@ const NavBar = () => {
         <Flex flex={{ base: 'auto', md: 1}} justify={{ base: 'left', md: 'start' }} paddingLeft="7%">
           <Text
             textAlign={useBreakpointValue('left')}
-            align='center'
             fontSize={{base:"20px", md: "28px"}}
             fontWeight="semibold"
             color={useColorModeValue('gray.800', 'white')}
