@@ -34,7 +34,7 @@ const InstrumentHeader = ({ instrument }) => {
                 <Text fontWeight="normal" fontSize="18px" mb="8">
                 {instrument.description}
                 </Text>
-                <Flex flexDirection="row" alignItems="flex-end">
+                {/* <Flex flexDirection="row" alignItems="flex-end">
                     <Text fontWeight="bold" fontSize="24px">Difficulty: </Text>
                     <Flex>
                         {Array.from({ length: 5 }).map((_, index) => (
@@ -43,7 +43,7 @@ const InstrumentHeader = ({ instrument }) => {
                         </Box>
                         ))}
                     </Flex>
-                </Flex>
+                </Flex> */}
             </Box>
 
             <Box width="50%">
