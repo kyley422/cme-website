@@ -88,7 +88,7 @@ export default function Footer() {
                 />
               </SocialButton>
 
-              <SocialButton label="RedNote" href={"#"}>
+              <SocialButton label="RedNote" href="https://www.xiaohongshu.com/user/profile/64a0e00b000000001001e5c3?xsec_token=YB7RO4x7hwpVaVjtzYo6-fYCrupQ1Ug70xm-Axa-hwCJE=&xsec_source=app_share&xhsshare=CopyLink&appuid=67acefc5000000000e01e21b&apptime=1741065815&share_id=3970ca8eef624718af06bd6bb250eb65">
                 <Image
                   src="https://res.cloudinary.com/dp0f6uqzo/image/upload/v1741059055/rednote_azgljz.png"
                   alt="RedNote"

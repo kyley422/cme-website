@@ -174,7 +174,9 @@ export default function CaptionCarousel({ autoScroll = true }) {
                               width="300px" 
                               height="50px" 
                               bg="red.500"
-                              onClick={onOpen}
+                              // onClick={onOpen}
+                              as="a"
+                              href="https://docs.google.com/forms/d/1Cy9lgqgpYJlJLDlNahgoux5wfap7sj7qjx5DykwXDE4"
                             >
                             Join Today
                             </Button>
