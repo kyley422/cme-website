@@ -41,8 +41,10 @@ export default function PerformanceCarousel({ autoScroll = true }) {
   // const { colorMode } = useColorMode();
   const swiperRef = useRef(null);
 
+  const containerHeight = useBreakpointValue({ base: '85%', md: '50%' });
   const top = useBreakpointValue({ base: '90%', md: '50%' });
   const side = useBreakpointValue({ base: '30%', md: '40px' });
+  const iconSize = useBreakpointValue({ base: 8, md: 12 });
 
   const cards = [
     {
@@ -79,39 +81,12 @@ export default function PerformanceCarousel({ autoScroll = true }) {
   // }, [autoScroll, slider]);
 
   return (
-    <Box position="relative" height="700px" width="full" overflow="hidden" bg="black">
-        <Text paddingLeft="10%" fontWeight="Bold" fontSize="40px">Upcoming Performances</Text>
-        {/* Left Icon */}
-        <IconButton
-          icon={<ChevronLeftIcon boxSize="60px"/>}
-          variant="ghost"
-          position="absolute"
-          left={side}
-          top={top}
-          transform="translate(0%, -50%)"
-          zIndex={2}
-          onClick={() => swiperRef.current?.slidePrev()}
-          _hover={{bg: 'transparent'}}
-        >
-          <BiLeftArrowAlt size="40px" />
-        </IconButton>
-        <IconButton
-          icon={<ChevronRightIcon boxSize="60px"/>}
-          variant="ghost"
-          position="absolute"
-          right={side}
-          top={top}
-          transform="translate(0%, -50%)"
-          zIndex={2}
-          onClick={() => swiperRef.current?.slideNext()}
-          _hover={{ bg: 'transparent' }}
-        >
-          <BiRightArrowAlt size="40px" />
-        </IconButton>
+    <Box position="relative" height={containerHeight} width="full" overflow="hidden" bg="black" py={{ base: 4, md: 0 }}>
+        <Text paddingLeft={{ base: '5%', md: '10%' }} textAlign={{ base: 'center', md: 'left'}} fontWeight="Bold" fontSize={{ base: '3xl', md: '40px' }} mb={{ base: 4, md: 0 }}>Upcoming Performances</Text>
           <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={50}
-          slidesPreview={1}
+          slidesPerView={1}
           navigation={false}
           pagination={{ clicakble: true }}
           autoplay={autoScroll ? {delay: 5000, disableOnInteraction: false} : false}
@@ -124,18 +99,19 @@ export default function PerformanceCarousel({ autoScroll = true }) {
               <Box 
               w="full"  
               display="flex" 
-              flexDirection="row"
+              flexDirection={{ base: 'column', md: 'row' }}
               alignItems="center"
               gap={8}
               px={8}
               boxsizing="border-box"
               >
                   <Flex 
-                  w="50%" 
+                  w={{ base: '100%', md: '50%' }}
                   display="flex" 
                   justifyContent="center"
                   alignItems="center"
                   flexShrink={0}
+                  mb={{ base: 4, md: 0 }}
                   >
                       <Image 
                       src={card.image} 
@@ -146,14 +122,14 @@ export default function PerformanceCarousel({ autoScroll = true }) {
                       />
                   </Flex>
                   <Flex 
-                  w="40%"  
+                  w={{ base: '100%', md: '40%' }}
                   display="flex" 
                   justifyContent="flex-start"
                   flexDir="column" 
                   alignItems="center"
                   >
                       <Text 
-                      fontSize="40px" 
+                      fontSize={{ base: '2xl', md: '40px' }}
                       fontWeight="bold"
                       textAlign="center"
                       textDecoration="underline"
@@ -172,45 +148,63 @@ export default function PerformanceCarousel({ autoScroll = true }) {
                       height="35%"
                       width="95%"
                       p="13"
+                      flexWrap={{ base: 'wrap', md: 'nowrap' }}
                       >
-                          <Flex direction="column" width="55%" justifyContent="center" alignItems="flex-start" gap="4">
-                              <Flex direction="row" height="50%" alignItems="center" justifyContent="center">
-                                  <Icon as={MdEvent} mr="2" w={8} h={8} />
+                          <Flex direction="column" width={{ base: '100%', md: '55%' }} justifyContent="center" alignItems="flex-start" gap="4" mb={{ base: 4, md: 0 }}>
+                              <Flex direction="row" height="50%" alignItems="center" justifyContent="center" mb={{ base: 2, md: 0 }}>
+                                  <Icon as={MdEvent} mr="2" w={{base: 6, md: 8}} h={{base: 6, md: 8}} />
                                   <Text fontSize="16px">{card.date}</Text>
                               </Flex>
                               <Flex direction="row" height="50%" alignItems="center" justifyContent="center">
-                                  <Icon as={MdAccessTime} mr="2" w={8} h={8} />
+                                  <Icon as={MdAccessTime} mr="2" w={{base: 6, md: 8}} h={{base: 6, md: 8}} />
                                   <Text fontSize="16px">{card.time}</Text>
                               </Flex>
                           </Flex>
 
-                          <Flex direction="column" width="45%" justifyContent="center" alignItems="flex-start" gap="4">
-                          <Flex direction="row" height="50%" alignItems="center" justifyContent="center">
-                                  <Icon as={MdLocationOn} mr="2" w={8} h={8} />
+                          <Flex direction="column" width={{ base: '100%', md: '45%' }} justifyContent="center" alignItems="flex-start" gap="4" mb={{ base: 2, md: 0 }}>
+                          <Flex direction="row" height="50%" alignItems="center" justifyContent="center" mb={{ base: 2, md: 0 }}>
+                                  <Icon as={MdLocationOn} mr="2" w={{base: 6, md: 8}} h={{base: 6, md: 8}} />
                                   <Text fontSize="16px">{card.location}</Text>
                               </Flex>
                               <Flex direction="row" height="50%" alignItems="center" justifyContent="center">
-                                  <Icon as={MdAttachMoney} mr="2" w={8} h={8} />
+                                  <Icon as={MdAttachMoney} mr="2" w={{base: 6, md: 8}} h={{base: 6, md: 8}} />
                                   <Text fontSize="16px">{card.price}</Text>
                               </Flex>
                           </Flex>
                       </Flex>
                       <Text
                       alignItems="center"
-                      fontSize="20px"
+                      fontSize={{ base: 'md', md: '20px' }}
                       fontWeight="light"
                       width="90%"
                       >
                         {card.description}
                       </Text>
+                      
+                      <Flex justifyContent="center" alignItems="center" mt={4} gap={4}> 
+                        <IconButton
+                          icon={<ChevronLeftIcon boxSize={iconSize} />}
+                          variant="ghost"
+                          onClick={() => swiperRef.current?.slidePrev()}
+                          _hover={{ bg: 'transparent' }}
+                          aria-label="Previous Slide" // Accessibility
+                        />
+                        <IconButton
+                          icon={<ChevronRightIcon boxSize={iconSize} />}
+                          variant="ghost"
+                          onClick={() => swiperRef.current?.slideNext()}
+                          _hover={{ bg: 'transparent' }}
+                          aria-label="Next Slide" // Accessibility
+                        />
+                      </Flex>
 
                       <Button
-                        marginTop="25px"
-                        marginLeft="5%"
-                        padding="20px"
-                        width="240px"
+                        marginTop={{ base: '20px', md: '25px' }}
+                        marginLeft={{ base: 0, md: '5%' }}
+                        padding={{ base: '16px', md: '20px' }}
+                        width={{ base: 'auto', md: '240px' }}
                         bg="red.500"
-                        alignSelf="flex-start"
+                        alignSelf={{ base: 'center', md: 'flex-start' }}
                       >
                         Register Now!
                       </Button>
