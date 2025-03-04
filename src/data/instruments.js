@@ -62,7 +62,7 @@ const instruments = [
         link: 'https://www.youtube.com/watch?v=NYOb4HHzH_w',
         name: 'Yangqin',
         players: ["Kacey Yang", "Joann Zhang"],
-        tags: ["All", "Ensemble", "Qin"],
+        tags: ["All", "Ensemble"],
         title: 'Yangqin 扬琴',
     },
     {
@@ -73,7 +73,7 @@ const instruments = [
         link: 'https://www.youtube.com/watch?v=jsHdsoUMtpU',
         name: 'Liuqin',
         players: ["Yi Liu"],
-        tags: ["All", "Ensemble", "Qin"],
+        tags: ["All", "Ensemble"],
         title: 'Liuqin 柳琴',
     },
     {

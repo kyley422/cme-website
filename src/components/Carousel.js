@@ -8,6 +8,13 @@ import {
   Flex,
   Heading,
   // IconButton,
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  ModalOverlay,
+  useDisclosure,
   Stack,
   Text,
   // useBreakpointValue,
@@ -29,6 +36,7 @@ const settings = {
 export default function CaptionCarousel({ autoScroll = true }) {
   const [slider, setSlider] = useState(null);
   const { colorMode } = useColorMode();
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   // const top = useBreakpointValue({ base: '90%', md: '50%' });
   // const side = useBreakpointValue({ base: '30%', md: '40px' });
@@ -162,15 +170,45 @@ export default function CaptionCarousel({ autoScroll = true }) {
                         gap="30px"
                         >
                             <Button 
-                              alignItems="center" width="300px" height="50px" bg="red.500"
+                              alignItems="center" 
+                              width="300px" 
+                              height="50px" 
+                              bg="red.500"
+                              onClick={onOpen}
                             >
                             Join Today
                             </Button>
                             <Button 
-                              alignItems="center" width="300px" height="50px" bg="transparent" border="2px solid" borderColor="red.600" _hover={{ bg: "red.100", borderColor: "red.700" }}
+                              as="a"
+                              href="mailto:uclacm.inquiry@gmail.com"
+                              alignItems="center" 
+                              width="300px" 
+                              height="50px" 
+                              bg="transparent" 
+                              border="2px solid" 
+                              borderColor="red.600" 
+                              _hover={{ bg: "red.100", borderColor: "red.700" }}
                             >
                             Contact Us
                           </Button>
+
+                          <Modal isOpen={isOpen} onClose={onClose} backgroundColor="gray.900" isCentered>
+                            <ModalOverlay />
+                            <ModalContent borderRadius="lg" p={4} backgroundColor="gray.900">
+                              <ModalHeader>Join Today</ModalHeader>
+                              <ModalBody>
+                                <Text>
+                                  Here are the instructions!
+                                </Text>
+                              </ModalBody>
+                              <ModalFooter>
+                                <Button backgroundColor="red.500" onClick={onClose}>
+                                  Close
+                                </Button>
+                              </ModalFooter>
+                            </ModalContent>
+                          </Modal>
+
                         </Flex>
                       </Stack>
                     </Container>
