@@ -7,7 +7,7 @@ import React, {useState,useEffect} from 'react';
 import {Box} from '@chakra-ui/react';
 
 function useWindowSize() {
-  const [size, setSize] = useState({ width: 0, height: 0 });
+  const [size, setSize] = useState({ width: window.innerWidth, height: window.innerHeight });
 
   useEffect(() => {
     function handleResize() {
