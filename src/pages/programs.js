@@ -13,9 +13,9 @@ function Programs() {
     <Box>
       <NavBar />
       <ProgramBanner/>
-      <Box id="course-calendar">
+      {/* <Box id="course-calendar">
         <ProgramCalendar/>
-      </Box>
+      </Box> */}
       <Footer/>
     </Box>
   );

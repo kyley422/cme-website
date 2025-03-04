@@ -53,30 +53,32 @@ const NavBar = () => {
         color={useColorModeValue('gray.600', 'white')}
         minH={'60px'}
         py={{ base: 8 }}
-        px={{ base: 20 }}
-        align={'center'}
+        px={{ base: 'flex', md: 20 }}
+        align={{base: 'left', md: 'center'}}
       >
-        <Flex
-          flex={{ base: 1, md: 'auto' }}
-          ml={{ base: -2 }}
-          display={{ base: 'flex', md: 'none' }}
-        >
-          <IconButton
-            onClick={onToggle}
-            icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />}
-            variant={'ghost'}
-            aria-label={'Toggle Navigation'}
-          />
-        </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }} paddingLeft="7%">
+        <Flex flex={{ base: 'auto', md: 1}} justify={{ base: 'left', md: 'start' }} paddingLeft="7%">
           <Text
-            textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-            fontSize="28px"
+            textAlign={useBreakpointValue('left')}
+            fontSize={{base:"20px", md: "28px"}}
             fontWeight="semibold"
             color={useColorModeValue('gray.800', 'white')}
           >
             UCLA Chinese Music
           </Text>
+        </Flex>
+        <Flex
+          flex={{ base: 'auto', md: 'auto' }}
+          ml={{ base: 'auto', md: -2 }}
+          display={{ base: 'flex', md: 'none' }}
+          justifyContent={'flex-end'}
+        >
+          <IconButton
+            align='right'
+            onClick={onToggle}
+            icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />}
+            variant={'ghost'}
+            aria-label={'Toggle Navigation'}
+          />
         </Flex>
 
         <Flex display = {{ base: 'none', md: 'flex'}} justify="flex-end">

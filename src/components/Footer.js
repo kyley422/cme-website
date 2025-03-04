@@ -66,13 +66,14 @@ export default function Footer() {
       color={useColorModeValue('white', 'white')}>
       <Container as={Stack} maxW={'6xl'} py={10}>
         <SimpleGrid
-          templateColumns={{ md: '2fr 1fr 1fr 2fr', sm: '1fr 1fr' }}
+          templateColumns={{ base: '1fr 1fr', md: '2fr 1fr 1fr 2fr' }}
           spacing={8}>
           <Stack spacing={6}>
             <Box>
               <Logo color={useColorModeValue('gray.700', 'white')} />
             </Box>
-            <Text fontSize={'sm'}>
+            <Text fontSize={'sm'}
+            display={{base: 'none', md: 'block'}}>
               © 2024 All rights reserved
             </Text>
             <Stack direction={'row'} spacing={6}>

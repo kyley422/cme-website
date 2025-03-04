@@ -40,7 +40,7 @@ const InstrumentCatalog = () => {
   return (
     <Box
     width="full"
-    height={`${(displayInstruments.length / 4) * 300 + 500}px`}
+    height={{base: `${(displayInstruments.length / 2) * 270}px`, md: `${(displayInstruments.length / 4) * 300 + 500}px`}}
     paddingTop="50px"
     paddingBottom="50px"
     paddingLeft="5%"
@@ -64,22 +64,23 @@ const InstrumentCatalog = () => {
         </Flex>
         
         <Grid
-        templateColumns="repeat(4, 1fr)"
-        gap={10}
-        gridAutoRows="280px" // 270 + 10
+        templateColumns={{base: "repeat(2, 1fr)", md: "repeat(4, 1fr)"}}
+        gap={{base: 0, md: 10}}
+        columnGap={{base: 5}}
+        gridAutoRows={{base: "240px", md: "280px"}} // 270 + 10
         width="full"
-        marginTop="50px"
+        marginTop={{base: "20px", md: "50px"}}
         justifyItems="center"
         >
           {displayInstruments.map((instrument, idx) => (
-            <Box key={idx} textAlign="center" position="relative" width="270px" height="270px" role="group">
+            <Box key={idx} justifyContent="center" alignContent="center" textAlign="center" position="relative" width={{base: "full", md: "270px"}} height={{base: "full", md: "270px"}} role="group">
               <Link href={`/instruments/${instrument.id}`} passHref>
                 <Image
                 src={instrument.image}
                 alt={instrument.name}
-                width="270px"
-                height="270px"
-                objectFit="cover"
+                width={{base: "full", md: "270px"}}
+                height={{base: "full", md: "270px"}}
+                objectFit={{base: "contain", md: "cover"}}
                 mb="4px"
                 _hover={{ transform: 'scale(1.01)' }}
                 transition="transform 0.3s ease"
