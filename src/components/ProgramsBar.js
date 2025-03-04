@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useRouter } from 'next/router';
 import {
     // Avatar,
     Box,
@@ -30,6 +31,7 @@ import {
 const ProgramsBar = () => {
     // const { colorMode } = useColorMode();
     const [currentDisplay, setCurrentDisplay] = useState(0)
+    const router = useRouter();
 
     const selectProgram = (index) => {
         console.log("INDEX: " + index)
@@ -135,6 +137,7 @@ const ProgramsBar = () => {
                         </Text>
                         <Button 
                             alignItems="center" width="200px" height="50px" bg="red.500"
+                            onClick={() => router.push(`/programs?tab=${currentDisplay}`)}
                         >
                             Learn More
                         </Button>

@@ -129,7 +129,7 @@ const ProgramCalendar = () => {
             </Grid>
         </Box>
 
-        <Box backgroundColor="black">
+        <Box backgroundColor="black" paddingBottom="5%">
             <Box
             padding="45px"
             marginLeft="10%"

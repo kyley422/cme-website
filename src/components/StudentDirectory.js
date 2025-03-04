@@ -1,47 +1,40 @@
 import Link from 'next/link'
-import React from 'react'
-import { Box, Flex, Grid, Heading, Image, Text, useColorModeValue} from '@chakra-ui/react'
+import React, { useState } from 'react'
+import { Box, Button, Flex, Grid, Heading, Image, Text, useColorModeValue } from '@chakra-ui/react'
+import student_staff from 'data/staff'
 
 const StudentDirectory = () => {
-
-  const student_staff = [
+  const filterOptions = [
     {
-      image: "https://res.cloudinary.com/dp0f6uqzo/image/upload/v1726716459/cme_adeng_i3auq6.png",
-      name: "Alice Deng",
-      position: "Producer",
-      link: "",
+        filter: "All"
     },
     {
-      image: "https://res.cloudinary.com/dp0f6uqzo/image/upload/v1726716458/cme_cpoon_ve2p4h.png",
-      name: "Cory Poon",
-      position: "Associate Producer & Designer",
-      link: "",
+        filter: "Current"
     },
     {
-      image: "https://res.cloudinary.com/dp0f6uqzo/image/upload/v1726716459/cme_sli_oxc4um.png",
-      name: "Shitong Li",
-      position: "Associate Producer",
-      link: "",
-    },
-    {
-      image: "https://res.cloudinary.com/dp0f6uqzo/image/upload/v1726716459/cme_ydong_g9anjy.png",
-      name: "Yizhou Dong",
-      position: "Associate Producer",
-      link: "",
-    },
-    {
-      image: "https://res.cloudinary.com/dp0f6uqzo/image/upload/v1726716459/cme_chu_inhxsx.png",
-      name: "Catherine Hu",
-      position: "Stage Manager",
-      link: "",
-    },
-    {
-      image: "https://res.cloudinary.com/dp0f6uqzo/image/upload/v1726716459/cme_imautner_izt5iq.png",
-      name: "Ian Mautner",
-      position: "Stage Manager",
-      link: "",
-    },
+        filter: "Alumni"
+    }, 
   ]
+
+  const [currentFilter, setCurrentFilter] = useState(0)
+  const [displayStaff, setDisplayStaff] = useState(student_staff)
+
+  const selectFilter = (index) => {
+      setCurrentFilter(index);
+      filterPlayers(filterOptions[index].filter)
+  }
+
+  const filterPlayers = (status) => {
+      setDisplayStaff(student_staff.filter((staff) => {
+          if (status === "Alumni") {
+              return staff.year === "Alumna";
+          }
+          else if (status !== "All") {
+              return staff.year !== "Alumna";
+          }
+          return true;
+      }))
+  }
 
   return (
     <Box
@@ -64,12 +57,26 @@ const StudentDirectory = () => {
             </Text>
         </Flex>
 
+      <Flex direction="row" wrap="wrap" justifyContent="left" width="100%" paddingLeft="10%">
+          {filterOptions.map((option, index) => (
+              <Button 
+              width="200px" 
+              height="50px" 
+              key={index} 
+              m={2} 
+              onClick={() => selectFilter(index)}
+              border={currentFilter === index ? "2px solid white" : "none"}
+              color={currentFilter === index ? "white" : "gray"}
+              >
+                  {filterOptions[index].filter}
+              </Button>
+          ))}
+      </Flex>
+
       <Box
         width="80%"
         height="auto"
-        bg="gray.300"  
-        borderRadius="15px"  
-        padding="40px"
+
         display="flex"  
         justifyContent="center"
         alignItems="flex-start"
@@ -77,13 +84,39 @@ const StudentDirectory = () => {
         marginLeft="10%"
         flexDirection="column"
       >
-        <Box width="100%" display="flex" justifyContent="center" mb="25px">
+        {/* <Box width="100%" display="flex" justifyContent="center" mb="25px">
           <Text fontWeight="bold" fontSize="24px" color="gray.100" letterSpacing="2px" mx="auto">
             FALL 2023 | WINTER 2024 | SPRING 2024
           </Text>
-        </Box>
-        
+        </Box> */}
+
         <Grid
+          templateColumns="repeat(4, 1fr)"
+          gap={10}
+          width="full"
+          marginTop="50px"
+          justifyItems="center"
+          >
+            {/* {displayPlayers.map((p, idx) => (
+              <PlayerCard player={p} key={idx}/>
+            ))} */}
+            {displayStaff.map((p, idx) => (
+              <Box key={idx} textAlign="center">
+                  <Image
+                  src={p.image}
+                  alt={p.name}
+                  borderRadius="full"
+                  boxSize="250px"
+                  objectFit="cover"
+                  mb="4px"
+                  />
+                  <Text fontWeight="extrabold" fontSize="24px">{p.name}</Text>
+                  <Text fontWeight="medium" fontSize="18px">{p.position}</Text>
+              </Box>
+            ))}
+        </Grid>
+        
+        {/* <Grid
         templateColumns="repeat(3, 1fr)"
         gap={12}
         width="full"
@@ -92,7 +125,6 @@ const StudentDirectory = () => {
         >
           {student_staff.map((student, idx) => (
             <Box key={idx} textAlign="center">
-              <Link href={student.link} isExternal>
                 <Image
                 src={student.image}
                 alt={student.name}
@@ -100,14 +132,13 @@ const StudentDirectory = () => {
                 boxSize="300px"
                 objectFit="cover"
                 mb="4px"
-                _hover={{ transform: 'scale(1.05)' }}
+                // _hover={{ transform: 'scale(1.05)' }}
                 />
-              </Link>
               <Text fontWeight="extrabold" fontSize="24px">{student.name}</Text>
               <Text fontWeight="medium" fontSize="18px">{student.position}</Text>
             </Box>
           ))}
-        </Grid>
+        </Grid> */}
       </Box>
     </Box>
   )

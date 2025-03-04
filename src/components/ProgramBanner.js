@@ -1,9 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/router';
 import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react'
 
 const ProgramBanner = () => {
 
     const [currentDisplay, setCurrentDisplay] = useState(0)
+    const router = useRouter();
+    const { tab } = router.query;
+
+    useEffect(() => {
+        if (tab !== undefined) {
+          setCurrentDisplay(parseInt(tab, 10));
+        }
+      }, [tab]);
 
     const selectProgram = (index) => {
         console.log("INDEX: " + index)
@@ -19,8 +28,7 @@ const ProgramBanner = () => {
             image:
                 'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1726729889/cme_ensemble_y9qqei.png',
             text:
-                `A Chinese orchestra comprised of over 20 different traditional Chinese instruments, 
-                ranging from the bowed erhu and the plucked pipa.`,
+                `The beginner and advanced ensemble groups highlight Chinese instrumental music. Featuring more than twenty traditional instruments like the pipa, erhu, and dizi, the ensemble performs classical and folk pieces, offering a rich cultural experience. They present a repertoire that blends ancient and modern styles. Open to students of all levels, the ensemble fosters cultural appreciation through music, bridging traditional Chinese heritage with contemporary influences. ​Students are able to select from a variety of instruments to choose from.`,
             title:
                 "Ensemble",
         },
@@ -32,7 +40,7 @@ const ProgramBanner = () => {
             image:
                 'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1726729889/cme_zheng_gvlq4v.png',
             text:
-                `A zheng unison featuring the zheng, or guzheng, an ancient Chinese plucked zither with a rich history.`,
+                `Kunqu Opera is one of the oldest forms of Chinese opera, dating back to the Yuan Dynasty. Known for its elegance, it blends poetry, dance, music, and drama. Performers use refined gestures and stylized singing, accompanied by instruments like the dizi, pipa, and sheng. Stories are often drawn from classical literature, with famous works like The Peony Pavilion. Recognized by UNESCO, Kunqu preserves China's rich cultural heritage through its graceful, artistic performances. ​​UCLA’s Kunqu Opera allows students to showcase their art in different forms.`,
             title:
                 "Zheng",
         },
@@ -44,7 +52,7 @@ const ProgramBanner = () => {
             image:
                 'https://res.cloudinary.com/dp0f6uqzo/image/upload/v1726729888/cme_kunqu_kobzuy.png',
             text:
-                `An opera performing one of the oldest extant forms of Chinese opera where students learn the ancient lurical and dances.`,
+                `Kunqu Opera is one of the oldest forms of Chinese opera, dating back to the Yuan Dynasty. Known for its elegance, it blends poetry, dance, music, and drama. Performers use refined gestures and stylized singing, accompanied by instruments like the dizi, pipa, and sheng. Stories are often drawn from classical literature, with famous works like The Peony Pavilion. Recognized by UNESCO, Kunqu preserves China's rich cultural heritage through its graceful, artistic performances. ​​UCLA’s Kunqu Opera allows students to showcase their art in different forms.`,
             title:
                 "Kunqu Opera",
         },

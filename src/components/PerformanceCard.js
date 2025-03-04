@@ -27,7 +27,7 @@ import {
   } from '@chakra-ui/react';
 import { MdAccessTime, MdAttachMoney, MdEvent, MdLocationOn} from 'react-icons/md';
 
-const PerformanceCard = ({ date, image_url, location, price, time, title }) => {
+const PerformanceCard = ({ date, image_url, location, price, time, title, link }) => {
   return (
     <>
         <Box
@@ -89,7 +89,7 @@ const PerformanceCard = ({ date, image_url, location, price, time, title }) => {
                         </Flex>
                     </Flex>
                 </Flex>
-                <Button m="2" h="50px" bg="red.500">View Details</Button>
+                <Button m="2" h="50px" bg="red.500" as="a" href={link}>View Details</Button>
             </Flex>
         </Box>
     </>

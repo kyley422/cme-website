@@ -36,7 +36,8 @@ const PerformanceBar = () => {
       location: 'Schoenberg Hall',
       price: 'Free',
       time: '7:00 PM',
-      title: 'Spring Festival of Music',
+      title: 'Music of China Winter 2025 Concert',
+      link: 'https://schoolofmusic.ucla.edu/event/music-of-china-winter-concert-2025/',
     },
     {
       date: 'Sat, 4 May 2024',
@@ -44,7 +45,8 @@ const PerformanceBar = () => {
       location: 'Royce Hall',
       price: 'Free',
       time: '7:00 PM',
-      title: 'CACN Culture Night',
+      title: 'Chinese American Culture Night',
+      link: 'https://community.ucla.edu/studentorg/5165',
     },
     {
       date: 'Sat, 2 December 2024',
@@ -52,7 +54,8 @@ const PerformanceBar = () => {
       location: 'Schoenberg Hall',
       price: 'Free',
       time: '7:00 PM',
-      title: 'Music of China Concert',
+      title: 'Music of China and Thailand',
+      link: 'https://schoolofmusic.ucla.edu/event/music-of-china-and-thailand/',
     },
   ]
   return (
@@ -91,6 +94,7 @@ const PerformanceBar = () => {
               time={item.time}
               location={item.location}
               price={item.price}
+              link={item.link}
               />
             ))}
           </Box>

@@ -4,6 +4,7 @@ import {
   Box,
   Container,
   IconButton,
+  Image,
   Input,
   Link,
   SimpleGrid,
@@ -13,7 +14,7 @@ import {
   chakra,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaInstagram } from 'react-icons/fa';
 
 const Logo = (props) => {
   return (
@@ -75,14 +76,26 @@ export default function Footer() {
               © 2024 All rights reserved
             </Text>
             <Stack direction={'row'} spacing={6}>
-              <SocialButton label={'Twitter'} href={'#'}>
-                <FaTwitter />
+              <SocialButton label="Instagram" href="https://www.instagram.com/uclachinesemusic/">
+                <Image
+                  src="https://res.cloudinary.com/dp0f6uqzo/image/upload/v1741059536/ig_trans_uvs9ac.png"
+                  alt="Instagram"
+                  boxSize="24px"
+                  filter="grayscale(100%)"
+                  _hover={{ filter: "grayscale(0%)", transform: "scale(1.1)" }}
+                  transition="0.2s ease-in-out"
+                />
               </SocialButton>
-              <SocialButton label={'YouTube'} href={'#'}>
-                <FaYoutube />
-              </SocialButton>
-              <SocialButton label={'Instagram'} href={'#'}>
-                <FaInstagram />
+
+              <SocialButton label="RedNote" href={"#"}>
+                <Image
+                  src="https://res.cloudinary.com/dp0f6uqzo/image/upload/v1741059055/rednote_azgljz.png"
+                  alt="RedNote"
+                  boxSize="24px"
+                  filter="grayscale(100%)"
+                  _hover={{ filter: "grayscale(0%)", transform: "scale(1.1)" }}
+                  transition="0.2s ease-in-out"
+                />
               </SocialButton>
             </Stack>
           </Stack>
@@ -96,8 +109,8 @@ export default function Footer() {
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>Contact</ListHeader>
-            <Link href={'#'}>Professor Chi Li</Link>
-            <Link href={'#'}>Student Leadership</Link>
+            <Link href={'mailto:chi.li@ucla.edu'}>Professor Chi Li</Link>
+            <Link href={'mailto:uclacm.inquiry@gmail.com'}>General Inquiries</Link>
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>Stay up to date</ListHeader>
