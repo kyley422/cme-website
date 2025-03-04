@@ -57,10 +57,10 @@ const StudentDirectory = () => {
             </Text>
         </Flex>
 
-      <Flex direction="row" wrap="wrap" justifyContent="left" width="100%" paddingLeft="10%">
+      <Flex direction="row" wrap="wrap" justifyContent="left" width="100%" paddingLeft={{base: "3%", md: "10%"}}>
           {filterOptions.map((option, index) => (
               <Button 
-              width="200px" 
+              width={{base: "26%", md: "200px"}}
               height="50px" 
               key={index} 
               m={2} 
@@ -76,12 +76,13 @@ const StudentDirectory = () => {
       <Box
         width={{base: "90%", md: "80%"}}
         height="auto"
-
+        borderRadius={{base: "15px", md: "15px"}}  
+        padding={{base: "0px", md: "40px"}}
         display="flex"  
         justifyContent="center"
         alignItems="flex-start"
         textAlign="center"
-        marginLeft={{base: "5%", md: "10%"}}
+        marginLeft={{base: "6%", md: "10%"}}
         flexDirection="column"
       >
         {/* <Box width="100%" display="flex" justifyContent="center" mb="25px">
@@ -91,10 +92,10 @@ const StudentDirectory = () => {
         </Box> */}
 
         <Grid
-          templateColumns="repeat(4, 1fr)"
+          templateColumns={{base: "repeat(2, 1fr)", md: "repeat(4, 1fr)"}}
           gap={10}
           width="full"
-          marginTop="50px"
+          marginTop={{base: "20px", md: "50px"}}
           justifyItems="center"
           >
             {/* {displayPlayers.map((p, idx) => (
@@ -106,7 +107,7 @@ const StudentDirectory = () => {
                   src={p.image}
                   alt={p.name}
                   borderRadius="full"
-                  boxSize="250px"
+                  boxSize={{base: "150px", md: "300px"}}
                   objectFit="cover"
                   mb="4px"
                   />

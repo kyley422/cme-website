@@ -59,6 +59,7 @@ const NavBar = () => {
         <Flex flex={{ base: 'auto', md: 1}} justify={{ base: 'left', md: 'start' }} paddingLeft="7%">
           <Text
             textAlign={useBreakpointValue('left')}
+            align='center'
             fontSize={{base:"20px", md: "28px"}}
             fontWeight="semibold"
             color={useColorModeValue('gray.800', 'white')}
@@ -71,9 +72,10 @@ const NavBar = () => {
           ml={{ base: 'auto', md: -2 }}
           display={{ base: 'flex', md: 'none' }}
           justifyContent={'flex-end'}
+          align='center'
         >
           <IconButton
-            align='right'
+            align='center'
             onClick={onToggle}
             icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />}
             variant={'ghost'}

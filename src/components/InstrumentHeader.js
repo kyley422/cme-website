@@ -1,6 +1,6 @@
 import React from 'react'
 import VidBox from './VidBox'
-import { Box, Flex, Heading, Icon, Text, useColorModeValue} from '@chakra-ui/react'
+import { Box, Flex, Heading, Icon, Text, useColorModeValue, AspectRatio } from '@chakra-ui/react'
 import { FaStar } from 'react-icons/fa'
 
 const InstrumentHeader = ({ instrument }) => {
@@ -18,37 +18,37 @@ const InstrumentHeader = ({ instrument }) => {
     >
         <Flex 
         width="full" 
+        flexDirection={{base: "column", md: "row"}}
         height={{base: "full", md: "500px"}}
-        paddingLeft="10%"
-        paddingRight="10%"
+        paddingLeft={{base: "5%", md: "10%"}}
+        paddingRight={{base: "5%", md: "10%"}}
         gap={5}
         bg={useColorModeValue('white', 'black')}
         >
             <Box 
-            width="40%"
-            minWidth="400px" 
-            p="20px" 
-            marginRight="5%"
+            width={{base: "full", md: "40%"}}
+            minWidth={{base: "auto", md: "400px"}} 
+            p={{base: "0px", md: "20px"}}
+            marginRight={{base: "0%", md: "5%"}}
             >
-                <Heading fontWeight="extrabold" mb="4" fontSize="64px">{instrument.title}</Heading>
-                <Text fontWeight="normal" fontSize="18px" mb="8">
+                <Heading fontWeight="extrabold" mb="4" fontSize={{base: "30px", md: "64px"}}>{instrument.title}</Heading>
+                <Text fontWeight="normal" fontSize={{base: "16px", md: "18px"}} mb="8">
                 {instrument.description}
                 </Text>
-                {/* <Flex flexDirection="row" alignItems="flex-end">
-                    <Text fontWeight="bold" fontSize="24px">Difficulty: </Text>
-                    <Flex>
-                        {Array.from({ length: 5 }).map((_, index) => (
-                        <Box key={index} ml="6px">
-                            <Icon as={FaStar} color={index < instrument.diff ? 'gold' : 'gray.400'} boxSize="24px"/>
-                        </Box>
-                        ))}
-                    </Flex>
-                </Flex> */}
             </Box>
 
-            <Box width="50%">
+            <Box display={{base: "none", md: "block"}} width="50%" height="500px">
                 <VidBox videoUrl={getEmbedUrl(instrument.link)} instrument={instrument}/>
             </Box>
+
+            <AspectRatio ratio={16 / 9} display={{base: 'flex', md: 'none'}}>
+                <Box as="iframe"
+                    src={getEmbedUrl(instrument.link)}
+                    allowFullScreen
+                    width="90%"
+                    height="90%"
+                />
+            </AspectRatio>
         </Flex>
     </Box>
   )
