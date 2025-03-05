@@ -3,13 +3,16 @@ import NavBar from 'components/NavBar';
 import PastPerformance from 'components/PastPerformance';
 import PerformanceBanner from 'components/PerformanceBanner';
 import PerformanceCarousel from 'components/PerformanceCarousel';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Box} from '@chakra-ui/react';
 
 
 
 
 function Performances() {
+  useEffect(() => {
+    document.title = 'Performances | UCLA Chinese Music';
+  }, []);
   return (
     <Box>
       <NavBar />

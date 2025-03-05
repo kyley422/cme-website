@@ -5,7 +5,7 @@ import '@fontsource/outfit/500.css'; // Outfit Medium
 import '@fontsource/outfit/600.css'; // Outfit Semibold
 import '@fontsource/outfit/700.css'; // Outfit Bold
 import '@fontsource/outfit/800.css'; // Outfit Extra Bold
-// import Head from 'next/head';
+import Head from 'next/head';
 import PropTypes from 'prop-types';
 import React from 'react';
 // import Footer from 'components/Footer';
@@ -65,6 +65,9 @@ export const theme = extendTheme({ config, colors: colors, fonts: fonts, fontWei
 function MyApp({ Component, pageProps }) {
   return (
     <>
+      <Head>
+        <link rel="icon" href="cme-website/public/favicon.ico"/>
+      </Head>
       <ChakraProvider theme={theme}>
         <Box bg="gray.900" minH="100vh">
         <Component {...pageProps} />

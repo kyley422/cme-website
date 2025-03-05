@@ -8,6 +8,7 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {/* Custom head elements */}
+          <link rel="icon" href="cme-website/public/favicon.ico"/>
         </Head>
         <body>
           <ColorModeScript initialColorMode={theme.config.initialColorMode}/>
