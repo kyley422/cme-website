@@ -65,9 +65,6 @@ export const theme = extendTheme({ config, colors: colors, fonts: fonts, fontWei
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Head>
-        <link rel="icon" href="cme-website/public/favicon.ico"/>
-      </Head>
       <ChakraProvider theme={theme}>
         <Box bg="gray.900" minH="100vh">
         <Component {...pageProps} />
