@@ -71,13 +71,15 @@ const NavBar = () => {
           ml={{ base: 'auto', md: -2 }}
           display={{ base: 'flex', md: 'none' }}
           justifyContent={'flex-end'}
+          align='center'
         >
           <IconButton
-            align='right'
+            align='center'
             onClick={onToggle}
             icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />}
             variant={'ghost'}
             aria-label={'Toggle Navigation'}
+            color={useColorModeValue('white')}
           />
         </Flex>
 

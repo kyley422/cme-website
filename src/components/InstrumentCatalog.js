@@ -47,16 +47,21 @@ const InstrumentCatalog = () => {
     paddingRight="5%"
     bg={useColorModeValue('white', 'black')}
     >
-        <Flex direction="row" wrap="wrap" justifyContent="left" width="full">
+        <Flex direction="row" wrap={{ base: "nowrap", lg: "wrap" }} justifyContent="left" width="full" overflowX={{ base: "auto", lg: "visible" }}css={{
+                    '::-webkit-scrollbar': { display: 'none' }, // Hide scrollbar for Webkit browsers
+                    '-ms-overflow-style': 'none', // Hide scrollbar for IE and Edge
+                    'scrollbar-width': 'none' // Hide scrollbar for Firefox
+                }}>
             {filterOptions.map((option, index) => (
                 <Button 
-                width={{base: "100px", lg: "200px"}} 
+                width={{base: "30%", lg: "200px"}} 
                 height="50px"
                 key={index} 
                 m={2} 
                 onClick={() => selectFilter(index)}
                 border={currentFilter === index ? "2px solid white" : "none"}
                 color={currentFilter === index ? "white" : "gray"}
+                flexShrink={0}
                 >
                     {filterOptions[index].filter}
                 </Button>

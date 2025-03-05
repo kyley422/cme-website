@@ -3,7 +3,7 @@ import { BiMailSend } from 'react-icons/bi';
 import {
     // Avatar,
     Box,
-    // Button,
+    Button,
     // Center,
     // Collapse,
     // Flex,
@@ -84,6 +84,7 @@ const Newsletter = () => {
                 }}
               />
               <IconButton
+                display={{base: 'none', md: 'block'}}
                 bg="red.500"
                 color={useColorModeValue('white', 'white')}
                 _hover={{
@@ -93,6 +94,17 @@ const Newsletter = () => {
                 icon={<BiMailSend style={{fontSize: "24px"}} />}
                 width={{base: '100%', md: '60px'}}
               />
+
+            <Button
+                display={{base: 'block', md: 'none'}}
+                bg="red.500"
+                color={useColorModeValue('white', 'white')}
+                _hover={{
+                  bg: 'red.400',
+                }}
+                aria-label="Subscribe"
+                width={{base: '100%', md: '60px'}}
+              >Submit</Button>
             </Stack>
           </Stack>
         </Box>

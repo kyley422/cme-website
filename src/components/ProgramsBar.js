@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Image } from '@chakra-ui/react'
 import { useRouter } from 'next/router';
 import {
     // Avatar,
@@ -80,24 +81,31 @@ const ProgramsBar = () => {
             direction="column"
             height="100%" 
             width="100%" 
-            paddingLeft="10%" 
-            paddingRight="100px" 
-            paddingTop="10px" 
+            paddingLeft={{base: "5%", md: "10%"}}  
+            paddingRight={{base: "5%", md: "100px"}} 
+            paddingTop={{base: "0px", md: "10px"}} 
             paddingBottom="20px"
             gap="30px"
             justifyContent="center"
             spacing={4}
             >
                 <Heading>Our Programs</Heading>
-                <Flex direction="row" wrap="wrap" justifyContent="left" width="full">
+                <Flex direction="row" wrap={{ base: "nowrap", lg: "wrap" }}  justifyContent="left" width="full" overflowX={{ base: "auto", lg: "visible" }}
+                css={{
+                    '::-webkit-scrollbar': { display: 'none' }, // Hide scrollbar for Webkit browsers
+                    '-ms-overflow-style': 'none', // Hide scrollbar for IE and Edge
+                    'scrollbar-width': 'none' // Hide scrollbar for Firefox
+                }}>
                     {buttonOptions.map((option, index) => (
                         <Button 
-                        width={{base: "150px", lg: "180px"}} 
+                        width={{base: "30%", lg: "180px"}} 
                         height="45px" 
-                        key={index} m={2} 
+                        key={index}
+                        m={2} 
                         onClick={() => selectProgram(index)}
                         border={currentDisplay === index ? "2px solid white" : "none"}
                         color={currentDisplay === index ? "white" : "gray"}
+                        flexShrink={0}
                         >
                             {buttonOptions[index].title}
                         </Button>
@@ -110,11 +118,11 @@ const ProgramsBar = () => {
                 backgroundPosition="center"
                 backgroundRepeat="no-repeat"
                 backgroundSize="cover"
-                backgroundImage={`linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent), url(${buttonOptions[currentDisplay].image})`}
+                backgroundImage={{base: 'none', md: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent), url(${buttonOptions[currentDisplay].image})`}}
                 className="image-box"
                 mt={4}
               >
-                    <Container size="lg" height="800px" w={{base: "130%", lg: "50%"}} position={{base: "absolute", lg: "relative"}} left={{base: "0%", lg: "-25%"}}>
+                    <Container size="lg" height="800px" w={{base: "100%", lg: "50%"}} position={{base: "absolute", lg: "relative"}} left={{base: "0%", lg: "-25%"}}>
                       <Stack
                         w="full"
                         position="absolute"
@@ -123,10 +131,11 @@ const ProgramsBar = () => {
                         spacing={4}
                         p={2}
                       >
+                        <Image src={buttonOptions[currentDisplay]?.image}  alt='banner' paddingTop="10px" paddingBottom="20px" display={{base: 'block', md: 'none'}}/>
                         <Heading 
-                        fontSize="40px" 
+                        fontSize={{base: "20px", lg: "40px"}} 
                         fontWeight="bold"
-                        letterSpacing="10px"
+                        letterSpacing={{base: "5px", md: "10px"}}
                         width="full" left="0%" 
                         textAlign="left"
                         >
@@ -136,7 +145,7 @@ const ProgramsBar = () => {
                           {buttonOptions[currentDisplay].text}
                         </Text>
                         <Button 
-                            alignItems="center" width="200px" height="50px" bg="red.500"
+                            alignItems="center" width={{base: "full", md: "200px"}} height="50px" bg="red.500"
                             onClick={() => router.push(`/programs?tab=${currentDisplay}`)}
                         >
                             Learn More
