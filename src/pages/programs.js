@@ -8,6 +8,9 @@ import { useMediaQuery } from 'react-responsive';
 import {Box} from '@chakra-ui/react';
 
 function Programs() {
+  useEffect(() => {
+    document.title = 'Programs | UCLA Chinese Music';
+  }, []);
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
 
   return (

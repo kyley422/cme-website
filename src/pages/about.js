@@ -1,13 +1,16 @@
 import Footer from 'components/Footer';
 import NavBar from 'components/NavBar';
 import ProgramInfo from 'components/ProgramInfo';
-import React from 'react';
+import React, {useEffect} from 'react';
 import StudentDirectory from 'components/StudentDirectory';
 import {Box, Divider} from '@chakra-ui/react';
 
 
 
 function About() {
+  useEffect(() => {
+    document.title = 'About | UCLA Chinese Music';
+  }, []);
   return (
     <Box bgColor="black">
       <NavBar />
