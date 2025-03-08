@@ -57,14 +57,15 @@ const NavBar = () => {
         align={{base: 'left', md: 'center'}}
       >
         <Flex flex={{ base: 'auto', md: 1}} justify={{ base: 'left', md: 'start' }} paddingLeft="7%">
-          <Text
+          <Link
             textAlign={useBreakpointValue('left')}
             fontSize={{base:"20px", md: "28px"}}
             fontWeight="semibold"
             color={useColorModeValue('gray.800', 'white')}
+            href={"/"}
           >
             UCLA Chinese Music
-          </Text>
+          </Link>
         </Flex>
         <Flex
           flex={{ base: 'auto', md: 'auto' }}
@@ -192,7 +193,7 @@ const DesktopNav = () => {
                 href={navItem.href ?? '#'}
                 fontSize="18px"
                 fontWeight="medium"
-                color={linkColor}
+                color={"linkColor"}
                 _hover={{
                   color: linkHoverColor,
                   textDecoration: 'none',
@@ -265,7 +266,8 @@ const DesktopSubNav = ({ href, label, subLabel }) => {
 const MobileNav = () => {
   return (
     <Stack
-      bg={useColorModeValue('white', 'gray.800')}
+      bg={'dark-gray'}
+      color={'white'}
       p={4}
       display={{ md: 'none' }}
     >
@@ -293,7 +295,8 @@ const MobileNavItem = ({ children, href, label }) => {
       >
         <Text
           fontWeight={600}
-          color={useColorModeValue('gray.600', 'gray.200')}
+        //   color={useColorModeValue('gray.600', 'gray.200')}
+          color={'white'}
         >
           {label}
         </Text>
@@ -331,71 +334,18 @@ const MobileNavItem = ({ children, href, label }) => {
 
 const NAV_ITEMS = [
   {
-    children: [
-      {
-        href: '/about',
-        label: 'Our Story',
-        subLabel: 'Learn more about our mission and values',
-      },
-      {
-        href: '#',
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Changes',
-      },
-    ],
     href: '/home',
     label: 'Home',
   },
   {
-    children: [
-      {
-        href: '#',
-        label: 'Our Director',
-        subLabel: 'Meet Professor Li!',
-      },
-      {
-        href: '/about#student-leadership',
-        label: 'Student Leadership',
-        subLabel: 'Meet the student leaders!',
-      },
-    ],
     href: '/about',
     label: 'About',
   },
   {
-    children: [
-      {
-        href: 'programs',
-        label: 'Our Program',
-        subLabel: 'Learn more about our programs!',
-      },
-      {
-        href: 'programs',
-        label: 'How to Join',
-        subLabel: 'Interested in joining our program? It\'s very simple!',
-      },
-      {
-        href: '/programs#course-calendar',
-        label: 'Course Calendar',
-        subLabel: 'Check out the time commitment for our program.',
-      },
-    ],
     href: '/programs',
     label: 'Programs',
   },
   {
-    children: [
-      {
-        href: '/performances',
-        label: 'Upcoming Performances',
-        subLabel: 'Interested in upcoming performances?',
-      },
-      {
-        href: '/performances#past-performances',
-        label: 'Past Performances',
-        subLabel: 'Check out the archive of our past performances!',
-      },
-    ],
     href: '/performances',
     label: 'Performances',
   },

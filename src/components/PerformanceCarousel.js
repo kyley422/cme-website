@@ -3,7 +3,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import React, { useRef } from 'react';
 import { Autoplay, Navigation, Pagination} from 'swiper/modules'
-import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
+// import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 import {
   Box,
   Button,
@@ -181,7 +181,7 @@ export default function PerformanceCarousel({ autoScroll = true }) {
                         {card.description}
                       </Text>
                       
-                      <Flex justifyContent="center" alignItems="center" mt={4} gap={4}> 
+                      {/* <Flex justifyContent="center" alignItems="center" mt={4} gap={4}> 
                         <IconButton
                           icon={<ChevronLeftIcon boxSize={iconSize} />}
                           variant="ghost"
@@ -196,7 +196,7 @@ export default function PerformanceCarousel({ autoScroll = true }) {
                           _hover={{ bg: 'transparent' }}
                           aria-label="Next Slide" // Accessibility
                         />
-                      </Flex>
+                      </Flex> */}
 
                       <Button
                         marginTop={{ base: '20px', md: '25px' }}
