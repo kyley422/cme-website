@@ -60,7 +60,7 @@ const PerformanceBar = () => {
   ]
   return (
     <>
-      <Box position="relative" height="600px" width="full" overflow="hidden" bg={useColorModeValue('white', 'black')}>
+      <Box position="relative" height={{base: "auto", md: "600px"}} width="full" overflow="hidden" bg={useColorModeValue('white', 'black')} paddingBottom={{base: "30px", md: "0px"}}>
         <Flex 
           direction="column"
           height="100%" 
