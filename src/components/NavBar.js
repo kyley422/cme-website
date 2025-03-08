@@ -87,7 +87,7 @@ const NavBar = () => {
         <Flex display = {{ base: 'none', md: 'flex'}} justify="flex-end">
           <Flex display={{ base: 'none', md: 'flex' }} ml={10} justify="flex-end">
             <DesktopNav />
-            <Button bgColor="red.500" ml={10}>Join today</Button>
+            <Button as="a" href="https://docs.google.com/forms/d/1Cy9lgqgpYJlJLDlNahgoux5wfap7sj7qjx5DykwXDE4" bgColor="red.500" ml={10}>Join today</Button>
           </Flex>
         </Flex>
 
@@ -334,18 +334,71 @@ const MobileNavItem = ({ children, href, label }) => {
 
 const NAV_ITEMS = [
   {
+    // children: [
+    //   {
+    //     href: '/about',
+    //     label: 'Our Story',
+    //     subLabel: 'Learn more about our mission and values',
+    //   },
+    //   {
+    //     href: '#',
+    //     label: 'New & Noteworthy',
+    //     subLabel: 'Up-and-coming Changes',
+    //   },
+    // ],
     href: '/home',
     label: 'Home',
   },
   {
+    // children: [
+    //   {
+    //     href: '#',
+    //     label: 'Our Director',
+    //     subLabel: 'Meet Professor Li!',
+    //   },
+    //   {
+    //     href: '/about#student-leadership',
+    //     label: 'Student Leadership',
+    //     subLabel: 'Meet the student leaders!',
+    //   },
+    // ],
     href: '/about',
     label: 'About',
   },
   {
+    // children: [
+    //   {
+    //     href: 'programs',
+    //     label: 'Our Program',
+    //     subLabel: 'Learn more about our programs!',
+    //   },
+    //   {
+    //     href: 'programs',
+    //     label: 'How to Join',
+    //     subLabel: 'Interested in joining our program? It\'s very simple!',
+    //   },
+    //   {
+    //     href: '/programs#course-calendar',
+    //     label: 'Course Calendar',
+    //     subLabel: 'Check out the time commitment for our program.',
+    //   },
+    // ],
     href: '/programs',
     label: 'Programs',
   },
   {
+    // children: [
+    //   {
+    //     href: '/performances',
+    //     label: 'Upcoming Performances',
+    //     subLabel: 'Interested in upcoming performances?',
+    //   },
+    //   {
+    //     href: '/performances#past-performances',
+    //     label: 'Past Performances',
+    //     subLabel: 'Check out the archive of our past performances!',
+    //   },
+    // ],
     href: '/performances',
     label: 'Performances',
   },
