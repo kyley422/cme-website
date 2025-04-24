@@ -1,36 +1,36 @@
 const events = [
     {
         day: "Monday",
-        start_time: "9:00",
-        end_time: "13:00",
+        start_time: "10:00",
+        end_time: "14:00",
         type: "practice",
         title: "Practice Time"
     }, 
     {
         day: "Tuesday",
         start_time: "9:00",
-        end_time: "12:00",
+        end_time: "11:00",
         type: "practice",
         title: "Practice Time"
     }, 
     {
         day: "Wednesday",
         start_time: "9:00",
-        end_time: "12:00",
+        end_time: "11:00",
         type: "practice",
         title: "Practice Time"
     }, 
     {
         day: "Wednesday",
-        start_time: "16:00",
-        end_time: "17:00",
+        start_time: "9:00",
+        end_time: "11:00",
         type: "practice",
         title: "Practice Time"
     }, 
     {
         day: "Thursday",
         start_time: "9:00",
-        end_time: "13:00",
+        end_time: "11:00",
         type: "practice",
         title: "Practice Time"
     }, 
@@ -43,38 +43,66 @@ const events = [
     }, 
     {
         day: "Monday",
+        start_time: "13:00",
+        end_time: "14:00",
+        type: "class",
+        title: "Hulusi Union"
+    }, 
+    {
+        day: "Monday",
+        start_time: "14:00",
+        end_time: "15:00",
+        type: "class",
+        title: "Qin 2"
+    }, 
+    {
+        day: "Monday",
         start_time: "15:00",
         end_time: "16:00",
         type: "class",
-        title: "Kunqu Opera"
+        title: "Zheng 1"
     }, 
     {
         day: "Monday",
         start_time: "16:00",
         end_time: "17:00",
         type: "class",
-        title: "Zheng 1"
+        title: "Zheng 2"
     }, 
     {
         day: "Monday",
         start_time: "17:00",
         end_time: "18:00",
         type: "class",
-        title: "Zheng 2"
+        title: "Zheng 3"
     }, 
     {
         day: "Monday",
         start_time: "18:00",
         end_time: "19:00",
         type: "class",
-        title: "Zheng 3"
+        title: "Opera"
+    }, 
+    {
+        day: "Monday",
+        start_time: "19:00",
+        end_time: "20:00",
+        type: "class",
+        title: "Fan Dance"
+    }, 
+    {
+        day: "Monday",
+        start_time: "20:00",
+        end_time: "21:00",
+        type: "class",
+        title: "Qin 1"
     }, 
     {
         day: "Wednesday",
         start_time: "15:00",
-        end_time: "16:00",
-        type: "class",
-        title: "Qin"
+        end_time: "17:00",
+        type: "practice",
+        title: "Office Hours"
     }, 
     {
         day: "Wednesday",
