@@ -1,10 +1,5 @@
-
 module.exports = {
-
-  extends: [
-    'next/core-web-vitals',
-    "eslint:recommended",
-  ],
+  extends: ['next/core-web-vitals', 'eslint:recommended'],
   plugins: [
     'sort-imports-es6-autofix',
     'sort-keys-fix',
@@ -18,11 +13,9 @@ module.exports = {
     'jsx-a11y/anchor-is-valid': 0,
     'no-irregular-whitespace': 0,
     'no-use-before-define': 0,
-    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/jsx-no-useless-fragment': 0,
     'react/jsx-props-no-spreading': 0,
     'no-unused-vars': 0,
     'sort-keys-fix/sort-keys-fix': 'off',
-  }
-}
-
+  },
+};
