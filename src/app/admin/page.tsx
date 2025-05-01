@@ -17,10 +17,23 @@ export default async function Admin() {
 
 function LoginForm() {
   return (
-    <Form action={Session.login}>
-      <input name="email" type="text" placeholder="email" />
-      <input name="password" type="password" placeholder="password" />
-      <input type="submit" value="go" />
+    <Form
+      action={Session.login}
+      className="bg-stone-800 absolute inset-0 text-stone-100 grid content-center justify-center gap-2"
+    >
+      <input
+        className="px-3 py-2 border border-stone-500 rounded"
+        name="email"
+        type="text"
+        placeholder="email"
+      />
+      <input
+        className="px-3 py-2 border border-stone-500 rounded"
+        name="password"
+        type="password"
+        placeholder="password"
+      />
+      <input className="bg-red-700 rounded py-2" type="submit" value="go" />
     </Form>
   );
 }
