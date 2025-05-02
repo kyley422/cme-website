@@ -1,6 +1,15 @@
 import type * as React from 'react';
 
+import { Outfit } from 'next/font/google';
+
 import './global.css';
+
+// https://nextjs.org/docs/app/building-your-application/optimizing/fonts
+const font = Outfit({
+  display: 'swap',
+  variable: '--font-outfit',
+  subsets: ['latin'],
+});
 
 export const metadata = {
   title: 'Next.js',
@@ -18,7 +27,9 @@ export default function RootLayout({
         {/* Custom head elements */}
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body>{children}</body>
+      <body className={`bg-base text-foreground ${font.variable} font-sans`}>
+        {children}
+      </body>
     </html>
   );
 }

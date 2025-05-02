@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+/* https://nextjs.org/docs/app/building-your-application/optimizing/fonts#tailwind-css-v4 */
+@theme inline {
+  --font-sans: var(--font-outfit);
+}
+
+@theme {
+  --color-base: #0b0b0b;
+  --color-foreground: #fdfdfd;
+
+  --color-dark: #303030;
+  --color-medium: #4a4a4a;
+  --color-light: #6c6c6c;
+
+  --color-accent: #8f0012;
+  --color-highlight: #ce8902;
+}

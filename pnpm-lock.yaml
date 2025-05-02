@@ -23,12 +23,18 @@ importers:
       '@emotion/styled':
         specifier: ^11.11.0
         version: 11.14.0(@emotion/react@11.14.0(@types/react@19.1.2)(react@19.1.0))(@types/react@19.1.2)(react@19.1.0)
+      '@fontsource-variable/outfit':
+        specifier: ^5.2.5
+        version: 5.2.5
       '@fontsource/outfit':
         specifier: ^5.1.0
         version: 5.2.5
       '@neondatabase/serverless':
         specifier: ^1.0.0
         version: 1.0.0
+      '@tabler/icons-react':
+        specifier: ^3.31.0
+        version: 3.31.0(react@19.1.0)
       '@tailwindcss/postcss':
         specifier: ^4.1.5
         version: 4.1.5
@@ -603,6 +609,9 @@ packages:
     resolution: {integrity: sha512-Ag+9YM4ocKQx9AarydN0KY2j0ErMHNIocPDrVo8zAE44xLTjEtz81OdR68/cydGtk6m6jDb5Za3r2useMzYmSw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
+  '@fontsource-variable/outfit@5.2.5':
+    resolution: {integrity: sha512-MejrIp6Cbmd3u5AZtsot8kmhZiyQM5CATsdcBB2hktYIrv5CVekRSUmFDXL4FpF7K70IvFp2ZMfImm5VhnVf7Q==}
+
   '@fontsource/outfit@5.2.5':
     resolution: {integrity: sha512-MoQRZDQ8nKOYxJXJNXzcDaBfw+k6IQ0+O/fQaBh5zJRb1/n7JNqxnc7iLK46YlMaFEGh8rjjF0Pp6o8Qc8JSJw==}
 
@@ -848,6 +857,14 @@ packages:
 
   '@swc/helpers@0.5.15':
     resolution: {integrity: sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g==}
+
+  '@tabler/icons-react@3.31.0':
+    resolution: {integrity: sha512-2rrCM5y/VnaVKnORpDdAua9SEGuJKVqPtWxeQ/vUVsgaUx30LDgBZph7/lterXxDY1IKR6NO//HDhWiifXTi3w==}
+    peerDependencies:
+      react: '>= 16'
+
+  '@tabler/icons@3.31.0':
+    resolution: {integrity: sha512-dblAdeKY3+GA1U+Q9eziZ0ooVlZMHsE8dqP0RkwvRtEsAULoKOYaCUOcJ4oW1DjWegdxk++UAt2SlQVnmeHv+g==}
 
   '@tailwindcss/node@4.1.5':
     resolution: {integrity: sha512-CBhSWo0vLnWhXIvpD0qsPephiaUYfHUX3U9anwDaHZAeuGpTiB3XmsxPAN6qX7bFhipyGBqOa1QYQVVhkOUGxg==}
@@ -3413,6 +3430,8 @@ snapshots:
 
   '@eslint/js@8.44.0': {}
 
+  '@fontsource-variable/outfit@5.2.5': {}
+
   '@fontsource/outfit@5.2.5': {}
 
   '@humanwhocodes/config-array@0.11.14':
@@ -3598,6 +3617,13 @@ snapshots:
   '@swc/helpers@0.5.15':
     dependencies:
       tslib: 2.8.1
+
+  '@tabler/icons-react@3.31.0(react@19.1.0)':
+    dependencies:
+      '@tabler/icons': 3.31.0
+      react: 19.1.0
+
+  '@tabler/icons@3.31.0': {}
 
   '@tailwindcss/node@4.1.5':
     dependencies:

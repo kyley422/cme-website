@@ -1,4 +1,6 @@
 import Form from 'next/form';
+import { redirect } from 'next/navigation';
+
 import * as Z from 'zod';
 import * as Zfd from 'zod-form-data';
 
@@ -8,34 +10,9 @@ import * as Session from 'server/session';
 
 export default async function Admin() {
   const user = await Session.check();
-  if (!user) {
-    return <LoginForm />;
-  }
+  if (!user) redirect('/admin/login');
 
   return <AdminHome />;
-}
-
-function LoginForm() {
-  return (
-    <Form
-      action={Session.login}
-      className="bg-stone-800 absolute inset-0 text-stone-100 grid content-center justify-center gap-2"
-    >
-      <input
-        className="px-3 py-2 border border-stone-500 rounded"
-        name="email"
-        type="text"
-        placeholder="email"
-      />
-      <input
-        className="px-3 py-2 border border-stone-500 rounded"
-        name="password"
-        type="password"
-        placeholder="password"
-      />
-      <input className="bg-red-700 rounded py-2" type="submit" value="go" />
-    </Form>
-  );
 }
 
 const regexpTime = /^(\d{1,2}):(\d{2})/;
