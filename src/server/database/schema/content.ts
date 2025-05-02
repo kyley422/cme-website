@@ -1,5 +1,13 @@
 // website content data
-import { date, pgSchema, serial, text, time, uuid } from 'drizzle-orm/pg-core';
+import {
+  date,
+  type pgEnum,
+  pgSchema,
+  serial,
+  text,
+  time,
+  uuid,
+} from 'drizzle-orm/pg-core';
 
 export const schema = pgSchema('content');
 
@@ -14,7 +22,15 @@ export const event = schema.table('event', {
 });
 
 // practice times, class times etc.
-export const day = schema.enum('day', ['u', 'm', 't', 'w', 'r', 'f', 's']);
+export const day = (schema.enum as typeof pgEnum)('day', [
+  'u',
+  'm',
+  't',
+  'w',
+  'r',
+  'f',
+  's',
+]);
 export const schedule = schema.table('schedule', {
   day: day().notNull(),
   start: time({ withTimezone: true, precision: 0 }).notNull(),
@@ -22,10 +38,12 @@ export const schedule = schema.table('schedule', {
 });
 
 // general content sections
+export const page = (schema.enum as typeof pgEnum)('page', ['home', 'about']);
 export const section = schema.table('section', {
   id: serial().primaryKey(),
   heading: text().notNull(),
   body: text().notNull(),
+  page: page().notNull(),
 });
 
 export const instrument = schema.table('instrument', {

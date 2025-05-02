@@ -6,6 +6,7 @@ import * as Z from 'zod';
 import * as Zfd from 'zod-form-data';
 
 import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
 
 import database from 'server/database';
 import * as Schema from 'server/database/schema';
@@ -31,10 +32,12 @@ export const check = async () => {
 
   if (!cookie) return null;
 
-  const { payload } = await jwtVerify(cookie.value, env.SESSION_SECRET, {
+  const verify = await jwtVerify(cookie.value, env.SESSION_SECRET, {
     algorithms: ['HS384'],
-  });
-  const result = JwtPayload.safeParse(payload);
+  }).catch(() => null);
+  if (!verify) return null;
+
+  const result = JwtPayload.safeParse(verify.payload);
   if (!result.success) return null;
 
   const session = await database.query.adminSession.findFirst({
@@ -87,6 +90,8 @@ export const login = async (formData: FormData) => {
     sameSite: 'lax',
     path: '/',
   });
+
+  redirect('/admin');
 };
 
 export const clean = () =>

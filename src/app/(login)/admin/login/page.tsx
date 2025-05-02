@@ -5,21 +5,21 @@ export default function LoginForm() {
   return (
     <Form
       action={Session.login}
-      className="bg-stone-800 absolute inset-0 text-stone-100 grid content-center justify-center gap-2"
+      className="absolute inset-0 grid content-center justify-center gap-2"
     >
       <input
-        className="px-3 py-2 border border-stone-500 rounded"
+        className="px-3 py-2 border border-medium rounded"
         name="email"
         type="text"
         placeholder="email"
       />
       <input
-        className="px-3 py-2 border border-stone-500 rounded"
+        className="px-3 py-2 border border-medium rounded"
         name="password"
         type="password"
         placeholder="password"
       />
-      <input className="bg-red-700 rounded py-2" type="submit" value="go" />
+      <input className="bg-accent rounded-lg py-2" type="submit" value="go" />
     </Form>
   );
 }

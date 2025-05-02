@@ -19,17 +19,17 @@ const newSection = async () => {
 
   await database
     .insert(Schema.Content.section)
-    .values([{ heading: '', body: '', page: 'home' }]);
+    .values([{ heading: '', body: '', page: 'about' }]);
 };
 
-export default async function AdminHome() {
+export default async function AdminAbout() {
   const sections = await database.query.contentSection.findMany({
-    where: (t) => eq(t.page, 'home'),
+    where: (t) => eq(t.page, 'about'),
   });
 
   return (
     <>
-      <h1 className="text-2xl font-bold">Home</h1>
+      <h1 className="text-2xl font-bold">About</h1>
       {sections.map((section) => (
         <SectionEditor key={section.id} section={section} />
       ))}
