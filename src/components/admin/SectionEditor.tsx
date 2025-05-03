@@ -52,7 +52,7 @@ export default function SectionEditor(props: {
         type="text"
         name="heading"
         placeholder="heading"
-        className="text-xl font-bold border border-medium bg-dark rounded-md px-4 py-2"
+        className="text-2xl font-bold border border-medium bg-dark rounded-md px-4 py-2"
         defaultValue={props.section.heading}
       />
       <textarea
