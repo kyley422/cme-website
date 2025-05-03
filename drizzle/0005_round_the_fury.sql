@@ -1,0 +1,1 @@
+ALTER TABLE "content"."schedule" ADD COLUMN "id" serial PRIMARY KEY NOT NULL;

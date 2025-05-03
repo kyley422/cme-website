@@ -29,6 +29,20 @@
       "when": 1746154042466,
       "tag": "0003_absent_living_lightning",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1746248502744,
+      "tag": "0004_spotty_celestials",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1746248778543,
+      "tag": "0005_round_the_fury",
+      "breakpoints": true
     }
   ]
 }

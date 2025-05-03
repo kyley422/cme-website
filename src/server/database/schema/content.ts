@@ -32,9 +32,10 @@ export const day = (schema.enum as typeof pgEnum)('day', [
   's',
 ]);
 export const schedule = schema.table('schedule', {
+  id: serial().primaryKey(),
   day: day().notNull(),
-  start: time({ withTimezone: true, precision: 0 }).notNull(),
-  end: time({ withTimezone: true, precision: 0 }).notNull(),
+  start: time({ withTimezone: false, precision: 0 }).notNull(),
+  end: time({ withTimezone: false, precision: 0 }).notNull(),
 });
 
 // general content sections
