@@ -1,5 +1,6 @@
 import { IconPlus } from '@tabler/icons-react';
 import { eq } from 'drizzle-orm';
+import { revalidatePath } from 'next/cache';
 import Form from 'next/form';
 import { redirect } from 'next/navigation';
 import * as React from 'react';
@@ -20,6 +21,8 @@ const newSection = async () => {
   await database
     .insert(Schema.Content.section)
     .values([{ heading: '', body: '', page: 'about' }]);
+
+  revalidatePath('/admin/about');
 };
 
 export default async function AdminAbout() {

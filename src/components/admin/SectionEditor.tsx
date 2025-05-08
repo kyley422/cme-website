@@ -1,5 +1,6 @@
 import { IconPlus } from '@tabler/icons-react';
 import { eq } from 'drizzle-orm';
+import { revalidatePath } from 'next/cache';
 import Form from 'next/form';
 import { redirect } from 'next/navigation';
 import * as React from 'react';
@@ -27,6 +28,9 @@ const saveSection = async (form: FormData) => {
     .update(Schema.Content.section)
     .set({ heading: data.heading, body: data.body })
     .where(eq(Schema.Content.section.id, data.id));
+
+  revalidatePath('/admin');
+  revalidatePath('/admin/about');
 };
 
 const DeleteSection = Zfd.formData({
@@ -40,6 +44,9 @@ const deleteSection = async (form: FormData) => {
   await database
     .delete(Schema.Content.section)
     .where(eq(Schema.Content.section.id, data.id));
+
+  revalidatePath('/admin');
+  revalidatePath('/admin/about');
 };
 
 export default function SectionEditor(props: {
