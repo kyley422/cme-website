@@ -1,5 +1,12 @@
 # setting up local dev environment
 
+## basic setup
+
+- this project uses `pnpm` (instead of `yarn`, `npm`, etc.) for node package management because it is the fastest. make sure you have `pnpm` installed (instructions at <https://pnpm.io/installation>).
+- run `pnpm install` to install all dependencies.
+
+## storage services
+
 the CME website/app relies on two storage services:
 
 - postgresql: main database for structured data, i.e., accounts, website data/content, etc.
