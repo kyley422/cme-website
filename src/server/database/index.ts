@@ -32,11 +32,13 @@ const getDrizzlePg = () =>
   drizzlePg({
     client: new Pool({ connectionString: env.POSTGRES_URL }),
     schema,
+    casing: 'snake_case',
   });
 const getDrizzleNeon = () =>
   drizzleNeon({
     client: neon(env.POSTGRES_URL),
     schema,
+    casing: 'snake_case',
   });
 
 const shouldUseNeon = new URL(env.POSTGRES_URL).hostname.endsWith('.neon.tech');
