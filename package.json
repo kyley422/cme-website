@@ -2,11 +2,13 @@
   "name": "webapp",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "setup:docker": "docker build -f .dev/vercel-blob-server.containerfile -t vercel-blob-server .dev",
     "setup:podman": "podman build -f vercel-blob-server.containerfile -t vercel-blob-server .dev",
     "dev:podman": "dotenv -e '.env.local' -- podman-compose",
     "dev:docker": "dotenv -e '.env.local' -- docker-compose",
+    "dev:seed": "dotenv -e '.env.local' -- tsx 'script/seed'",
     "dev:pgcli": "dotenv -e '.env.local' -- sh -c 'pgcli \"$POSTGRES_URL\"'",
     "dev:drizzle": "dotenv -e '.env.local' drizzle-kit",
     "prod:pgcli": "dotenv -e '.env.production' -- sh -c 'pgcli \"$POSTGRES_URL\"'",
@@ -52,6 +54,7 @@
     "zod-form-data": "^2.0.7"
   },
   "devDependencies": {
+    "@types/pg": "^8.15.1",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "dotenv-cli": "^8.0.0",
@@ -64,6 +67,7 @@
     "mini-css-extract-plugin": "^2.7.6",
     "neonctl": "^2.9.2",
     "pg": "^8.15.6",
+    "tsx": "^4.19.4",
     "typescript": "^5.8.3"
   }
 }
