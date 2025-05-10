@@ -1,0 +1,25 @@
+x-podman:
+  in_pod: false
+
+services:
+  postgres:
+    image: postgres:latest
+    userns_mode: keep-id
+    environment:
+      - POSTGRES_PASSWORD
+    ports:
+      - 5432:5432
+    volumes:
+      - type: bind
+        source: ./.data/postgres
+        target: /var/lib/postgresql/data
+
+  blob:
+    image: vercel-blob-server:latest
+    userns_mode: keep-id
+    environment:
+      - BLOB_READ_WRITE_TOKEN
+    volumes:
+      - type: bind
+        source: ./.data/blob
+        target: /var/vercel-blob-store

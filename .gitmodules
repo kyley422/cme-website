@@ -1,0 +1,3 @@
+[submodule ".dev/vercel-blob-server"]
+	path = .dev/vercel-blob-server
+	url = https://github.com/634750802/vercel-blob-server
