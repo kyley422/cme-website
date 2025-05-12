@@ -19,6 +19,8 @@ services:
     userns_mode: keep-id
     environment:
       - BLOB_READ_WRITE_TOKEN
+    ports:
+      - 9966:3000
     volumes:
       - type: bind
         source: ./.data/blob

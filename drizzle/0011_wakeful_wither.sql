@@ -1,0 +1,1 @@
+ALTER TABLE "content"."image" ALTER COLUMN "type" DROP DEFAULT;

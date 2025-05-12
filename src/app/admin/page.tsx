@@ -27,6 +27,7 @@ const newSection = async () => {
 export default async function AdminHome() {
   const sections = await database.query.contentSection.findMany({
     where: (t) => eq(t.page, 'home'),
+    with: { image: { columns: {}, with: { image: true } } },
   });
 
   return (

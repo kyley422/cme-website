@@ -7,6 +7,8 @@
 
 ## storage services
 
+> NOTE: upon some testing the vercel blob server is kind of buggy, or its API is obsolete compared to the actual current vercel blob protocol (see <https://github.com/634750802/vercel-blob-server/issues/2>). in the interest of circumventing those issues, we’ll ditch using the blob server altogether for now, and just store images _directly_ within postgres. this isn’t great at scale, especially if we start working with larger files, but it does make the infrastructure easier to manage and the code simpler to write, so let’s just keep things simple until becomes a problem, cross that bridge when we get to it. (certainly we’ll need to look into better storage solutions anyway if we want to upload larger files, e.g. videos and music, etc.)
+
 the CME website/app relies on two storage services:
 
 - postgresql: main database for structured data, i.e., accounts, website data/content, etc.
@@ -27,6 +29,7 @@ production instances of these services are linked to the vercel project under th
 
   - `POSTGRES_PASSWORD`: password for accessing the postgresql database. choose any password you like.
   - `POSTGRES_URL="postgresql://postgres:$POSTGRES_PASSWORD@localhost:5432"`
+  - `VERCEL_BLOB_API_URL='http://localhost:9966'`
   - `SESSION_SECRET`: a 48-byte base64-encoded secret, used to sign/verify login sessions. you can obtain this one of a few ways:
     - run this command in a terminal: `openssl rand -base64 48`
     - open a node.js REPL and run: `Buffer.from(crypto.getRandomValues(new Uint8Array(48))).toString('base64')`
@@ -48,6 +51,7 @@ production instances of these services are linked to the vercel project under th
   POSTGRES_URL="postgresql://postgres:$POSTGRES_PASSWORD@localhost:5432"
   SESSION_SECRET='/nu1U9g59LiZNBuZoanB9Taeic85lLidQb5uIs9AjjtZF87uJ/UEGzW0FcEgMjk1'
   BLOB_READ_WRITE_TOKEN='support-uncork-smugness-clock'
+  VERCEL_BLOB_API_URL='http://localhost:9966'
   ```
 
 - next, create and launch the service containers (configured in `compose.yaml`). run `pnpm run dev:docker up` (or `dev:podman up`).

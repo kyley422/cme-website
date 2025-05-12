@@ -1,16 +1,17 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "lib": ["dom", "dom.iterable", "esnext"],
+    "noUncheckedIndexedAccess": true,
     "allowJs": true,
     "checkJs": true,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
     "incremental": true,
-    "module": "esnext",
     "esModuleInterop": true,
-    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "baseUrl": "./src",
@@ -22,6 +23,12 @@
     ],
     "paths": { "@/*": ["./*"] }
   },
-  "include": ["**/*.ts", "**/*.tsx", "next-env.d.ts", ".next/types/**/*.ts"],
+  "include": [
+    "**/*.ts",
+    "**/*.mts",
+    "**/*.tsx",
+    "next-env.d.ts",
+    ".next/types/**/*.ts"
+  ],
   "exclude": ["node_modules"]
 }

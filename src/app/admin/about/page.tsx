@@ -28,6 +28,12 @@ const newSection = async () => {
 export default async function AdminAbout() {
   const sections = await database.query.contentSection.findMany({
     where: (t) => eq(t.page, 'about'),
+    with: {
+      image: {
+        columns: {},
+        with: { image: true },
+      },
+    },
   });
 
   return (

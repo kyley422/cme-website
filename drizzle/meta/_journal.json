@@ -43,6 +43,48 @@
       "when": 1746248778543,
       "tag": "0005_round_the_fury",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1746951535681,
+      "tag": "0006_lovely_rick_jones",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1746990785648,
+      "tag": "0007_majestic_starhawk",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1746990908320,
+      "tag": "0008_rapid_maestro",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1746991078607,
+      "tag": "0009_tense_liz_osborn",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1746997936752,
+      "tag": "0010_puzzling_victor_mancha",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1746997944443,
+      "tag": "0011_wakeful_wither",
+      "breakpoints": true
     }
   ]
 }

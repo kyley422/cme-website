@@ -1,0 +1,1 @@
+ALTER TABLE "content"."instrument" ALTER COLUMN "image" DROP NOT NULL;
