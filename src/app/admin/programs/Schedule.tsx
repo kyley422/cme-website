@@ -62,7 +62,7 @@ function ScheduleBlock({
   if (block.day === 'u' || block.day === 's') return;
 
   const start = toMinute(parseTime(block.start));
-  const end = toMinute(parseTime(block.end));
+  const duration = toMinute(parseTime(block.interval));
 
   return (
     <div
@@ -73,7 +73,7 @@ function ScheduleBlock({
       onDoubleClick={() => Action.deleteBlock(block.id)}
       style={{
         gridColumn: gridColumn[block.day],
-        gridRow: `${Math.max(start - hourStart * 60, 0) + 2} / span ${end - start}`,
+        gridRow: `${Math.max(start - hourStart * 60, 0) + 2} / span ${duration}`,
         transform: drag.transform
           ? `translate3d(${drag.transform.x}px, ${drag.transform.y}px, 0)`
           : undefined,
