@@ -85,13 +85,16 @@ function ScheduleBlock({
 }
 
 const days = ['mon', 'tue', 'wed', 'thu', 'fri'];
+const dayKeys = ['m', 't', 'w', 'r', 'f'] as const;
 export function Schedule(props: {
   blocks: (typeof Schema.Content.schedule.$inferSelect)[];
 }) {
+  const [blocks, replace] = React.useOptimistic(props.blocks);
+
   return (
     <div className="grid grid-cols-[auto_repeat(5,1fr)] grid-rows-[auto_repeat(720,calc(var(--spacing)/3))]">
       <Dnd.DndContext
-        onDragEnd={async (event) => {
+        onDragEnd={(event) => {
           if (!event.over) return;
 
           const { day, hour } = Z.object({
@@ -99,11 +102,25 @@ export function Schedule(props: {
             hour: Z.number().int(),
           }).parse(event.over.data.current);
 
-          await Action.moveBlock(
-            Z.number().int().parse(event.active.id),
-            day,
-            hour,
+          const id = Z.number().int().parse(event.active.id);
+          const dayKey = dayKeys[day];
+          if (!dayKey) return;
+
+          React.startTransition(() =>
+            replace(
+              blocks.map((b) =>
+                b.id === id
+                  ? {
+                      ...b,
+                      day: dayKey,
+                      start: `${hour}:00`,
+                      end: `${hour + 1}:00`,
+                    }
+                  : b,
+              ),
+            ),
           );
+          Action.moveBlock(id, day, hour);
         }}
       >
         {days.map((day, i) => (
@@ -142,7 +159,7 @@ export function Schedule(props: {
           )),
         )}
 
-        {props.blocks.map((block) => (
+        {blocks.map((block) => (
           <ScheduleBlock key={block.id} block={block} />
         ))}
       </Dnd.DndContext>
