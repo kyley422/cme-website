@@ -11,6 +11,8 @@ import * as Schema from 'server/database/schema';
 
 const days = ['m', 't', 'w', 'r', 'f'] as const;
 
+const minutesToString = (m: number) => `${Math.floor(m / 60)}:${m % 60}`;
+
 export const newBlock = async (day: number, hour: number) => {
   const dayKey = days[day];
   if (!dayKey) throw new Error('invalid day');
@@ -27,7 +29,6 @@ export const moveBlock = async (block: number, day: number, hour: number) => {
     .update(Schema.Content.schedule)
     .set({
       start: `${hour}:00`,
-      end: `${hour + 1}:00`,
       day: dayKey,
     })
     .where(eq(Schema.Content.schedule.id, block));
@@ -38,5 +39,29 @@ export const deleteBlock = async (id: number) => {
   await database
     .delete(Schema.Content.schedule)
     .where(eq(Schema.Content.schedule.id, id));
+  revalidatePath('/admin/programs');
+};
+
+export const updateBlock = async (
+  block: number,
+  day: number,
+  {
+    startHour,
+    durationMinutes,
+  }: {
+    startHour?: number;
+    durationMinutes?: number;
+  },
+) => {
+  const dayKey = days[day];
+  if (!dayKey) throw new Error('invalid day');
+  await database
+    .update(Schema.Content.schedule)
+    .set({
+      start: startHour ? `${startHour}:00` : undefined,
+      interval: durationMinutes ? minutesToString(durationMinutes) : undefined,
+      day: dayKey,
+    })
+    .where(eq(Schema.Content.schedule.id, block));
   revalidatePath('/admin/programs');
 };
