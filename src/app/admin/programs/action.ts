@@ -6,31 +6,27 @@ import * as Z from 'zod';
 import { formData } from 'zod-form-data';
 
 import * as Action from '@/utils/server/action';
+import type * as Time from '@/utils/time';
 import database from 'server/database';
 import * as Schema from 'server/database/schema';
 
-const days = ['m', 't', 'w', 'r', 'f'] as const;
+const minuteToString = (m: number) => `${Math.floor(m / 60)}:${m % 60}`;
 
-const minutesToString = (m: number) => `${Math.floor(m / 60)}:${m % 60}`;
-
-export const newBlock = async (day: number, hour: number) => {
-  const dayKey = days[day];
-  if (!dayKey) throw new Error('invalid day');
+export const newBlock = async (day: Time.Day, minute: number) => {
   await database
     .insert(Schema.Content.schedule)
-    .values({ start: `${hour}:00`, end: `${hour + 1}:00`, day: dayKey });
+    .values({ start: minuteToString(minute), day });
   revalidatePath('/admin/programs');
 };
 
-export const moveBlock = async (block: number, day: number, hour: number) => {
-  const dayKey = days[day];
-  if (!dayKey) throw new Error('invalid day');
+export const moveBlock = async (
+  block: number,
+  day: Time.Day,
+  minute: number,
+) => {
   await database
     .update(Schema.Content.schedule)
-    .set({
-      start: `${hour}:00`,
-      day: dayKey,
-    })
+    .set({ start: minuteToString(minute), day })
     .where(eq(Schema.Content.schedule.id, block));
   revalidatePath('/admin/programs');
 };
@@ -44,23 +40,14 @@ export const deleteBlock = async (id: number) => {
 
 export const updateBlock = async (
   block: number,
-  day: number,
-  {
-    startHour,
-    durationMinutes,
-  }: {
-    startHour?: number;
-    durationMinutes?: number;
-  },
+  time: { day?: Time.Day; start?: number; interval?: number },
 ) => {
-  const dayKey = days[day];
-  if (!dayKey) throw new Error('invalid day');
   await database
     .update(Schema.Content.schedule)
     .set({
-      start: startHour ? `${startHour}:00` : undefined,
-      interval: durationMinutes ? minutesToString(durationMinutes) : undefined,
-      day: dayKey,
+      start: time.start ? minuteToString(time.start) : undefined,
+      interval: time.interval ? minuteToString(time.interval) : undefined,
+      day: time.day,
     })
     .where(eq(Schema.Content.schedule.id, block));
   revalidatePath('/admin/programs');

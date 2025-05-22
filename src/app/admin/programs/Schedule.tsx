@@ -8,79 +8,74 @@ import * as Z from 'zod';
 
 import type * as Schema from 'server/database/schema';
 
+import type * as Time from '@/utils/time';
 import * as Action from './action';
+import type * as Lib from './lib';
 
 // overarching refactors:
 // - normalize time formats (parse and serialize time strings only at db interaction time, reduce work on client side)
 // - normalize day format: either all letters/enum, or all numbers. don’t mix-and-match.
 // - everything in minute units; hour blocks calibrated/indexed by minute data. (scales better to different units too.)
 
-const hourStart = 9;
-const hourEnd = 21;
-const hours: number[] = [];
-for (let h = hourStart; h <= hourEnd; ++h) hours.push(h);
-
-const parseTime = (t: string) => {
-  const [h, m] = t.split(':');
-  return { hour: Number.parseInt(h!), minute: Number.parseInt(m!) };
-};
-
-const toMinute = (t: { hour: number; minute: number }) =>
-  t.hour * 60 + t.minute;
-
-const gridColumn = {
-  m: 2,
-  t: 3,
-  w: 4,
-  r: 5,
-  f: 6,
-};
-
+type DropData = { day: Time.Day; minute: number };
 enum DragType {
   move = 0,
   start = 1,
   end = 2,
 }
-const DragData = Z.object({
-  type: Z.nativeEnum(DragType),
-  id: Z.number().int(),
-});
-type DragData = Z.TypeOf<typeof DragData>;
-const DropData = Z.object({
-  day: Z.number().int(),
-  hour: Z.number().int(),
-});
+type DragData = { type: DragType; id: number };
 
-function ClickBlock(props: {
-  day: number;
-  hour: number;
-}) {
+const hourStart = 9;
+const hourEnd = 21;
+const hours: number[] = [];
+for (let h = hourStart; h <= hourEnd; ++h) hours.push(h);
+
+const dayColumn = {
+  m: 2,
+  t: 3,
+  w: 4,
+  r: 5,
+  f: 6,
+  u: null,
+  s: null,
+};
+
+function ClickBlock(props: DropData) {
   const drop = Dnd.useDroppable({
-    id: `${props.day}-${props.hour}`,
+    id: `${props.day}-${props.minute}`,
     data: props,
   });
+
+  const gridColumn = dayColumn[props.day];
+  if (!gridColumn) return;
+
+  const active = drop.active?.data?.current as DragData | undefined;
 
   return (
     <div
       className={classNames('row-span-60', {
-        'bg-accent':
-          drop.isOver && drop.active?.data?.current?.type === DragType.move,
+        'bg-accent': drop.isOver && active?.type === DragType.move,
       })}
       ref={drop.setNodeRef}
       style={{
-        gridColumnStart: props.day + 2,
-        gridRowStart: (props.hour - hourStart) * 60 + 2,
+        gridColumn,
+        gridRowStart: props.minute - hourStart * 60 + 2,
       }}
-      onDoubleClick={async () => {
-        await Action.newBlock(props.day, props.hour);
-      }}
+      onDoubleClick={() => Action.newBlock(props.day, props.minute)}
     />
   );
 }
 
 function ScheduleBlock({
   block,
-}: { block: typeof Schema.Content.schedule.$inferSelect }) {
+}: {
+  block: {
+    id: number;
+    start: number;
+    interval: number;
+    day: Time.Day;
+  };
+}) {
   const drag = Dnd.useDraggable({
     id: block.id,
     data: { type: DragType.move, id: block.id } satisfies DragData,
@@ -95,21 +90,20 @@ function ScheduleBlock({
     data: { type: DragType.start, id: block.id } satisfies DragData,
   });
 
-  const defaultStart = toMinute(parseTime(block.start));
-  const defaultDuration = toMinute(parseTime(block.interval));
-  const defaultEnd = defaultStart + defaultDuration;
+  const defaultEnd = block.start + block.interval;
 
   const start =
     resizeStart.isDragging && resizeStart.over
-      ? DropData.parse(resizeStart.over.data.current).hour * 60
-      : defaultStart;
+      ? (resizeStart.over.data.current as DropData).minute
+      : block.start;
 
   const height =
     (resize.isDragging && resize.over
-      ? (DropData.parse(resize.over.data.current).hour + 1) * 60
+      ? (resize.over.data.current as DropData).minute + 60
       : defaultEnd) - start;
 
-  if (block.day === 'u' || block.day === 's') return;
+  const gridColumn = dayColumn[block.day];
+  if (!gridColumn) return;
 
   return (
     <div
@@ -118,7 +112,7 @@ function ScheduleBlock({
       className="bg-dark rounded-xl m-2 grid grid-rows-[auto_1fr_1fr_auto] overflow-hidden"
       onDoubleClick={() => Action.deleteBlock(block.id)}
       style={{
-        gridColumn: gridColumn[block.day],
+        gridColumn,
         gridRow: `${Math.max(start - hourStart * 60, 0) + 2} / span ${height}`,
         transform: drag.transform
           ? `translate3d(${drag.transform.x}px, ${drag.transform.y}px, 0)`
@@ -149,22 +143,54 @@ function ScheduleBlock({
   );
 }
 
-const detectCollision: Dnd.CollisionDetection = (args) => {
-  // TODO: align based on top edge for "move" drags
-  const x = Dnd.rectIntersection(args);
-  console.log(x);
-  return x;
+const scoreWeight: Record<DragType, { top: number; bottom: number }> = {
+  [DragType.move]: { top: 1, bottom: 0 },
+  [DragType.start]: { top: 1, bottom: 0 },
+  [DragType.end]: { top: 0, bottom: 1 },
 };
 
-const days = ['mon', 'tue', 'wed', 'thu', 'fri'];
-const dayKeys = ['m', 't', 'w', 'r', 'f'] as const;
+const score = (
+  weight: { top: number; bottom: number },
+  r: Dnd.ClientRect,
+  a: Dnd.ClientRect,
+) =>
+  weight.top * Math.abs(r.top - a.top) +
+  weight.bottom * Math.abs(r.bottom - a.bottom) +
+  Math.abs(r.left - a.left) +
+  Math.abs(r.right - a.right);
+
+const detectCollision: Dnd.CollisionDetection = (args) => {
+  const drag = args.active.data.current as DragData;
+  const weight = scoreWeight[drag.type];
+  return [...args.droppableRects.entries()]
+    .sort(
+      ([, a], [, b]) =>
+        score(weight, args.collisionRect, a) -
+        score(weight, args.collisionRect, b),
+    )
+    .map(([id]) => ({ id }));
+};
+
+const dayName = { m: 'mon', t: 'tue', w: 'wed', r: 'thu', f: 'fri' } as const;
+
+const computeUpdate: Record<
+  DragType,
+  (block: Lib.Block, drop: DropData) => Partial<Lib.Block>
+> = {
+  [DragType.move]: (_, drop) => ({ day: drop.day, start: drop.minute }),
+  [DragType.start]: (block, drop) => ({
+    start: drop.minute,
+    interval: block.start + block.interval - drop.minute,
+  }),
+  [DragType.end]: (block, drop) => ({
+    interval: drop.minute + 60 - block.start,
+  }),
+};
+
 export function Schedule(props: {
-  blocks: (typeof Schema.Content.schedule.$inferSelect)[];
+  blocks: Record<number, Lib.Block>;
 }) {
   const [blocks, replace] = React.useOptimistic(props.blocks);
-
-  const lookup: Record<number, (typeof blocks)[number]> = {};
-  for (const b of blocks) lookup[b.id] = b;
 
   return (
     <div className="grid grid-cols-[auto_repeat(5,1fr)] grid-rows-[auto_repeat(720,calc(var(--spacing)/2))]">
@@ -173,69 +199,19 @@ export function Schedule(props: {
         onDragEnd={(event) => {
           if (!event.over) return;
 
-          const { day, hour } = Z.object({
-            day: Z.number().int(),
-            hour: Z.number().int(),
-          }).parse(event.over.data.current);
+          const drag = event.active.data.current as DragData;
+          const drop = event.over.data.current as DropData;
 
-          const drag = DragData.parse(event.active.data.current);
-          const dayKey = dayKeys[day];
-          if (!dayKey) return;
+          const block = blocks[drag.id];
+          if (!block) throw new Error('bad drag id');
 
-          const block = lookup[drag.id];
-          if (!block) return;
-
-          const originalStart = toMinute(parseTime(block.start));
-          const originalDuration = toMinute(parseTime(block.interval));
-          const originalEnd = originalStart + originalDuration;
-
-          if (drag.type === DragType.move) {
-            React.startTransition(() =>
-              replace(
-                blocks.map((b) =>
-                  b.id === drag.id
-                    ? {
-                        ...b,
-                        day: dayKey,
-                        start: `${hour}:00`,
-                        end: `${hour + 1}:00`,
-                      }
-                    : b,
-                ),
-              ),
-            );
-            Action.moveBlock(drag.id, day, hour);
-          }
-
-          if (drag.type === DragType.end) {
-            Action.updateBlock(drag.id, day, {
-              durationMinutes: (hour + 1) * 60 - originalStart,
-            });
-          }
-
-          if (drag.type === DragType.start) {
-            Action.updateBlock(drag.id, day, {
-              startHour: hour,
-              durationMinutes: originalEnd - hour * 60,
-            });
-          }
+          const update = computeUpdate[drag.type](block, drop);
+          React.startTransition(() =>
+            replace({ ...blocks, [drag.id]: { ...block, ...update } }),
+          );
+          Action.updateBlock(drag.id, update);
         }}
       >
-        {days.map((day, i) => (
-          <React.Fragment key={day}>
-            <div className="row-start-1" style={{ gridColumn: i + 2 }}>
-              {day}
-            </div>
-            <div
-              className={classNames(
-                'row-start-2 -row-end-1 border-l border-dark',
-                { 'border-r': i === 4 },
-              )}
-              style={{ gridColumn: i + 2 }}
-            />
-          </React.Fragment>
-        ))}
-
         {hours.map((hour) => (
           <React.Fragment key={hour}>
             <div
@@ -251,13 +227,31 @@ export function Schedule(props: {
           </React.Fragment>
         ))}
 
-        {days.flatMap((_, day) =>
-          hours.map((hour) => (
-            <ClickBlock day={day} hour={hour} key={`click-${day}-${hour}`} />
-          )),
-        )}
+        {(Object.keys(dayName) as Lib.Day[]).map((day) => {
+          const gridColumn = dayColumn[day];
+          if (!gridColumn) return;
 
-        {blocks.map((block) => (
+          return (
+            <React.Fragment key={day}>
+              <div className="row-start-1" style={{ gridColumn }}>
+                {day}
+              </div>
+              <div
+                className={'row-start-2 -row-end-1 border-l border-dark'}
+                style={{ gridColumn }}
+              />
+              {hours.map((hour) => (
+                <ClickBlock
+                  key={`click-${day}-${hour}`}
+                  day={day}
+                  minute={hour * 60}
+                />
+              ))}
+            </React.Fragment>
+          );
+        })}
+
+        {Object.values(blocks).map((block) => (
           <ScheduleBlock key={block.id} block={block} />
         ))}
       </Dnd.DndContext>

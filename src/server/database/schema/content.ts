@@ -39,7 +39,7 @@ export const schedule = schema.table('schedule', {
   id: serial().primaryKey(),
   day: day().notNull(),
   start: time({ withTimezone: false, precision: 0 }).notNull(),
-  interval: interval({ fields: 'minute' }).notNull(),
+  interval: interval({ fields: 'minute' }).notNull().default('1:00'),
 });
 
 // general content sections

@@ -5,14 +5,27 @@ import database from 'server/database';
 import * as Schema from 'server/database/schema';
 
 import { Schedule } from './Schedule';
+import type * as Lib from './lib';
 
-const hourStart = 9;
-const hourEnd = 21;
-const hours: number[] = [];
-for (let h = hourStart; h <= hourEnd; ++h) hours.push(h);
+const parseMinutes = (t: string) => {
+  const match = t.match(/^(\d+):(\d+)(?::(\d+))?$/);
+  if (!match) throw new Error('invalid time', { cause: t });
+  const [, h, m] = match as [string, string, string, string | undefined];
+  return Number.parseInt(h) * 60 + Number.parseInt(m);
+};
 
 export default async function AdminPrograms() {
-  const blocks = await database.query.contentSchedule.findMany();
+  const blocksRaw = await database.query.contentSchedule.findMany();
+
+  const blocks: Record<number, Lib.Block> = {};
+  for (const block of blocksRaw) {
+    blocks[block.id] = {
+      id: block.id,
+      day: block.day,
+      start: parseMinutes(block.start),
+      interval: parseMinutes(block.interval),
+    };
+  }
 
   return (
     <>
