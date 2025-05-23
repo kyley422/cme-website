@@ -27,31 +27,49 @@ const detectorSlots: number[] = [];
 for (let m = hourStart * 60; m < hourEnd * 60; m += detectorDuration)
   detectorSlots.push(m);
 
-type Weight = { left?: number; right?: number; top?: number; bottom?: number };
+type Weight = {
+  column?: boolean;
+  left?: number;
+  right?: number;
+  top?: number;
+  bottom?: number;
+};
 
 const scoreWeight: Record<DragType, Weight> = {
-  [DragType.move]: { top: 1, left: 1 },
+  [DragType.move]: { column: true, top: 1, left: 1 },
   [DragType.start]: { top: 1, left: 1, right: 1 },
   [DragType.end]: { bottom: 1, left: 1, right: 1 },
 };
 
-const score = (weight: Weight, r: Dnd.ClientRect, a: Dnd.ClientRect) =>
-  (weight.top ?? 0) * Math.abs(r.top - a.top) +
-  (weight.bottom ?? 0) * Math.abs(r.bottom - a.bottom) +
-  (weight.left ?? 0) * Math.abs(r.left - a.left) +
-  (weight.right ?? 0) * Math.abs(r.right - a.right);
+const score = (
+  weight: Weight,
+  p: { x: number },
+  r: Dnd.ClientRect,
+  a: Dnd.ClientRect,
+) =>
+  weight.column && !(r.left <= p.x && p.x <= r.right)
+    ? null
+    : (weight.top ?? 0) * Math.abs(r.top - a.top) +
+      (weight.bottom ?? 0) * Math.abs(r.bottom - a.bottom) +
+      (weight.left ?? 0) * Math.abs(r.left - a.left) +
+      (weight.right ?? 0) * Math.abs(r.right - a.right);
+
+// TODO: better type annotations for dnd-kit (upstream PR?)
+const sortByScore = (a: Dnd.Collision, b: Dnd.Collision) =>
+  a.data?.score - b.data?.score;
 
 const detectCollision: Dnd.CollisionDetection = (args) => {
-  // todo: `move` should be something like dependent on cursor in-bounding-box or something, instead of this norm business
   const drag = args.active.data.current as DragData;
   const weight = scoreWeight[drag.type];
-  return [...args.droppableRects.entries()]
-    .sort(
-      ([, a], [, b]) =>
-        score(weight, args.collisionRect, a) -
-        score(weight, args.collisionRect, b),
-    )
-    .map(([id]) => ({ id }));
+
+  if (!args.pointerCoordinates) return [];
+
+  const collisions: Dnd.Collision[] = [];
+  for (const [id, rect] of args.droppableRects) {
+    const s = score(weight, args.pointerCoordinates, rect, args.collisionRect);
+    if (s !== null) collisions.push({ id, data: { score: s } });
+  }
+  return collisions.sort(sortByScore);
 };
 
 const dayName = { m: 'mon', t: 'tue', w: 'wed', r: 'thu', f: 'fri' } as const;
