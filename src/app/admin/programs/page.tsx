@@ -1,29 +1,19 @@
-import { revalidatePath } from 'next/cache';
 import * as React from 'react';
 
 import database from 'server/database';
-import * as Schema from 'server/database/schema';
 
-import { Schedule } from './Schedule';
+import * as Time from '@/utils/time';
+import Schedule from './_components/Schedule';
 import type * as Lib from './lib';
 
-const parseMinutes = (t: string) => {
-  const match = t.match(/^(\d+):(\d+)(?::(\d+))?$/);
-  if (!match) throw new Error('invalid time', { cause: t });
-  const [, h, m] = match as [string, string, string, string | undefined];
-  return Number.parseInt(h) * 60 + Number.parseInt(m);
-};
-
 export default async function AdminPrograms() {
-  const blocksRaw = await database.query.contentSchedule.findMany();
-
   const blocks: Record<number, Lib.Block> = {};
-  for (const block of blocksRaw) {
+  for (const block of await database.query.contentSchedule.findMany()) {
     blocks[block.id] = {
       id: block.id,
       day: block.day,
-      start: parseMinutes(block.start),
-      interval: parseMinutes(block.interval),
+      start: Time.parseMinute(block.start),
+      duration: Time.parseMinute(block.duration),
     };
   }
 

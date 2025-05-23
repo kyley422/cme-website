@@ -1,0 +1,1 @@
+ALTER TABLE "content"."schedule" RENAME COLUMN "interval" TO "duration";
