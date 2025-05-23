@@ -54,6 +54,11 @@ export default function Schedule(props: {
     }),
   );
 
+  // TODO: there's a bug right now where if you drag to move a block, and happen
+  // to release while cursor is hovering over the delete button, that triggers
+  // the delete event. not sure if this is a react bug or a dndkit bug. also not
+  // sure how to diagnose.
+
   type DragEnd = NonNullable<
     Parameters<typeof Dnd.DragDropProvider>[0]['onDragEnd']
   >;
