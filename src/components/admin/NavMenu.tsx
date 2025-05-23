@@ -1,9 +1,9 @@
 'use client';
 
+import * as Tabler from '@tabler/icons-react';
 import classNames from 'classnames';
 import { usePathname } from 'next/navigation';
-
-import * as Tabler from '@tabler/icons-react';
+import type * as React from 'react';
 
 export default function NavList() {
   return (
