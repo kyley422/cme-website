@@ -1,4 +1,4 @@
-import * as Dnd from '@dnd-kit/core';
+import * as Dnd from '@dnd-kit/react';
 
 import * as Action from '../action';
 import { type DropData, dayColumn, detectorDuration, hourStart } from './utils';
@@ -14,7 +14,7 @@ export default function DetectorSlot(props: DropData) {
 
   return (
     <div
-      ref={drop.setNodeRef}
+      ref={drop.ref}
       style={{
         gridColumn,
         gridRow: `${props.minute - hourStart * 60 + 2} / span ${detectorDuration}`,

@@ -1,5 +1,6 @@
-import * as Dnd from '@dnd-kit/core';
+import * as Dnd from '@dnd-kit/react';
 import * as Tabler from '@tabler/icons-react';
+import * as React from 'react';
 
 import type { Block } from '@/utils/schedule';
 import * as Time from '@/utils/time';
@@ -27,45 +28,47 @@ export default function ScheduleBlock({ block }: { block: Block }) {
     data: { type: DragType.start, id: block.id } satisfies DragData,
   });
 
-  const pos = { day: block.day, start: block.start, duration: block.duration };
-  if (drag.isDragging && drag.over) {
-    const data = drag.over.data.current as DropData;
-    pos.day = data.day;
-    pos.start = data.minute;
-  } else if (resizeStart.isDragging && resizeStart.over) {
-    const data = resizeStart.over.data.current as DropData;
-    pos.start = data.minute;
-    pos.duration = block.start + block.duration - data.minute;
-  } else if (resizeEnd.isDragging && resizeEnd.over) {
-    const data = resizeEnd.over.data.current as DropData;
-    pos.duration = data.minute + detectorDuration - block.start;
-  }
+  const [day, setDay] = React.useState(block.day);
+  const [start, setStart] = React.useState(block.start);
+  const [duration, setDuration] = React.useState(block.duration);
+  Dnd.useDragDropMonitor<DropData>({
+    onDragOver(event) {
+      if (!event.operation.target) return;
+      const data = event.operation.target.data as DropData;
 
-  const gridColumn = dayColumn[pos.day];
+      if (drag.isDragging) {
+        setDay(data.day);
+        setStart(data.minute);
+      }
+      if (resizeStart.isDragging) {
+        setStart(data.minute);
+        setDuration(block.start + block.duration - data.minute);
+      }
+      if (resizeEnd.isDragging) {
+        setDuration(data.minute + detectorDuration - block.start);
+      }
+    },
+  });
+
+  const gridColumn = dayColumn[day];
   if (!gridColumn) return;
 
   return (
     <div
-      ref={drag.setNodeRef}
-      {...drag.attributes}
+      ref={drag.ref}
       className="bg-dark rounded-xl m-2 grid grid-rows-[auto_auto_1fr_auto] overflow-hidden"
       style={{
         gridColumn,
-        gridRow: `${Math.max(pos.start - hourStart * 60, 0) + 2} / span ${pos.duration}`,
+        gridRow: `${Math.max(start - hourStart * 60, 0) + 2} / span ${duration}`,
       }}
     >
       <button
         className="bg-medium h-2 cursor-ns-resize"
-        ref={resizeStart.setNodeRef}
-        {...resizeStart.listeners}
-        {...resizeStart.attributes}
+        type="button"
+        ref={resizeStart.ref}
       />
       <div className="flex justify-between">
-        <button
-          ref={drag.setActivatorNodeRef}
-          {...drag.listeners}
-          className="cursor-move p-1"
-        >
+        <button type="button" ref={drag.handleRef} className="cursor-move p-1">
           <Tabler.IconArrowsMove />
         </button>
         <button
@@ -79,15 +82,14 @@ export default function ScheduleBlock({ block }: { block: Block }) {
       <div className="text-center">
         <h4 className="font-semibold px-2">practice time</h4>
         <div>
-          {Time.formatAmPm(pos.start)}&ndash;
-          {Time.formatAmPm(pos.start + pos.duration)}
+          {Time.formatAmPm(start)}&ndash;
+          {Time.formatAmPm(start + duration)}
         </div>
       </div>
       <button
         className="bg-medium h-2 cursor-ns-resize"
-        ref={resizeEnd.setNodeRef}
-        {...resizeEnd.listeners}
-        {...resizeEnd.attributes}
+        ref={resizeEnd.ref}
+        type="button"
       />
     </div>
   );

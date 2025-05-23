@@ -1,6 +1,6 @@
 'use client';
 
-import * as Dnd from '@dnd-kit/core';
+import * as Dnd from '@dnd-kit/react';
 import * as React from 'react';
 
 import type { Block, BlockTime } from '@/utils/schedule';
@@ -26,51 +26,6 @@ for (let h = hourStart; h <= hourEnd; ++h) hours.push(h);
 const detectorSlots: number[] = [];
 for (let m = hourStart * 60; m < hourEnd * 60; m += detectorDuration)
   detectorSlots.push(m);
-
-type Weight = {
-  column?: boolean;
-  left?: number;
-  right?: number;
-  top?: number;
-  bottom?: number;
-};
-
-const scoreWeight: Record<DragType, Weight> = {
-  [DragType.move]: { column: true, top: 1, left: 1 },
-  [DragType.start]: { top: 1, left: 1, right: 1 },
-  [DragType.end]: { bottom: 1, left: 1, right: 1 },
-};
-
-const score = (
-  weight: Weight,
-  p: { x: number },
-  r: Dnd.ClientRect,
-  a: Dnd.ClientRect,
-) =>
-  weight.column && !(r.left <= p.x && p.x <= r.right)
-    ? null
-    : (weight.top ?? 0) * Math.abs(r.top - a.top) +
-      (weight.bottom ?? 0) * Math.abs(r.bottom - a.bottom) +
-      (weight.left ?? 0) * Math.abs(r.left - a.left) +
-      (weight.right ?? 0) * Math.abs(r.right - a.right);
-
-// TODO: better type annotations for dnd-kit (upstream PR?)
-const sortByScore = (a: Dnd.Collision, b: Dnd.Collision) =>
-  a.data?.score - b.data?.score;
-
-const detectCollision: Dnd.CollisionDetection = (args) => {
-  const drag = args.active.data.current as DragData;
-  const weight = scoreWeight[drag.type];
-
-  if (!args.pointerCoordinates) return [];
-
-  const collisions: Dnd.Collision[] = [];
-  for (const [id, rect] of args.droppableRects) {
-    const s = score(weight, args.pointerCoordinates, rect, args.collisionRect);
-    if (s !== null) collisions.push({ id, data: { score: s } });
-  }
-  return collisions.sort(sortByScore);
-};
 
 const dayName = { m: 'mon', t: 'tue', w: 'wed', r: 'thu', f: 'fri' } as const;
 
@@ -99,10 +54,15 @@ export default function Schedule(props: {
     }),
   );
 
-  const dragEnd = (event: Dnd.DragEndEvent) => {
-    if (!event.over) return;
-    const drag = event.active.data.current as DragData;
-    const drop = event.over.data.current as DropData;
+  type DragEnd = NonNullable<
+    Parameters<typeof Dnd.DragDropProvider>[0]['onDragEnd']
+  >;
+  const dragEnd: DragEnd = (event) => {
+    if (event.canceled || !event.operation.source || !event.operation.target)
+      return;
+
+    const drag = event.operation.source.data as DragData;
+    const drop = event.operation.target.data as DropData;
 
     const block = blocks[drag.id];
     if (!block) throw new Error('bad drag id');
@@ -122,7 +82,7 @@ export default function Schedule(props: {
         gridTemplateRows: `auto repeat(${(hourEnd - hourStart) * 60}, calc(var(--spacing) / 2))`,
       }}
     >
-      <Dnd.DndContext collisionDetection={detectCollision} onDragEnd={dragEnd}>
+      <Dnd.DragDropProvider onDragEnd={dragEnd}>
         {hours.map((hour) => (
           <React.Fragment key={hour}>
             <div
@@ -165,7 +125,9 @@ export default function Schedule(props: {
         {Object.values(blocks).map((block) => (
           <ScheduleBlock key={block.id} block={block} />
         ))}
-      </Dnd.DndContext>
+
+        <Dnd.DragOverlay>{null}</Dnd.DragOverlay>
+      </Dnd.DragDropProvider>
     </div>
   );
 }
