@@ -27,23 +27,22 @@ const detectorSlots: number[] = [];
 for (let m = hourStart * 60; m < hourEnd * 60; m += detectorDuration)
   detectorSlots.push(m);
 
-const scoreWeight: Record<DragType, { top: number; bottom: number }> = {
-  [DragType.move]: { top: 1, bottom: 0 },
-  [DragType.start]: { top: 1, bottom: 0 },
-  [DragType.end]: { top: 0, bottom: 1 },
+type Weight = { left?: number; right?: number; top?: number; bottom?: number };
+
+const scoreWeight: Record<DragType, Weight> = {
+  [DragType.move]: { top: 1, left: 1 },
+  [DragType.start]: { top: 1, left: 1, right: 1 },
+  [DragType.end]: { bottom: 1, left: 1, right: 1 },
 };
 
-const score = (
-  weight: { top: number; bottom: number },
-  r: Dnd.ClientRect,
-  a: Dnd.ClientRect,
-) =>
-  weight.top * Math.abs(r.top - a.top) +
-  weight.bottom * Math.abs(r.bottom - a.bottom) +
-  Math.abs(r.left - a.left) +
-  Math.abs(r.right - a.right);
+const score = (weight: Weight, r: Dnd.ClientRect, a: Dnd.ClientRect) =>
+  (weight.top ?? 0) * Math.abs(r.top - a.top) +
+  (weight.bottom ?? 0) * Math.abs(r.bottom - a.bottom) +
+  (weight.left ?? 0) * Math.abs(r.left - a.left) +
+  (weight.right ?? 0) * Math.abs(r.right - a.right);
 
 const detectCollision: Dnd.CollisionDetection = (args) => {
+  // todo: `move` should be something like dependent on cursor in-bounding-box or something, instead of this norm business
   const drag = args.active.data.current as DragData;
   const weight = scoreWeight[drag.type];
   return [...args.droppableRects.entries()]
