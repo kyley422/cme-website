@@ -4,6 +4,7 @@ import {
   customType,
   date,
   integer,
+  interval,
   type pgEnum,
   pgSchema,
   serial,
@@ -38,7 +39,7 @@ export const schedule = schema.table('schedule', {
   id: serial().primaryKey(),
   day: day().notNull(),
   start: time({ withTimezone: false, precision: 0 }).notNull(),
-  end: time({ withTimezone: false, precision: 0 }).notNull(),
+  duration: interval({ fields: 'minute' }).notNull().default('1:00'),
 });
 
 // general content sections
