@@ -59,6 +59,7 @@ export const instrument = schema.table('instrument', {
   title: text().notNull().default(''),
   description: text().notNull().default(''),
   image: uuid().references(() => image.id),
+  order: integer().notNull().unique().generatedByDefaultAsIdentity(),
 });
 export const instrumentRelations = relations(instrument, (r) => ({
   image: r.one(image, { fields: [instrument.image], references: [image.id] }),
