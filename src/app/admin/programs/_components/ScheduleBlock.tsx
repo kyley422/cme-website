@@ -56,41 +56,46 @@ export default function ScheduleBlock({ block }: { block: Block }) {
   return (
     <div
       ref={drag.ref}
-      className="bg-dark rounded-xl m-2 grid grid-rows-[auto_auto_1fr_auto] overflow-hidden"
+      className="m-2 relative grid"
       style={{
         gridColumn,
         gridRow: `${Math.max(start - hourStart * 60, 0) + 2} / span ${duration}`,
       }}
     >
       <button
-        className="bg-medium h-2 cursor-ns-resize"
         type="button"
-        ref={resizeStart.ref}
-      />
-      <div className="flex justify-between">
-        <button type="button" ref={drag.handleRef} className="cursor-move p-1">
-          <Tabler.IconArrowsMove />
-        </button>
-        <button
-          type="button"
-          onClick={() => Action.deleteBlock(block.id)}
-          className="cursor-pointer p-1"
-        >
-          <Tabler.IconTrash />
-        </button>
-      </div>
-      <div className="text-center">
-        <h4 className="font-semibold px-2">practice time</h4>
-        <div>
-          {Time.formatAmPm(start)}&ndash;
-          {Time.formatAmPm(start + duration)}
-        </div>
-      </div>
+        ref={drag.handleRef}
+        className="cursor-move p-1 absolute -top-2 -left-2"
+      >
+        <Tabler.IconArrowsMove />
+      </button>
       <button
-        className="bg-medium h-2 cursor-ns-resize"
-        ref={resizeEnd.ref}
         type="button"
-      />
+        onClick={() => Action.deleteBlock(block.id)}
+        className="cursor-pointer p-1 absolute -top-2 -right-2"
+      >
+        <Tabler.IconCircleX />
+      </button>
+
+      <div className="bg-dark rounded-xl grid grid-rows-[auto_1fr_auto] overflow-hidden">
+        <button
+          className="bg-medium h-2 cursor-ns-resize"
+          type="button"
+          ref={resizeStart.ref}
+        />
+        <div className="text-center">
+          <h4 className="font-semibold px-2">practice time</h4>
+          <div>
+            {Time.formatAmPm(start)}&ndash;
+            {Time.formatAmPm(start + duration)}
+          </div>
+        </div>
+        <button
+          className="bg-medium h-2 cursor-ns-resize"
+          ref={resizeEnd.ref}
+          type="button"
+        />
+      </div>
     </div>
   );
 }
