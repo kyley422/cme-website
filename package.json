@@ -12,6 +12,7 @@
     "dev:drizzle": "dotenv -e '.env.local' -- drizzle-kit",
     "prod:pgcli": "dotenv -e '.env.production' -- sh -c 'pgcli \"$POSTGRES_URL\"'",
     "prod:drizzle": "dotenv -e '.env.production' -- drizzle-kit",
+    "ci:build": "pnpm exec next build && pnpm run prod:drizzle migrate",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
