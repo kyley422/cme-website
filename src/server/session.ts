@@ -78,7 +78,7 @@ export const login = async (formData: FormData) => {
 
   const token = await new SignJWT({
     email: result.data.email,
-    token: insert.token,
+    token: insert!.token,
   } satisfies Z.TypeOf<typeof JwtPayload>)
     .setProtectedHeader({ alg: 'HS384' })
     .setIssuedAt()
