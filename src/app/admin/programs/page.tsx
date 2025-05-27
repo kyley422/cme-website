@@ -2,12 +2,12 @@ import * as React from 'react';
 
 import database from 'server/database';
 
+import type { Block } from '@/utils/schedule';
 import * as Time from '@/utils/time';
 import Schedule from './_components/Schedule';
-import type * as Lib from './lib';
 
 export default async function AdminPrograms() {
-  const blocks: Record<number, Lib.Block> = {};
+  const blocks: Record<number, Block> = {};
   for (const block of await database.query.contentSchedule.findMany()) {
     blocks[block.id] = {
       id: block.id,
