@@ -24,8 +24,10 @@ export const deleteInstrument = async (form: FormData) => {
 const file = Z.custom<File>((f: unknown) => f instanceof File);
 const Save = formData({
   id: Z.coerce.number(),
-  image: Z.optional(file).and(
-    Z.object({ type: Z.enum(['image/png', 'image/jpeg']) }).passthrough(),
+  image: Z.optional(
+    file.and(
+      Z.object({ type: Z.enum(['image/png', 'image/jpeg']) }).passthrough(),
+    ),
   ),
   title: Z.string(),
 });
