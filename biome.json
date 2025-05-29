@@ -21,5 +21,6 @@
       "attributePosition": "auto",
       "bracketSpacing": true
     }
-  }
+  },
+  "linter": { "rules": { "style": { "noNonNullAssertion": "off" } } }
 }

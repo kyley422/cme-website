@@ -4,6 +4,7 @@ import {
   customType,
   date,
   integer,
+  interval,
   type pgEnum,
   pgSchema,
   serial,
@@ -38,7 +39,7 @@ export const schedule = schema.table('schedule', {
   id: serial().primaryKey(),
   day: day().notNull(),
   start: time({ withTimezone: false, precision: 0 }).notNull(),
-  end: time({ withTimezone: false, precision: 0 }).notNull(),
+  duration: interval({ fields: 'minute' }).notNull().default('1:00'),
 });
 
 // general content sections
@@ -58,6 +59,7 @@ export const instrument = schema.table('instrument', {
   title: text().notNull().default(''),
   description: text().notNull().default(''),
   image: uuid().references(() => image.id),
+  order: integer().notNull().unique().generatedByDefaultAsIdentity(),
 });
 export const instrumentRelations = relations(instrument, (r) => ({
   image: r.one(image, { fields: [instrument.image], references: [image.id] }),

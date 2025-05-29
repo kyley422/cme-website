@@ -15,6 +15,8 @@ export const GET = async (
   });
   if (!result) notFound();
 
+  console.log(typeof result.data);
+
   return new Response(result.data, {
     headers: { 'content-type': 'image/png' },
   });

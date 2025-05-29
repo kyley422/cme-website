@@ -2,7 +2,6 @@ import * as Fs from 'node:fs/promises';
 import * as Argon2 from 'argon2';
 import * as Z from 'zod';
 
-import * as Blob from '@/server/blob';
 import database from '@/server/database';
 import * as Schema from '@/server/database/schema';
 
@@ -51,13 +50,16 @@ const main = async () => {
     ])
     .returning({ id: Schema.Content.section.id });
 
-  const [aboutImage, guzhengImage] = await database
+  const [aboutImage, guzhengImage] = (await database
     .insert(Schema.Content.image)
     .values([
       { data: await Fs.readFile('seed/image/about.png'), type: 'image/png' },
       { data: await Fs.readFile('seed/image/guzheng.png'), type: 'image/png' },
     ])
-    .returning({ id: Schema.Content.image.id });
+    .returning({ id: Schema.Content.image.id })) as [
+    { id: string },
+    { id: string },
+  ];
 
   await database
     .insert(Schema.Content.sectionImage)

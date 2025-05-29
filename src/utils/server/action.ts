@@ -41,7 +41,7 @@ export const check = async <const T extends Z.ZodTypeAny>(
   if (!(await Session.check())) throw new Error('unauthorized');
 
   const result = schema.safeParse(form);
-  if (!result.success) throw new Error('bad request');
+  if (!result.success) throw new Error('bad request', { cause: result.error });
 
   return result.data;
 };

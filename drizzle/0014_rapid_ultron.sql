@@ -1,0 +1,1 @@
+ALTER TABLE "content"."schedule" ALTER COLUMN "interval" SET DEFAULT '1:00';

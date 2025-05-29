@@ -16,7 +16,7 @@ const prefixKeys = <
 ) => {
   const prefixed: Record<string, unknown> = {};
   for (const [k, v] of Object.entries(obj))
-    prefixed[`${p}${k[0].toUpperCase()}${k.slice(1)}`] = v;
+    prefixed[`${p}${k[0]?.toUpperCase() ?? ''}${k.slice(1)}`] = v;
   return prefixed as {
     [K in keyof T & string as `${P}${Capitalize<K>}`]: T[K];
   };
